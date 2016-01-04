@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP">
+        <CLASSES>
+          <root url="file://C:/xampp/htdocs/rigid-webdesign" />
+          <root url="file://$USER_HOME$/Desktop/advanced-custom-fields-pro" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://C:/xampp/htdocs/rigid-webdesign" />
+          <root url="file://$USER_HOME$/Desktop/advanced-custom-fields-pro" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>

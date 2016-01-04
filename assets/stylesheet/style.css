@@ -1,0 +1,101 @@
+.container-capped {
+  padding: 50px 60px; }
+
+.middle-wrap {
+  display: table-cell;
+  vertical-align: middle; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  margin: 0; }
+
+.no-padding {
+  padding: 0; }
+
+.no-margin {
+  margin: 0; }
+
+.button {
+  padding: 7px 20px;
+  border-radius: 10px;
+  display: inline-block; }
+
+#slider {
+  height: 100vh; }
+  #slider .slide-container {
+    height: 100%; }
+    #slider .slide-container .slide {
+      width: 100%;
+      height: 100%;
+      display: table; }
+      #slider .slide-container .slide .slide-content {
+        position: relative;
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        z-index: 1000; }
+      #slider .slide-container .slide .image-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 100; }
+
+#portfolio .title-subtitle {
+  margin-bottom: 20px; }
+#portfolio .portfolio-item a {
+  display: block; }
+#portfolio .portfolio-item img {
+  width: 100%;
+  height: auto; }
+#portfolio .buttons {
+  margin-top: 20px; }
+
+#text-with-image {
+  position: relative; }
+  #text-with-image .text {
+    position: absolute;
+    height: 100%; }
+    #text-with-image .text .text-content {
+      width: 100%;
+      height: 100%;
+      display: table;
+      padding: 0 120px; }
+  #text-with-image .image img {
+    display: block;
+    width: 100%;
+    height: auto; }
+
+#carousel {
+  padding: 50px 0; }
+  #carousel .carousel-container {
+    list-style-type: none; }
+    #carousel .carousel-container li {
+      width: 181px;
+      float: left; }
+      #carousel .carousel-container li img {
+        width: 100%; }
+
+#call-to-action {
+  padding: 35px 60px; }
+  #call-to-action .col {
+    height: 100%; }
+  #call-to-action .text {
+    display: table;
+    height: 100%; }
+    #call-to-action .text h3 {
+      line-height: 34px; }
+  #call-to-action .buttons {
+    display: table;
+    height: 100%; }
+
+#cards .card-inner {
+  padding: 65px 75px; }
+#cards .content-wrapper {
+  line-height: 25px; }
+
+/*# sourceMappingURL=style.css.map */
