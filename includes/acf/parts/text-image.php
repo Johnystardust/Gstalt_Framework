@@ -25,11 +25,15 @@ $btn_txt_color      = get_sub_field('button_text_color');
 $btn_align          = get_sub_field('button_align');
 
 $image              = get_sub_field('image');
+$image_width        = get_sub_field('image_width');
 $image_align        = get_sub_field('image_align');
 
 $order              = get_sub_field('order');
 $block_width        = get_sub_field('block_width');
 $background_color   = get_sub_field('background_color');
+
+$margin_top         = get_sub_field('margin_top');
+$padding_top        = get_sub_field('padding_top');
 
 /*
 |----------------------------------------------------------------
@@ -84,26 +88,40 @@ elseif($block_width == 75){
 |   Text with image block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="text-with-image" class="container-fluid no-padding" style="background-color: '.$background_color.';">';
+echo '<div id="text-with-image" class="container-fluid no-padding" style="background-color: '.$background_color.'; padding-top: '.$padding_top.'px; margin-top: '.$margin_top.'px; ">';
 
     echo '<div class="'.$text_block.' no-padding text" style="'.$txt_order.'">';
         echo '<div class="text-content" style="text-align: '.$text_align.';">';
             echo '<div class="middle-wrap">';
-                // Display the title
-                echo '<h1 class="no-margin" style="color: '.$title_color.'">'.$title.'</h1>';
+                /*
+                |----------------------------------------------------------------
+                |   If the '$title' isn't empty display it.
+                |----------------------------------------------------------------
+                */
+                if(!empty($title)){
+                    // Display the title
+                    echo '<h1 class="no-margin" style="color: '.$title_color.'">'.$title.'</h1>';
+
+                    /*
+                    |----------------------------------------------------------------
+                    |   If the '$subtitle' isn't empty display it.
+                    |----------------------------------------------------------------
+                    */
+                    if(!empty($subtitle)){
+                        // Display the subtitle
+                        echo '<h5 class="no-margin" style="color: '.$subtitle_color.'; font-style: '.$subtitle_style.';">'.$subtitle.'</h5>';
+                    }
+                }
 
                 /*
                 |----------------------------------------------------------------
-                |   If the '$subtitle' isn't empty display it.
+                |   If the '$content' isn't empty display it.
                 |----------------------------------------------------------------
                 */
-                if(!empty($subtitle)){
-                    // Display the subtitle
-                    echo '<h5 class="no-margin" style="color: '.$subtitle_color.'; font-style: '.$subtitle_style.';">'.$subtitle.'</h5>';
+                if(!empty($content)){
+                    // Display the content
+                    echo '<div style="color: '.$content_color.';">'.$content.'</div>';
                 }
-
-                // Display the content
-                echo '<div style="color: '.$content_color.';">'.$content.'</div>';
 
                 /*
                 |----------------------------------------------------------------
@@ -116,12 +134,12 @@ echo '<div id="text-with-image" class="container-fluid no-padding" style="backgr
                     echo '</div>';
                 }
 
-            echo '</div>';
-        echo '</div>';
-    echo '</div>';
+            echo '</div>'; // middle wrap closing tag
+        echo '</div>'; // text content closing tag
+    echo '</div>'; // text closing tag
 
     echo '<div class="'.$image_block.' no-padding image '.$img_order.'">';
-        echo '<img style="'.$image_alignment.';" src="'.$image.'" />';
-    echo '</div>';
+        echo '<img style="'.$image_alignment.';" src="'.$image.'" width="'.$image_width.'" />';
+    echo '</div>'; // image closing tag
 
-echo '</div>';
+echo '</div>'; // container closing tag

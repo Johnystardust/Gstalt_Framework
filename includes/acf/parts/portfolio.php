@@ -112,7 +112,7 @@ echo '<div id="portfolio" class="container-fluid container-capped">';
     */
     if(!empty($btn_link)){
         echo '<div class="buttons" style="text-align: '.$btn_align.';">';
-            echo '<a class="button" href="'.$btn_link.'" style="background-color: '.$btn_color.'; color: '.$btn_txt_color.';">$btn_txt</a>';
+            echo '<a class="button" href="'.$btn_link.'" style="background-color: '.$btn_color.'; color: '.$btn_txt_color.';">'.$btn_txt.'</a>';
         echo '</div>';
     }
 

@@ -48,8 +48,6 @@ echo '<div id="slider" class="container-fluid no-padding">';
             $btn_txt                = $slide['button_text'];
             $btn_txt_color          = $slide['button_text_color'];
 
-
-
             $image_overlay_active   = $slide['image_overlay_active'];
             $image_overlay          = $slide['image_overlay'];
             $image_overlay_opacity  = $slide['image_overlay_opacity'] / 100;

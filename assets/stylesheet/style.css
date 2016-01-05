@@ -59,7 +59,8 @@ ul {
   position: relative; }
   #text-with-image .text {
     position: absolute;
-    height: 100%; }
+    height: 100%;
+    top: 0; }
     #text-with-image .text .text-content {
       width: 100%;
       height: 100%;
@@ -67,7 +68,6 @@ ul {
       padding: 0 120px; }
   #text-with-image .image img {
     display: block;
-    width: 100%;
     height: auto; }
 
 #carousel {
