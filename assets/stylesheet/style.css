@@ -1,3 +1,11 @@
+body {
+  font-family: "Lato", sans-serif; }
+
+p {
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 21px; }
+
 .container-capped {
   padding: 50px 60px; }
 
@@ -66,6 +74,11 @@ ul {
       height: 100%;
       display: table;
       padding: 0 120px; }
+      #text-with-image .text .text-content .title {
+        line-height: 1.4em; }
+      #text-with-image .text .text-content .subtitle {
+        line-height: 1.4em;
+        margin-bottom: 10px; }
   #text-with-image .image img {
     display: block;
     height: auto; }
@@ -97,6 +110,25 @@ ul {
   padding: 65px 75px; }
 #cards .content-wrapper {
   line-height: 25px; }
+
+#cards-with-icon .card-with-icon-inner {
+  padding: 0 30px; }
+#cards-with-icon .icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  display: table;
+  text-align: center; }
+  #cards-with-icon .icon i {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 42px; }
+#cards-with-icon .content-wrapper {
+  letter-spacing: 0.5px;
+  line-height: 21px;
+  margin-top: 10px; }
 
 #faqs .faq-control {
   display: block;

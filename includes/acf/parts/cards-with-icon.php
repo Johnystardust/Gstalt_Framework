@@ -9,7 +9,7 @@
 |   Get the fields and put them in variables for easy usage.
 |----------------------------------------------------------------
 */
-$cards              = get_sub_field('cards');
+$cards              = get_sub_field('cards_with_icon');
 
 $margin_top         = get_sub_field('margin_top');
 $margin_bottom      = get_sub_field('margin_bottom');
@@ -21,27 +21,6 @@ $border             = get_sub_field('border');
 $border_color       = get_sub_field('border_color');
 $border_size        = get_sub_field('border_size');
 $border_style       = get_sub_field('border_style');
-
-/*
-|----------------------------------------------------------------
-|   Count the cards and make sure they have the correct class
-|   to set the width.
-|----------------------------------------------------------------
-*/
-$cards_count = count($cards);
-
-if($cards_count == 1){
-    $card_width = 'col-md-12';
-}
-elseif($cards_count == 2){
-    $card_width = 'col-md-6';
-}
-elseif($cards_count == 3){
-    $card_width = 'col-md-4';
-}
-elseif($cards_count == 4){
-    $card_width = 'col-md-3';
-}
 
 /*
 |----------------------------------------------------------------
@@ -75,10 +54,10 @@ elseif($border == 'none'){
 
 /*
 |-------------------------------------------------------------------------------------------------------------------------------------------------
-|   The Cards block.
+|   The Cards with icon block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="cards" class="container-fluid no-padding" style="background-color: '.$background_color.'; margin-top: '.$margin_top.'px; margin-bottom: '.$margin_bottom.'px;
+echo '<div id="cards-with-icon" class="container-fluid no-padding" style="background-color: '.$background_color.'; margin-top: '.$margin_top.'px; margin-bottom: '.$margin_bottom.'px;
     padding-top: '.$padding_top.'px; padding-bottom: '.$padding_bottom.'px; '.$border_type.'">';
 
     echo '<div class="row no-margin">';
@@ -110,19 +89,28 @@ echo '<div id="cards" class="container-fluid no-padding" style="background-color
             $content_color          = $card['content_color'];
             $content_align          = $card['content_align'];
 
-            $background_card_color  = $card['background_color'];
-            $background             = $card['background_image'];
-            $background_pos         = $card['image_align'];
-            $background_size        = $card['image_size'];
-            $background_repeat      = $card['image_repeat'];
+            $icon                   = $card['icon'];
+            $icon_color             = $card['icon_color'];
+            $icon_background_color  = $card['icon_background_color'];
 
             /*
             |----------------------------------------------------------------
             |   Card.
             |----------------------------------------------------------------
             */
-            echo '<div class="card '.$card_width.' no-padding" style="background: '.$background_card_color.' url('.$background.') '.$background_repeat.'; background-position: '.$background_pos.'; background-size: '.$background_size.'; ">';
-                echo '<div class="card-inner">';
+            echo '<div class="card-with-icon col-md-3 no-padding" style="background-color: '.$background_color.'; margin-top: '.$margin_top.'px; margin-bottom: '.$margin_bottom.'px; padding-top: '.$padding_top.'px; padding-bottom: '.$padding_bottom.'px;">';
+                echo '<div class=card-with-icon-inner>';
+
+                    /*
+                    |----------------------------------------------------------------
+                    |   If the '$icon' isn't empty display it.
+                    |----------------------------------------------------------------
+                    */
+                    if(!empty($icon)){
+                        echo '<div class="icon" style="background-color: '.$icon_background_color.';">';
+                            echo '<i class="icon '.$icon.'" style="color: '.$icon_color.';"></i>';
+                        echo '</div>';
+                    }
 
                     /*
                     |----------------------------------------------------------------
@@ -164,9 +152,8 @@ echo '<div id="cards" class="container-fluid no-padding" style="background-color
                         echo '</div>';
                     }
 
-                echo '</div>'; // card-inner closing tag
-            echo '</div>'; // card closing tag
+                echo '</div>'; // card-with-icon-inner closing tag
+            echo '</div>'; // card-with-icon closing tag
         }
     echo '</div>'; // row closing tag
 echo '</div>'; // container closing tag
-

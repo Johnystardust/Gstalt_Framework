@@ -14,9 +14,11 @@ $title_color        = get_sub_field('title_color');
 $subtitle           = get_sub_field('subtitle');
 $subtitle_color     = get_sub_field('subtitle_color');
 $subtitle_style     = get_sub_field('subtitle_style');
+$text_align         = get_sub_field('text_align');
+
 $content            = get_sub_field('content');
 $content_color      = get_sub_field('content_color');
-$text_align         = get_sub_field('text_align');
+$content_align      = get_sub_field('content_align');
 
 $btn_link           = get_sub_field('button_link');
 $btn_color          = get_sub_field('button_color');
@@ -33,14 +35,26 @@ $block_width        = get_sub_field('block_width');
 $background_color   = get_sub_field('background_color');
 
 $margin_top         = get_sub_field('margin_top');
+$margin_bottom      = get_sub_field('margin_bottom');
 $padding_top        = get_sub_field('padding_top');
+$padding_bottom     = get_sub_field('padding_bottom');
+
+$border             = get_sub_field('border');
+$border_color       = get_sub_field('border_color');
+$border_size        = get_sub_field('border_size');
+$border_style       = get_sub_field('border_style');
+
+/*
+|-------------------------------------------------------------------------------------------------------------------------------------------------
+|   Alignment options.
+|-------------------------------------------------------------------------------------------------------------------------------------------------
+*/
 
 /*
 |----------------------------------------------------------------
-|   Alignment options.
+|   Blocks order
 |----------------------------------------------------------------
 */
-// Blocks order
 if($order == 'text'){
     $txt_order = 'left: 0;';
     $img_order = 'pull-right';
@@ -50,7 +64,11 @@ elseif($order == 'image'){
     $img_order = 'pull-left';
 }
 
-// Image align
+/*
+|----------------------------------------------------------------
+|   Image align
+|----------------------------------------------------------------
+*/
 if($image_align == 'left'){
     $image_alignment = 'float: left;';
 }
@@ -61,7 +79,11 @@ elseif($image_align == 'center'){
     $image_alignment = 'margin: 0 auto;';
 }
 
-// Block width
+/*
+|----------------------------------------------------------------
+|   Block width
+|----------------------------------------------------------------
+*/
 if($block_width == 25){
     $text_block = 'col-md-3';
     $image_block = 'col-md-9';
@@ -84,11 +106,42 @@ elseif($block_width == 75){
 }
 
 /*
+|----------------------------------------------------------------
+|   Border type
+|----------------------------------------------------------------
+*/
+if($border == 'all'){
+    $border_type = 'border: '.$border_size.'px '.$border_style.' '.$border_color.';';
+}
+elseif($border == 'top'){
+    $border_type = 'border-top: '.$border_size.'px '.$border_style.' '.$border_color.';';
+}
+elseif($border == 'bottom'){
+    $border_type = 'border-bottom: '.$border_size.'px '.$border_style.' '.$border_color.';';
+}
+elseif($border == 'topbottom'){
+    $border_type = 'border-top: '.$border_size.'px '.$border_style.' '.$border_color.'; border-bottom: '.$border_size.' '.$border_style.' '.$border_color.';';
+}
+elseif($border == 'left'){
+    $border_type = 'border-left: '.$border_size.'px '.$border_style.' '.$border_color.';';
+}
+elseif($border == 'right'){
+    $border_type = 'border-right: '.$border_size.'px '.$border_style.' '.$border_color.';';
+}
+elseif($border == 'leftright'){
+    $border_type = 'border-left: '.$border_size.'px '.$border_style.' '.$border_color.'; border-right: '.$border_size.' '.$border_style.' '.$border_color.';';
+}
+elseif($border == 'none'){
+    $border_type = '';
+}
+
+/*
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 |   Text with image block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="text-with-image" class="container-fluid no-padding" style="background-color: '.$background_color.'; padding-top: '.$padding_top.'px; margin-top: '.$margin_top.'px; ">';
+echo '<div id="text-with-image" class="container-fluid no-padding" style="background-color: '.$background_color.'; padding-top: '.$padding_top.'px; padding-bottom: '.$padding_bottom.'px;
+    margin-top: '.$margin_top.'px; margin-bottom: '.$margin_bottom.'px; '.$border_type.'">';
 
     echo '<div class="'.$text_block.' no-padding text" style="'.$txt_order.'">';
         echo '<div class="text-content" style="text-align: '.$text_align.';">';
@@ -100,7 +153,7 @@ echo '<div id="text-with-image" class="container-fluid no-padding" style="backgr
                 */
                 if(!empty($title)){
                     // Display the title
-                    echo '<h1 class="no-margin" style="color: '.$title_color.'">'.$title.'</h1>';
+                    echo '<h1 class="title no-margin" style="color: '.$title_color.'">'.$title.'</h1>';
 
                     /*
                     |----------------------------------------------------------------
@@ -109,7 +162,7 @@ echo '<div id="text-with-image" class="container-fluid no-padding" style="backgr
                     */
                     if(!empty($subtitle)){
                         // Display the subtitle
-                        echo '<h5 class="no-margin" style="color: '.$subtitle_color.'; font-style: '.$subtitle_style.';">'.$subtitle.'</h5>';
+                        echo '<h3 class="subtitle no-margin" style="color: '.$subtitle_color.'; font-style: '.$subtitle_style.';">'.$subtitle.'</h3>';
                     }
                 }
 
@@ -119,8 +172,7 @@ echo '<div id="text-with-image" class="container-fluid no-padding" style="backgr
                 |----------------------------------------------------------------
                 */
                 if(!empty($content)){
-                    // Display the content
-                    echo '<div style="color: '.$content_color.';">'.$content.'</div>';
+                    echo '<div class="content-wrapper" style="color: '.$content_color.'; text-align: '.$content_align.';">'.$content.'</div>';
                 }
 
                 /*

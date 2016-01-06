@@ -14,7 +14,6 @@ $faq_icon_image         = get_sub_field('faq_icon_image');
 $faq_icon_color         = get_sub_field('faq_icon_color');
 $faq_icon_hover_color   = get_sub_field('faq_icon_hover_color');
 $faq_icon_border_radius = get_sub_field('faq_icon_border_radius');
-
 ?>
 
 <style type="text/css">
@@ -35,7 +34,6 @@ $faq_icon_border_radius = get_sub_field('faq_icon_border_radius');
 </style>
 
 <?php
-
 /*
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 |   The FAQ block.

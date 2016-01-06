@@ -35,8 +35,10 @@ function add_my_custom_styles(){
     // register styles
     wp_register_style('bootstrap_css', get_stylesheet_directory_uri().'/assets/bootstrap/css/bootstrap.min.css');
     wp_register_style('stylesheet', get_stylesheet_directory_uri().'/assets/stylesheet/style.css');
+    wp_register_style('fontello', get_stylesheet_directory_uri().'/assets/fontello/fontello-embedded.css');
 
     // enqueue styles
     wp_enqueue_style('bootstrap_css');
     wp_enqueue_style('stylesheet');
+    wp_enqueue_style('fontello');
 }
