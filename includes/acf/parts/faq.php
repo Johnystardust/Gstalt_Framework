@@ -72,7 +72,7 @@ echo '<div id="faqs" class="container-fluid container-capped">';
                 */
                 echo '<div class="faq-question col-md-12">';
                     echo '<h4>';
-                        echo '<span class="faq-control" data-number="'.$i.'"></span>';
+                        echo '<span class="faq-control" data-number="'.$i.'" data-expanded="false"></span>';
                         echo '<span class="faq-heading">'.$faq_question.'</span>';
                     echo '</h4>';
                 echo '</div>';
