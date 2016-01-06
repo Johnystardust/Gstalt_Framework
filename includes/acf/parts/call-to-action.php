@@ -52,7 +52,7 @@ echo '<div id="call-to-action" class="container-fluid no-padding" style="backgro
     |----------------------------------------------------------------
     */
     if(!empty($title)){
-        echo '<div class="col-md-10 col" style="float: '.$txt_align.';">';
+        echo '<div class="col-md-10 col no-padding" style="float: '.$txt_align.';">';
             echo '<div class="text">';
                 echo '<div class="middle-wrap">';
                     // Display the title
@@ -78,7 +78,7 @@ echo '<div id="call-to-action" class="container-fluid no-padding" style="backgro
     |----------------------------------------------------------------
     */
     if(!empty($btn_link)){
-        echo '<div class="col-md-2 col" style="float: '.$btn_align.';">';
+        echo '<div class="col-md-2 col no-padding" style="float: '.$btn_align.';">';
             echo '<div class="buttons">';
                 echo '<div class="middle-wrap">';
                     // Display the button

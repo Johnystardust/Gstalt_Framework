@@ -68,7 +68,7 @@ echo '<div id="faqs" class="container-fluid container-capped">';
                 |   FAQ question.
                 |----------------------------------------------------------------
                 */
-                echo '<div class="faq-question col-md-12">';
+                echo '<div class="faq-question col-md-12 no-padding">';
                     echo '<h4>';
                         echo '<span class="faq-control" data-number="'.$i.'" data-expanded="false"></span>';
                         echo '<span class="faq-heading">'.$faq_question.'</span>';
@@ -80,7 +80,7 @@ echo '<div id="faqs" class="container-fluid container-capped">';
                 |   FAQ answer.
                 |----------------------------------------------------------------
                 */
-                echo '<div class="faq-answer col-md-12">';
+                echo '<div class="faq-answer col-md-12 no-padding">';
                     echo $faq_answer;
                 echo '</div>';
             echo '</div>';

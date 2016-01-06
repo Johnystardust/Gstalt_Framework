@@ -1,13 +1,10 @@
-body {
-  font-family: "Lato", sans-serif; }
-
-p {
-  font-size: 16px;
-  letter-spacing: 0.5px;
-  line-height: 21px; }
+.button {
+  padding: 7px 20px;
+  border-radius: 10px;
+  display: inline-block; }
 
 .container-capped {
-  padding: 50px 60px; }
+  padding: 0 60px; }
 
 .middle-wrap {
   display: table-cell;
@@ -26,62 +23,37 @@ ul {
 .no-margin {
   margin: 0; }
 
-.button {
-  padding: 7px 20px;
-  border-radius: 10px;
-  display: inline-block; }
+body {
+  font-family: "Lato", sans-serif; }
 
-#slider {
-  height: 100vh; }
-  #slider .slide-container {
-    height: 100%; }
-    #slider .slide-container .slide {
-      width: 100%;
-      height: 100%;
-      display: table; }
-      #slider .slide-container .slide .slide-content {
-        position: relative;
-        display: table-cell;
-        vertical-align: middle;
-        width: 100%;
-        z-index: 1000; }
-      #slider .slide-container .slide .image-overlay {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: 100; }
+p {
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 21px; }
 
-#portfolio .title-subtitle {
-  margin-bottom: 20px; }
-#portfolio .portfolio-item a {
-  display: block; }
-#portfolio .portfolio-item img {
-  width: 100%;
-  height: auto; }
-#portfolio .buttons {
-  margin-top: 20px; }
+#cards .card-inner {
+  padding: 65px 75px; }
+#cards .content-wrapper {
+  line-height: 25px; }
 
-#text-with-image {
-  position: relative; }
-  #text-with-image .text {
-    position: absolute;
-    height: 100%;
-    top: 0; }
-    #text-with-image .text .text-content {
-      width: 100%;
-      height: 100%;
-      display: table;
-      padding: 0 120px; }
-      #text-with-image .text .text-content .title {
-        line-height: 1.4em; }
-      #text-with-image .text .text-content .subtitle {
-        line-height: 1.4em;
-        margin-bottom: 10px; }
-  #text-with-image .image img {
-    display: block;
-    height: auto; }
+#cards-with-icon .card-with-icon-inner {
+  padding: 0 15px; }
+#cards-with-icon .icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  display: table;
+  text-align: center; }
+  #cards-with-icon .icon i {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 42px; }
+#cards-with-icon .content-wrapper {
+  letter-spacing: 0.5px;
+  line-height: 21px;
+  margin-top: 10px; }
 
 #carousel {
   padding: 50px 0; }
@@ -106,30 +78,6 @@ ul {
     display: table;
     height: 100%; }
 
-#cards .card-inner {
-  padding: 65px 75px; }
-#cards .content-wrapper {
-  line-height: 25px; }
-
-#cards-with-icon .card-with-icon-inner {
-  padding: 0 30px; }
-#cards-with-icon .icon {
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-  margin: 0 auto;
-  margin-bottom: 25px;
-  display: table;
-  text-align: center; }
-  #cards-with-icon .icon i {
-    display: table-cell;
-    vertical-align: middle;
-    font-size: 42px; }
-#cards-with-icon .content-wrapper {
-  letter-spacing: 0.5px;
-  line-height: 21px;
-  margin-top: 10px; }
-
 #faqs .faq-control {
   display: block;
   width: 20px;
@@ -153,5 +101,58 @@ ul {
   -moz-transition: all 0.3s ease-in-out; }
 #faqs .active .faq-answer {
   max-height: 400px; }
+
+#portfolio .title-subtitle {
+  margin-bottom: 20px; }
+#portfolio .portfolio-item a {
+  display: block; }
+#portfolio .portfolio-item img {
+  width: 100%;
+  height: auto; }
+#portfolio .buttons {
+  margin-top: 20px; }
+
+#slider {
+  height: 100vh; }
+  #slider .slide-container {
+    height: 100%; }
+    #slider .slide-container .slide {
+      width: 100%;
+      height: 100%;
+      display: table; }
+      #slider .slide-container .slide .slide-content {
+        position: relative;
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        z-index: 1000; }
+      #slider .slide-container .slide .image-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 100; }
+
+#text-with-image {
+  position: relative; }
+  #text-with-image .text {
+    position: absolute;
+    height: 100%;
+    top: 0; }
+    #text-with-image .text .text-content {
+      width: 100%;
+      height: 100%;
+      display: table;
+      padding: 0 120px; }
+      #text-with-image .text .text-content .subtitle {
+        margin-bottom: 10px; }
+      #text-with-image .text .text-content .content-wrapper {
+        margin-bottom: 40px; }
+        #text-with-image .text .text-content .content-wrapper p {
+          margin-bottom: 0; }
+  #text-with-image .image img {
+    display: block;
+    height: auto; }
 
 /*# sourceMappingURL=style.css.map */

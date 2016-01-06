@@ -5,5 +5,9 @@
  */
 ?>
 
+<div id="footer" class="container-fluid no-padding">
+
+</div>
+
 </body>
 </html>

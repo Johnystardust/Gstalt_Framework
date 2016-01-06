@@ -34,10 +34,8 @@ $order              = get_sub_field('order');
 $block_width        = get_sub_field('block_width');
 $background_color   = get_sub_field('background_color');
 
-$margin_top         = get_sub_field('margin_top');
-$margin_bottom      = get_sub_field('margin_bottom');
-$padding_top        = get_sub_field('padding_top');
-$padding_bottom     = get_sub_field('padding_bottom');
+$margin             = get_sub_field('margin');
+$padding            = get_sub_field('padding');
 
 $border             = get_sub_field('border');
 $border_color       = get_sub_field('border_color');
@@ -140,8 +138,7 @@ elseif($border == 'none'){
 |   Text with image block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="text-with-image" class="container-fluid no-padding" style="background-color: '.$background_color.'; padding-top: '.$padding_top.'px; padding-bottom: '.$padding_bottom.'px;
-    margin-top: '.$margin_top.'px; margin-bottom: '.$margin_bottom.'px; '.$border_type.'">';
+echo '<div id="text-with-image" class="container-fluid no-padding" style="background-color: '.$background_color.'; '.$border_type.'; margin: '.$margin.'; padding: '.$padding.';">';
 
     echo '<div class="'.$text_block.' no-padding text" style="'.$txt_order.'">';
         echo '<div class="text-content" style="text-align: '.$text_align.';">';

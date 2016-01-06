@@ -11,10 +11,8 @@
 */
 $cards              = get_sub_field('cards');
 
-$margin_top         = get_sub_field('margin_top');
-$margin_bottom      = get_sub_field('margin_bottom');
-$padding_top        = get_sub_field('padding_top');
-$padding_bottom     = get_sub_field('padding_bottom');
+$margin             = get_sub_field('margin');
+$padding            = get_sub_field('padding');
 $background_color   = get_sub_field('background_color');
 
 $border             = get_sub_field('border');
@@ -78,8 +76,7 @@ elseif($border == 'none'){
 |   The Cards block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="cards" class="container-fluid no-padding" style="background-color: '.$background_color.'; margin-top: '.$margin_top.'px; margin-bottom: '.$margin_bottom.'px;
-    padding-top: '.$padding_top.'px; padding-bottom: '.$padding_bottom.'px; '.$border_type.'">';
+echo '<div id="cards" class="container-fluid no-padding" style="background-color: '.$background_color.'; '.$border_type.'; margin: '.$margin.'; padding: '.$padding.';">';
 
     echo '<div class="row no-margin">';
         /*
