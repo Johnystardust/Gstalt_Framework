@@ -26,7 +26,11 @@ $faq_icon_border_radius = get_sub_field('faq_icon_border_radius');
     .faq-control:hover {
         background: <?php echo $faq_icon_hover_color; ?> url("<?php echo $faq_icon_image; ?>");
         background-position: center 1px !important;
+    }
 
+    .active .faq-control {
+        background: <?php echo $faq_icon_hover_color; ?> url("<?php echo $faq_icon_image; ?>");
+        background-position: center 1px !important;
     }
 </style>
 
@@ -39,9 +43,11 @@ $faq_icon_border_radius = get_sub_field('faq_icon_border_radius');
 */
 echo '<div id="faqs" class="container-fluid container-capped">';
     echo '<div class="row no-margin">';
+
+        $i = 1;
         /*
         |----------------------------------------------------------------
-        |   Use foreach to loop over al the cards.
+        |   Use foreach to loop over al the faqs.
         |----------------------------------------------------------------
         */
         foreach($faqs as $faq){
@@ -58,7 +64,7 @@ echo '<div id="faqs" class="container-fluid container-capped">';
             |   FAQ.
             |----------------------------------------------------------------
             */
-            echo '<div class="faq">';
+            echo '<div class="faq" data-number="'.$i.'">';
                 /*
                 |----------------------------------------------------------------
                 |   FAQ question.
@@ -66,7 +72,7 @@ echo '<div id="faqs" class="container-fluid container-capped">';
                 */
                 echo '<div class="faq-question col-md-12">';
                     echo '<h4>';
-                        echo '<span class="faq-control"></span>';
+                        echo '<span class="faq-control" data-number="'.$i.'"></span>';
                         echo '<span class="faq-heading">'.$faq_question.'</span>';
                     echo '</h4>';
                 echo '</div>';
@@ -80,6 +86,9 @@ echo '<div id="faqs" class="container-fluid container-capped">';
                     echo $faq_answer;
                 echo '</div>';
             echo '</div>';
+
+            // increment the counter
+            $i++;
         }
     echo '</div>';
 echo '</div>';

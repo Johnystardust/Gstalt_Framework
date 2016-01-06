@@ -7,7 +7,14 @@ $ = jQuery;
 $(document).ready(function(){
 
     $('.faq-control').click(function(){
-        $(this).parentsUntil('#faqs').find('.faq-answer').css( "height", "initial" );
+        // Remove the active class from the faq
+        $('.faq').removeClass('active');
+
+        // Get the data attr from the element
+        var faqNumber = $(this).attr('data-number');
+
+        // Set the active class on the clicked element
+        $('.faq[data-number="'+faqNumber+'"]').addClass('active');
     });
 
 

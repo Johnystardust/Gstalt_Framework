@@ -17,8 +17,15 @@
 
   .faq-answer
     margin-left: 35px
-    height: 0
+    height: auto
+    max-height: 0
     overflow: hidden
     transition: all 0.3s ease-in-out
     -webkit-transition: all 0.3s ease-in-out
     -moz-transition: all 0.3s ease-in-out
+
+  // The style for the active question
+  .active
+    .faq-answer
+      max-height: 400px
+
