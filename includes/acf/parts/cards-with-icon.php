@@ -75,6 +75,7 @@ echo '<div id="cards-with-icon" class="container-fluid container-capped" style="
             $subtitle_color         = $card['subtitle_color'];
             $subtitle_style         = $card['subtitle_style'];
             $text_align             = $card['text_align'];
+            $divider                = $card['divider'];
 
             $btn_link               = $card['button_link'];
             $btn_color              = $card['button_color'];
@@ -116,7 +117,7 @@ echo '<div id="cards-with-icon" class="container-fluid container-capped" style="
                     */
                     if(!empty($title)){
                         // Display the title
-                        echo '<h3 class="no-margin" style="color: '.$title_color.'; text-align: '.$text_align.';">'.$title.'</h3>';
+                        echo '<h3 class="title no-margin" style="color: '.$title_color.'; text-align: '.$text_align.';">'.$title.'</h3>';
 
                         /*
                         |----------------------------------------------------------------
@@ -125,8 +126,17 @@ echo '<div id="cards-with-icon" class="container-fluid container-capped" style="
                         */
                         if(!empty($subtitle)){
                             // Display the subtitle
-                            echo '<h5 class="no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$text_align.';">'.$subtitle.'</h5>';
+                            echo '<h5 class=" subtitle no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$text_align.';">'.$subtitle.'</h5>';
                         }
+                    }
+
+                    /*
+                    |----------------------------------------------------------------
+                    |   If the '$divider' is set true display it.
+                    |----------------------------------------------------------------
+                    */
+                    if($divider == true){
+                        echo '<hr class="divider" />';
                     }
 
                     /*

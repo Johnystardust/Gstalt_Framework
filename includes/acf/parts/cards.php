@@ -128,7 +128,7 @@ echo '<div id="cards" class="container-fluid no-padding" style="background-color
                     */
                     if(!empty($title)){
                         // Display the title
-                        echo '<h3 class="no-margin" style="color: '.$title_color.'; text-align: '.$text_align.';">'.$title.'</h3>';
+                        echo '<h3 class="title no-margin" style="color: '.$title_color.'; text-align: '.$text_align.';">'.$title.'</h3>';
 
                         /*
                         |----------------------------------------------------------------
@@ -137,7 +137,7 @@ echo '<div id="cards" class="container-fluid no-padding" style="background-color
                         */
                         if(!empty($subtitle)){
                             // Display the subtitle
-                            echo '<h5 class="no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$text_align.';">'.$subtitle.'</h5>';
+                            echo '<h5 class="subtitle no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$text_align.';">'.$subtitle.'</h5>';
                         }
                     }
 
