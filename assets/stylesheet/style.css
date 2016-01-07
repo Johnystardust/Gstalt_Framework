@@ -26,8 +26,6 @@ p {
 
 #cards .card-inner {
   padding: 65px 75px; }
-#cards .content-wrapper {
-  line-height: 25px; }
 
 #cards-with-icon .card-with-icon-inner {
   padding: 0 15px; }
@@ -43,10 +41,6 @@ p {
     display: table-cell;
     vertical-align: middle;
     font-size: 42px; }
-#cards-with-icon .content-wrapper {
-  letter-spacing: 0.5px;
-  line-height: 21px;
-  margin-top: 10px; }
 
 #carousel {
   padding: 50px 0; }
@@ -150,21 +144,29 @@ p {
   vertical-align: middle; }
 
 .title {
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 100%; }
 
 .subtitle {
-  margin-bottom: 20px; }
+  margin-bottom: 10px; }
 
 .content-wrapper {
-  margin-bottom: 40px; }
+  letter-spacing: 0.5px;
+  line-height: 21px;
+  margin-top: 10px;
+  display: inline-block; }
   .content-wrapper p {
     margin-bottom: 0; }
 
+.buttons {
+  margin-top: 30px; }
+
 .divider {
-  max-width: 70px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 70px;
   border-color: rgba(0, 0, 0, 0.07);
-  border-width: 2px; }
+  border-width: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -14,7 +14,8 @@ $title_color        = get_sub_field('title_color');
 $subtitle           = get_sub_field('subtitle');
 $subtitle_color     = get_sub_field('subtitle_color');
 $subtitle_style     = get_sub_field('subtitle_style');
-$text_align         = get_sub_field('text_align');
+$title_align        = get_sub_field('title_align');
+$divider            = get_sub_field('divider');
 
 $content            = get_sub_field('content');
 $content_color      = get_sub_field('content_color');
@@ -141,7 +142,7 @@ elseif($border == 'none'){
 echo '<div id="text-with-image" class="container-fluid no-padding" style="background-color: '.$background_color.'; '.$border_type.'; margin: '.$margin.'; padding: '.$padding.';">';
 
     echo '<div class="'.$text_block.' no-padding text" style="'.$txt_order.'">';
-        echo '<div class="text-content" style="text-align: '.$text_align.';">';
+        echo '<div class="text-content">';
             echo '<div class="middle-wrap">';
                 /*
                 |----------------------------------------------------------------
@@ -150,7 +151,7 @@ echo '<div id="text-with-image" class="container-fluid no-padding" style="backgr
                 */
                 if(!empty($title)){
                     // Display the title
-                    echo '<h1 class="title no-margin" style="color: '.$title_color.'">'.$title.'</h1>';
+                    echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.';">'.$title.'</h3>';
 
                     /*
                     |----------------------------------------------------------------
@@ -159,8 +160,32 @@ echo '<div id="text-with-image" class="container-fluid no-padding" style="backgr
                     */
                     if(!empty($subtitle)){
                         // Display the subtitle
-                        echo '<h3 class="subtitle no-margin" style="color: '.$subtitle_color.'; font-style: '.$subtitle_style.';">'.$subtitle.'</h3>';
+                        echo '<h3 class="subtitle no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$title_align.';">'.$subtitle.'</h5>';
                     }
+                }
+
+                /*
+                |----------------------------------------------------------------
+                |   If the '$divider' is set true display it.
+                |----------------------------------------------------------------
+                */
+                if($divider == true){
+                    /*
+                    |----------------------------------------------------------------
+                    |   Align the divider with the '$title_align'.
+                    |----------------------------------------------------------------
+                    */
+                    if($title_align == 'center'){
+                        $divider_align = 'margin-left: auto; margin-right: auto;';
+                    }
+                    elseif($title_align == 'left'){
+                        $divider_align = 'float: left;';
+                    }
+                    elseif($title_align == 'right'){
+                        $divider_align = 'float: right;';
+                    }
+
+                    echo '<hr class="divider" style="'.$divider_align.'" />';
                 }
 
                 /*
