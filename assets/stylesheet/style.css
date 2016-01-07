@@ -12,6 +12,30 @@ ul {
 .no-margin {
   margin: 0; }
 
+#header {
+  top: 0;
+  height: 64px;
+  width: 100%;
+  display: block;
+  z-index: 1000000; }
+  #header .header-logo {
+    float: left;
+    line-height: 64px; }
+  #header .main-menu {
+    float: right; }
+    #header .main-menu ul {
+      list-style-type: none; }
+      #header .main-menu ul li {
+        float: left;
+        line-height: 64px; }
+        #header .main-menu ul li a {
+          padding: 0 15px;
+          text-transform: uppercase;
+          color: inherit;
+          display: inline-block; }
+        #header .main-menu ul li a:hover {
+          text-decoration: none; }
+
 .button {
   padding: 7px 20px;
   border-radius: 10px;

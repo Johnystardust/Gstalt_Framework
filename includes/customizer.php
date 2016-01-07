@@ -18,6 +18,15 @@ function tvds_customizer_init($wp_customize){
     |   Sections.
     |-----------------------------------------------------------------------------------------------------------------------
     */
+    // Header
+    $wp_customize->add_section(
+        'header_section',
+        array(
+            'title'         => 'Header',
+            'description'   => 'Change the header appearance.',
+            'priority'      => 120
+        )
+    );
 
     // Footer
     $wp_customize->add_section(
@@ -25,7 +34,7 @@ function tvds_customizer_init($wp_customize){
         array(
             'title'         => 'Footer',
             'description'   => 'Change the footer appearance.',
-            'priority'      => 120
+            'priority'      => 130
         )
     );
 
@@ -35,7 +44,7 @@ function tvds_customizer_init($wp_customize){
         array(
             'title'         => 'Copyright footer',
             'description'   => 'Change the copyright footer appearance.',
-            'priority'      => 130
+            'priority'      => 140
         )
     );
 
@@ -47,7 +56,81 @@ function tvds_customizer_init($wp_customize){
 
     /*
     |----------------------------------------------------------------
-    |   Footer
+    |   Header.
+    |----------------------------------------------------------------
+    */
+    // Text color
+    $wp_customize->add_setting(
+        'header_text_color',
+        array(
+            'default' => '#000000'
+        )
+    );
+
+    // Hover color
+    $wp_customize->add_setting(
+        'header_hover_color',
+        array(
+            'default' => '#eeeeee'
+        )
+    );
+
+    // Font size
+    $wp_customize->add_setting(
+        'header_font_size',
+        array(
+            'default' => '14'
+        )
+    );
+
+    // Background color
+    $wp_customize->add_setting(
+        'header_background_color',
+        array(
+            'default' => '#ffffff'
+        )
+    );
+
+    // Logo image
+    $wp_customize->add_setting(
+        'header_logo'
+    );
+
+    // Menu Position
+    $wp_customize->add_setting(
+        'menu_position',
+        array(
+            'default' => 'fixed'
+        )
+    );
+
+    // Border
+    $wp_customize->add_setting(
+        'header_border',
+        array(
+            'default' => 'no_border'
+        )
+    );
+
+    // Border width
+    $wp_customize->add_setting(
+        'header_border_width',
+        array(
+            'default' => '1'
+        )
+    );
+
+    // Border Color
+    $wp_customize->add_setting(
+        'header_border_color',
+        array(
+            'default' => '#ffffff'
+        )
+    );
+
+    /*
+    |----------------------------------------------------------------
+    |   Footer.
     |----------------------------------------------------------------
     */
     // Padding
@@ -100,7 +183,7 @@ function tvds_customizer_init($wp_customize){
 
     /*
     |----------------------------------------------------------------
-    |   Copyright footer
+    |   Copyright footer.
     |----------------------------------------------------------------
     */
     // Copyright text
@@ -212,6 +295,128 @@ function tvds_customizer_init($wp_customize){
     |   Control.
     |-----------------------------------------------------------------------------------------------------------------------
     */
+
+    /*
+    |----------------------------------------------------------------
+    |   Header.
+    |----------------------------------------------------------------
+    */
+    // Text color
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'header_text_color',
+            array(
+                'label'     => 'Header text color',
+                'section'   => 'header_section',
+                'settings'  => 'header_text_color'
+            )
+        )
+    );
+
+    // Hover Color
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'header_hover_color',
+            array(
+                'label'     => 'Header hover color',
+                'section'   => 'header_section',
+                'settings'  => 'header_hover_color'
+            )
+        )
+    );
+
+    // Font size
+    $wp_customize->add_control(
+        'header_font_size',
+        array(
+            'label'         => 'Font size',
+            'section'       => 'header_section',
+            'description'   => 'Font size in px',
+            'type'          => 'number'
+        )
+    );
+
+    // Background color
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'header_background_color',
+            array(
+                'label'     => 'Header background color',
+                'section'   => 'header_section',
+                'settings'  => 'header_background_color'
+            )
+        )
+    );
+
+    // Logo image
+    $wp_customize->add_control(
+        new WP_Customize_Upload_Control(
+            $wp_customize,
+            'header_logo',
+            array(
+                'label'      => 'Header logo',
+                'section'    => 'header_section',
+                'settings'   => 'header_logo',
+            )
+        )
+    );
+
+    // Menu position
+    $wp_customize->add_control(
+        'menu_position',
+        array(
+            'label'         => 'Menu position',
+            'section'       => 'header_section',
+            'type'          => 'select',
+            'choices'       => array(
+                'fixed'    => 'Fixed',
+                'relative' => 'Relative',
+                'absolute' => 'Absolute',
+            )
+        )
+    );
+
+    // Border
+    $wp_customize->add_control(
+        'header_border',
+        array(
+            'label'         => 'Header border',
+            'section'       => 'header_section',
+            'type'          => 'select',
+            'choices'       => array(
+                'no_border'     => 'Geen border',
+                'border_top'    => 'Border top',
+                'border_bottom' => 'Border bottom'
+            )
+        )
+    );
+
+    // Border width
+    $wp_customize->add_control(
+        'header_border_width',
+        array(
+            'label'         => 'Header border width',
+            'section'       => 'header_section',
+            'description'   => 'Border width in px',
+            'type'          => 'number'
+        )
+    );
+
+    // Border Color
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'header_border_color',
+            array(
+                'label'     => 'Header border color',
+                'section'   => 'header_section',
+                'settings'  => 'header_border_color',
+            )
+        )
+    );
 
     /*
     |----------------------------------------------------------------
