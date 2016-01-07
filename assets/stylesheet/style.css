@@ -1,8 +1,4 @@
-.button {
-  padding: 7px 20px;
-  border-radius: 10px;
-  display: inline-block; }
-
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0; }
@@ -16,6 +12,11 @@ ul {
 .no-margin {
   margin: 0; }
 
+.button {
+  padding: 7px 20px;
+  border-radius: 10px;
+  display: inline-block; }
+
 body {
   font-family: "Lato", sans-serif; }
 
@@ -23,6 +24,49 @@ p {
   font-size: 16px;
   letter-spacing: 0.5px;
   line-height: 21px; }
+
+#footer .widget-inner {
+  padding-left: 15px;
+  padding-right: 15px; }
+#footer .widget_nav_menu ul {
+  list-style-type: none; }
+  #footer .widget_nav_menu ul li {
+    margin-bottom: 3px;
+    line-height: 1.5em; }
+    #footer .widget_nav_menu ul li a {
+      position: relative;
+      color: inherit;
+      font-size: 14px;
+      left: 0;
+      transition: all 0.3s ease-in-out;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out; }
+    #footer .widget_nav_menu ul li a:hover {
+      text-decoration: none;
+      left: 10px; }
+    #footer .widget_nav_menu ul li a:before {
+      content: "";
+      font-family: "fontello", sans-serif;
+      display: inline-block;
+      text-align: center;
+      line-height: 1em;
+      margin-left: 0.2em;
+      margin-right: 0.7em; }
+#footer .footer-bottom-inner {
+  line-height: 32px; }
+  #footer .footer-bottom-inner a {
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out; }
+#footer .copyright {
+  float: left; }
+#footer .social-icons {
+  float: right; }
+  #footer .social-icons .social-icon {
+    float: right;
+    font-size: 18px;
+    color: inherit;
+    margin-right: 4px; }
 
 #cards .card-inner {
   padding: 65px 75px; }

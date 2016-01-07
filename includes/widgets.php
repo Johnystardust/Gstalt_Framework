@@ -19,9 +19,9 @@ function tvds_add_widgets_init(){
         'name' 			=> __( 'Footer', 'gstalt-framework' ),
         'id' 			=> 'footer',
         'description' 	=> __( 'Footer ruimte', 'gstalt-framework' ),
-        'before_widget' => '<div id="%1$s" class="col-md-3 footer-widget %2$s">',
-        'after_widget' 	=> '</div>',
-        'before_title' 	=> '<h3>',
+        'before_widget' => '<div id="%1$s" class="col-md-3 no-padding footer-widget %2$s"><div class="widget-inner">',
+        'after_widget' 	=> '</div></div>',
+        'before_title' 	=> '<h3 class="widget-title">',
         'after_title' 	=> '</h3>',
     ));
 }
