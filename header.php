@@ -52,6 +52,9 @@ elseif($border == 'border_top'){
 elseif($border == 'no_border'){
     $border_style = '';
 }
+else {
+    $border_style = '';
+}
 ?>
 
 <style type="text/css">

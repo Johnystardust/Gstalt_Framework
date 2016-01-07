@@ -181,6 +181,14 @@ function tvds_customizer_init($wp_customize){
         )
     );
 
+    // Capitalize Title
+    $wp_customize->add_setting(
+        'top_capitalize_title',
+        array(
+            'default' => 'none'
+        )
+    );
+
     /*
     |----------------------------------------------------------------
     |   Copyright footer.
@@ -493,6 +501,21 @@ function tvds_customizer_init($wp_customize){
                 'label'     => 'Footer top hover color',
                 'section'   => 'footer_section',
                 'settings'  => 'top_hover_color'
+            )
+        )
+    );
+
+    // Capitalize Title
+    $wp_customize->add_control(
+        'top_capitalize_title',
+        array(
+            'label'         => 'Header text transform',
+            'section'       => 'header_section',
+            'type'          => 'select',
+            'choices'       => array(
+                'none'          => 'Geen',
+                'capitalize'    => 'Capitalize',
+                'uppercase'     => 'Border bottom'
             )
         )
     );
