@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0; }
 
+html {
+  overflow-x: hidden; }
+
 ul {
   margin: 0; }
 
@@ -173,6 +176,7 @@ p {
   #slider .slide-container {
     height: 100%; }
     #slider .slide-container .slide {
+      overflow: hidden;
       width: 100%;
       height: 100%;
       display: table; }
@@ -189,6 +193,59 @@ p {
         top: 0;
         left: 0;
         z-index: 100; }
+      #slider .slide-container .slide .content-image {
+        position: absolute; }
+  #slider .slider-slide {
+    transition: margin-left 0.3s ease-in-out;
+    -webkit-transition: margin-left 0.3s ease-in-out;
+    -moz-transition: margin-left 0.3s ease-in-out; }
+    #slider .slider-slide .slide {
+      float: left; }
+  #slider .slider-fade {
+    width: 100%; }
+    #slider .slider-fade .slide {
+      transition: opacity 0.3s ease-in-out;
+      -webkit-transition: opacity 0.3s ease-in-out;
+      -moz-transition: opacity 0.3s ease-in-out;
+      opacity: 0;
+      position: absolute; }
+    #slider .slider-fade .active {
+      z-index: 10000;
+      opacity: 1; }
+  #slider .slider-menu {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%; }
+    #slider .slider-menu .slide-button {
+      position: absolute;
+      height: 60px;
+      width: 30px;
+      top: 45%;
+      display: table;
+      z-index: 100000;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #ffffff; }
+      #slider .slider-menu .slide-button i {
+        display: table-cell;
+        vertical-align: middle; }
+    #slider .slider-menu .slide-next {
+      right: 0px; }
+    #slider .slider-menu .slide-prev {
+      left: 0px; }
+    #slider .slider-menu .bottom-menu {
+      z-index: 100000;
+      position: relative;
+      top: 90%;
+      list-style-type: none;
+      margin: 0 auto; }
+      #slider .slider-menu .bottom-menu li {
+        cursor: pointer;
+        float: left;
+        width: 20px;
+        height: 20px;
+        color: #ffffff; }
 
 #text-with-image {
   position: relative; }
