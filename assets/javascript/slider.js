@@ -156,6 +156,7 @@ $(document).ready(function(){
     |----------------------------------------------------------------
     */
     function updateMenu(slide_number){
+        var clicked_li = $('li[data-slide-number="'+slide_number+'"]');
         /*
         |----------------------------------------------------------------
         |  Bottom Menu.
@@ -169,11 +170,11 @@ $(document).ready(function(){
         bottom_menu.find('li').removeClass('active');
 
         // Set the clicked item icon
-        $('li[data-slide-number="'+slide_number+'"]').find('i').removeClass('icon-circle-empty');
-        $('li[data-slide-number="'+slide_number+'"]').find('i').addClass('icon-circle');
+        clicked_li.find('i').removeClass('icon-circle-empty');
+        clicked_li.find('i').addClass('icon-circle');
 
         // Set the clicked item to active
-        $('li[data-slide-number="'+slide_number+'"]').addClass('active');
+        clicked_li.addClass('active');
 
         if(slide_number < 1){
             slide_prev.hide();

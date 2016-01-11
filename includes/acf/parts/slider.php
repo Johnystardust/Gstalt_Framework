@@ -71,8 +71,11 @@ echo '<div id="slider" class="container-fluid no-padding" data-slide-style="'.$s
                     if($count == 1){
                         $col_size = 'col-md-12';
                     }
-                    elseif($count == 2){
+                    elseif($count == 2) {
                         $col_size = 'col-md-6';
+                    }
+                    else {
+                        $col_size = '';
                     }
 
                     /*
@@ -129,6 +132,9 @@ echo '<div id="slider" class="container-fluid no-padding" data-slide-style="'.$s
                                     // See if title needs to be uppercase
                                     if($title_uppercase == true){
                                         $text_transform = 'uppercase';
+                                    }
+                                    else {
+                                        $text_transform = 'none';
                                     }
 
                                     // Display the title

@@ -231,9 +231,9 @@ p {
         display: table-cell;
         vertical-align: middle; }
     #slider .slider-menu .slide-next {
-      right: 0px; }
+      right: 0; }
     #slider .slider-menu .slide-prev {
-      left: 0px; }
+      left: 0; }
     #slider .slider-menu .bottom-menu {
       z-index: 100000;
       position: relative;
