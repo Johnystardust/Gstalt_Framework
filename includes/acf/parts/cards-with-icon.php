@@ -96,7 +96,7 @@ echo '<div id="cards-with-icon" class="container-fluid container-capped" style="
             |   Card.
             |----------------------------------------------------------------
             */
-            echo '<div class="card-with-icon col-md-3 no-padding">';
+            echo '<div class="card-with-icon col-md-3 col-sm-6 no-padding">';
                 echo '<div class=card-with-icon-inner>';
 
                     /*
