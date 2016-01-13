@@ -53,3 +53,12 @@ function tvds_remove_support_init(){
     remove_post_type_support( 'page', 'editor');
 }
 add_action('init', 'tvds_remove_support_init', 100);
+
+/*
+|-----------------------------------------------------------------------------------------------------------------------
+|   Add options page with ACF.
+|-----------------------------------------------------------------------------------------------------------------------
+*/
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page();
+}
