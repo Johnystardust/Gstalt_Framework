@@ -851,13 +851,254 @@ function tvds_customizer_init($wp_customize){
         )
     );
 
+    /*
+    |-----------------------------------------------------------------------------------------------------------------------
+    |   Action Bar.
+    |-----------------------------------------------------------------------------------------------------------------------
+    */
 
+    /*
+    |----------------------------------------------------------------
+    |   Section.
+    |----------------------------------------------------------------
+    */
 
+    // Action Bar
+    $wp_customize->add_section(
+        'action_bar_section',
+        array(
+            'title'         => 'Action Bar',
+            'description'   => 'The action bar',
+            'priority'      => 160
+        )
+    );
 
+    /*
+    |----------------------------------------------------------------
+    |   Settings.
+    |----------------------------------------------------------------
+    */
 
+    // Title 1
+    $wp_customize->add_setting(
+        'action_title_1',
+        array(
+            'default' => ''
+        )
+    );
 
+    // Link 1
+    $wp_customize->add_setting(
+        'action_link_1',
+        array(
+            'default' => ''
+        )
+    );
 
+    // Blank 1
+    $wp_customize->add_setting(
+        'action_blank_1',
+        array(
+            'default' => ''
+        )
+    );
 
+    // Title 2
+    $wp_customize->add_setting(
+        'action_title_2',
+        array(
+            'default' => ''
+        )
+    );
 
+    // Link 2
+    $wp_customize->add_setting(
+        'action_link_2',
+        array(
+            'default' => ''
+        )
+    );
+
+    // Blank 2
+    $wp_customize->add_setting(
+        'action_blank_2',
+        array(
+            'default' => ''
+        )
+    );
+
+    // Title 3
+    $wp_customize->add_setting(
+        'action_title_3',
+        array(
+            'default' => ''
+        )
+    );
+
+    // Link 3
+    $wp_customize->add_setting(
+        'action_link_3',
+        array(
+            'default' => ''
+        )
+    );
+
+    // Blank 3
+    $wp_customize->add_setting(
+        'action_blank_3',
+        array(
+            'default' => ''
+        )
+    );
+
+    // Title 4
+    $wp_customize->add_setting(
+        'action_title_4',
+        array(
+            'default' => ''
+        )
+    );
+
+    // Link 4
+    $wp_customize->add_setting(
+        'action_link_4',
+        array(
+            'default' => ''
+        )
+    );
+
+    // Blank 4
+    $wp_customize->add_setting(
+        'action_blank_4',
+        array(
+            'default' => ''
+        )
+    );
+
+    /*
+    |----------------------------------------------------------------
+    |   Control.
+    |----------------------------------------------------------------
+    */
+
+    // Title 1
+    $wp_customize->add_control(
+        'action_title_1',
+        array(
+            'label'     => 'Title 1',
+            'section'   => 'action_bar_section',
+            'type'      => 'text'
+        )
+    );
+
+    // Link 1
+    $wp_customize->add_control(
+        'action_link_1',
+        array(
+            'label'     => 'Link 1',
+            'section'   => 'action_bar_section',
+            'type'      => 'text'
+        )
+    );
+
+    // Link 1
+    $wp_customize->add_control(
+        'action_blank_1',
+        array(
+            'label'     => 'Open blank page 1',
+            'section'   => 'action_bar_section',
+            'type'      => 'checkbox'
+        )
+    );
+
+    // Title 2
+    $wp_customize->add_control(
+        'action_title_2',
+        array(
+            'label'     => 'Title 2',
+            'section'   => 'action_bar_section',
+            'type'      => 'text'
+        )
+    );
+
+    // Link 2
+    $wp_customize->add_control(
+        'action_link_2',
+        array(
+            'label'     => 'Link 2',
+            'section'   => 'action_bar_section',
+            'type'      => 'text'
+        )
+    );
+
+    // Link 2
+    $wp_customize->add_control(
+        'action_blank_2',
+        array(
+            'label'     => 'Open blank page 2',
+            'section'   => 'action_bar_section',
+            'type'      => 'checkbox'
+        )
+    );
+
+    // Title 3
+    $wp_customize->add_control(
+        'action_title_3',
+        array(
+            'label'     => 'Title 3',
+            'section'   => 'action_bar_section',
+            'type'      => 'text'
+        )
+    );
+
+    // Link 3
+    $wp_customize->add_control(
+        'action_link_3',
+        array(
+            'label'     => 'Link 3',
+            'section'   => 'action_bar_section',
+            'type'      => 'text'
+        )
+    );
+
+    // Link 3
+    $wp_customize->add_control(
+        'action_blank_3',
+        array(
+            'label'     => 'Open blank page 3',
+            'section'   => 'action_bar_section',
+            'type'      => 'checkbox'
+        )
+    );
+
+    // Title 4
+    $wp_customize->add_control(
+        'action_title_4',
+        array(
+            'label'     => 'Title 4',
+            'section'   => 'action_bar_section',
+            'type'      => 'text'
+        )
+    );
+
+    // Link 4
+    $wp_customize->add_control(
+        'action_link_4',
+        array(
+            'label'     => 'Link 4',
+            'section'   => 'action_bar_section',
+            'type'      => 'text'
+        )
+    );
+
+    // Link 4
+    $wp_customize->add_control(
+        'action_blank_4',
+        array(
+            'label'     => 'Open blank page 4',
+            'section'   => 'action_bar_section',
+            'type'      => 'checkbox'
+        )
+    );
 
 }
