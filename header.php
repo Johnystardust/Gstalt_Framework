@@ -101,11 +101,11 @@ if($background_transparent){
         <?php echo $border_style; ?>;
     }
 
-    .transparent {
+    .menu-transparent {
         border: none !important;
     }
 
-    .social-icons, .menu-top {
+    .menu-top .social-icons, .menu-top {
         color: <?php echo $text_color; ?>;
     }
 
