@@ -103,7 +103,7 @@ $(document).ready(function(){
             slide_index = 0;
         }
     }
-    //timer = setInterval(slide_timer, slide_time);
+    timer = setInterval(slide_timer, slide_time);
 
     /*
     |----------------------------------------------------------------

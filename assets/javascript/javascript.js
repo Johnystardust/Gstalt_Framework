@@ -5,7 +5,11 @@
 $ = jQuery;
 
 $(document).ready(function(){
-
+    /*
+    |-------------------------------------------------------------------------------------------------------------------------------------------------
+    |   FAQ.
+    |-------------------------------------------------------------------------------------------------------------------------------------------------
+    */
     $('.faq-control').click(function(){
 
         // Click function if the element is closed
@@ -33,4 +37,55 @@ $(document).ready(function(){
             $('.faq').removeClass('active');
         }
     });
+
+    /*
+    |-------------------------------------------------------------------------------------------------------------------------------------------------
+    |   Menu.
+    |-------------------------------------------------------------------------------------------------------------------------------------------------
+    */
+    var header = $('#header');
+
+    /*
+    |----------------------------------------------------------------
+    |   Hide contact on scroll
+    |----------------------------------------------------------------
+    */
+    if(header.hasClass('hide-contact')){
+
+        // The scroll function
+        $(window).scroll(function() {
+            var $this = $(this),
+                pos = $this.scrollTop();
+
+            if(pos > 10){
+                header.addClass('menu-open');
+            }
+            else {
+                header.removeClass('menu-open');
+            }
+        });
+    }
+
+    /*
+    |----------------------------------------------------------------
+    |   Background color on scroll
+    |----------------------------------------------------------------
+    */
+    if(header.hasClass('transparent')){
+
+        header.addClass('menu-transparent');
+
+        $(window).scroll(function() {
+            var $this = $(this),
+                pos = $this.scrollTop();
+
+            if(pos < 10){
+                header.addClass('menu-transparent');
+            }
+            else {
+                header.removeClass('menu-transparent');
+            }
+        });
+    }
+
 });

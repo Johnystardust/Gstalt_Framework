@@ -1,25 +1,71 @@
+// Normal Menu
 #header
-  top: 0
-  height: 64px
   width: 100%
   display: block
   z-index: 1000000
+  top: 0
+  transition: all 0.3s ease-in-out
+  -webkit-transition: all 0.3s ease-in-out
+  -moz-transition: all 0.3s ease-in-out
 
-  .header-logo
-    float: left
-    line-height: 64px
+  // ---------------------------- Menu Top ---------------------------- //
+  .menu-top
+    height: 20px
+    margin: 10px 0
+    font-size: 14px
+    opacity: 0.8
 
-  .main-menu
-    float: right
-    ul
-      list-style-type: none
-      li
-        float: left
-        line-height: 64px
-        a
-          padding: 0 15px
-          text-transform: uppercase
-          color: inherit
-          display: inline-block
-        a:hover
-          text-decoration: none
+    .mail-number
+      float: left
+      span
+        margin-right: 10px
+        i
+          margin-right: 3px
+
+    .social-icons
+      float: right
+      .social-icon
+        font-size: 14px
+
+  // ---------------------------- Menu Bottom ---------------------------- //
+  .menu-bottom
+    height: 64px
+
+    // Menu Logo
+    .menu-logo
+      float: left
+      margin-top: 5px
+      .logo
+        display: block
+      .logo-transparent
+        display: none
+
+    // Main Menu
+    .main-menu
+      float: right
+      ul
+        list-style-type: none
+        li
+          float: left
+          line-height: 64px
+          a
+            padding: 0 15px
+            display: inline-block
+          a:hover
+            text-decoration: none
+
+
+// Transparent Menu
+.menu-transparent
+  background: transparent !important
+
+  // ---------------------------- Menu Logo ---------------------------- //
+  .menu-logo
+    .logo
+      display: none !important
+    .logo-transparent
+      display: block !important
+
+// Hide Contact
+.menu-open
+  top: -40px !important
