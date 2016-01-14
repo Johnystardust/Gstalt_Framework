@@ -343,4 +343,14 @@ p {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out; }
 
+#go-up {
+  position: fixed;
+  text-align: center;
+  display: table;
+  z-index: 10000000;
+  cursor: pointer; }
+  #go-up i {
+    display: table-cell;
+    vertical-align: middle; }
+
 /*# sourceMappingURL=style.css.map */

@@ -88,4 +88,27 @@ $(document).ready(function(){
         });
     }
 
+    /*
+    |-------------------------------------------------------------------------------------------------------------------------------------------------
+    |   Go Up.
+    |-------------------------------------------------------------------------------------------------------------------------------------------------
+    */
+    var $scroll_top = $('#go-up');
+    $scroll_top.hide();
+
+    // Scroll to top fadeIn/fadeOut
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 400) {
+            $scroll_top.show();
+        } else {
+            $scroll_top.hide();
+        }
+    });
+
+    // Scroll to top
+    $scroll_top.click(function(){
+        $("html, body").animate({ scrollTop: 0 },600);
+        return false
+    });
+
 });
