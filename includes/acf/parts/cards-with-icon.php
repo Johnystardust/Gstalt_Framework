@@ -71,6 +71,7 @@ echo '<div id="cards-with-icon" class="container-fluid container-capped" style="
             */
             $title                  = $card['title'];
             $title_color            = $card['title_color'];
+            $title_uppercase        = $card['title_uppercase'];
             $subtitle               = $card['sub_title'];
             $subtitle_color         = $card['subtitle_color'];
             $subtitle_style         = $card['subtitle_style'];
@@ -116,8 +117,16 @@ echo '<div id="cards-with-icon" class="container-fluid container-capped" style="
                     |----------------------------------------------------------------
                     */
                     if(!empty($title)){
+                        // See if title needs to be uppercase
+                        if($title_uppercase == true){
+                            $text_transform = 'uppercase';
+                        }
+                        else {
+                            $text_transform = 'none';
+                        }
+
                         // Display the title
-                        echo '<h3 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.';">'.$title.'</h3>';
+                        echo '<h3 class="title no-margin" style="color: '.$title_color.'; text-transform: '.$text_transform.'; text-align: '.$title_align.';">'.$title.'</h3>';
 
                         /*
                         |----------------------------------------------------------------

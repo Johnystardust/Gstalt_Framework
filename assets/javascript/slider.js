@@ -67,9 +67,9 @@ $(document).ready(function(){
 
         // Set the slide width to 100% / slide count.
         ul.find('.slide').each(function(i){
-            var left_precent = (slide_width * i) + "%";
+            var left_percent = (slide_width * i) + "%";
 
-            $(this).css('left', left_precent);
+            $(this).css('left', left_percent);
             $(this).css('width', slide_width);
         });
     }
