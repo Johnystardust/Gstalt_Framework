@@ -76,7 +76,7 @@ elseif($border == 'none'){
 |   The Cards block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="cards" class="container-fluid no-padding" style="background-color: '.$background_color.'; '.$border_type.'; margin: '.$margin.'; padding: '.$padding.';">';
+echo '<div id="cards" class="container-fluid no-padding same-col-height" style="background-color: '.$background_color.'; '.$border_type.'; margin: '.$margin.'; padding: '.$padding.';">';
 
     echo '<div class="row no-margin">';
         /*
@@ -120,7 +120,7 @@ echo '<div id="cards" class="container-fluid no-padding" style="background-color
             |   Card.
             |----------------------------------------------------------------
             */
-            echo '<div class="card '.$card_width.' no-padding" style="background: '.$background_card_color.' url('.$background.') '.$background_repeat.'; background-position: '.$background_pos.'; background-size: '.$background_size.'; ">';
+            echo '<div class="card col '.$card_width.' no-padding" style="background: '.$background_card_color.' url('.$background.') '.$background_repeat.'; background-position: '.$background_pos.'; background-size: '.$background_size.'; ">';
                 echo '<div class="card-inner">';
 
                     /*
@@ -172,7 +172,9 @@ echo '<div id="cards" class="container-fluid no-padding" style="background-color
                             $divider_align = 'float: right;';
                         }
 
-                        echo '<hr class="divider" style="'.$divider_align.'" />';
+                        echo '<div class="divider">';
+                            echo '<hr style="'.$divider_align.'" />';
+                        echo '</div>';
                     }
 
                     /*

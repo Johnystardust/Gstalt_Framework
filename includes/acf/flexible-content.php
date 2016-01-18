@@ -14,6 +14,10 @@ if(get_field('page_content')):
                 get_template_part('includes/acf/parts/action-bar');
                 break;
 
+            case 'carousel':
+                get_template_part('includes/acf/parts/carousel');
+                break;
+
             case 'call_to_action':
                 get_template_part('includes/acf/parts/call-to-action');
                 break;
@@ -26,8 +30,8 @@ if(get_field('page_content')):
                 get_template_part('includes/acf/parts/cards-with-icon');
                 break;
 
-            case 'carousel':
-                get_template_part('includes/acf/parts/carousel');
+            case 'opening_times':
+                get_template_part('includes/acf/parts/opening-times');
                 break;
 
             case 'slider':

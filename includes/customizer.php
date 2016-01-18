@@ -422,6 +422,14 @@ function tvds_customizer_init($wp_customize){
         )
     );
 
+    // Footer Fixed
+    $wp_customize->add_setting(
+        'footer_fixed',
+        array(
+            'default' => ''
+        )
+    );
+
     /*
     |----------------------------------------------------------------
     |   Control.
@@ -499,6 +507,17 @@ function tvds_customizer_init($wp_customize){
                 'section'   => 'footer_section',
                 'settings'  => 'top_hover_color'
             )
+        )
+    );
+
+    // Footer fixed
+    $wp_customize->add_control(
+        'footer_fixed',
+        array(
+            'label'         => 'Footer fixed',
+            'section'       => 'footer_section',
+            'description'   => 'Activeer fixed footer',
+            'type'          => 'checkbox'
         )
     );
 

@@ -82,7 +82,9 @@ echo '<div id="carousel" class="container-fluid container-capped" style="margin:
                     $divider_align = 'float: right;';
                 }
 
-                echo '<hr class="divider" style="'.$divider_align.'" />';
+                echo '<div class="divider">';
+                    echo '<hr style="'.$divider_align.'" />';
+                echo '</div>';
             }
 
             /*

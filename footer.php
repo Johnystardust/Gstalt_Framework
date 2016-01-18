@@ -21,6 +21,7 @@ $bottom_hover_color         = get_theme_mod('bottom_hover_color');
 
 $top_padding                = get_theme_mod('footer_top_padding');
 $top_margin                 = get_theme_mod('footer_top_margin');
+$footer_fixed               = get_theme_mod('footer_fixed');
 
 $bottom_padding             = get_theme_mod('footer_bottom_padding');
 $bottom_margin              = get_theme_mod('footer_bottom-margin');
@@ -34,6 +35,17 @@ $social_twitter             = get_theme_mod('social_twitter');
 $social_linkedin            = get_theme_mod('social_linkedin');
 $social_instagram           = get_theme_mod('social_instagram');
 $social_youtube             = get_theme_mod('social_youtube');
+
+/*
+|----------------------------------------------------------------
+|   Footer Fixed.
+|----------------------------------------------------------------
+*/
+if($footer_fixed){
+    $fixed_class = 'fixed';
+}
+
+
 ?>
 
 <style type="text/css">

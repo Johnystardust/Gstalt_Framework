@@ -328,7 +328,8 @@ p {
   letter-spacing: 0.5px;
   line-height: 21px;
   margin-top: 10px;
-  display: inline-block; }
+  display: inline-block;
+  width: 100%; }
   .content-wrapper p {
     margin-bottom: 0; }
 
@@ -336,11 +337,14 @@ p {
   margin-top: 30px; }
 
 .divider {
-  width: 70px;
-  border-color: rgba(0, 0, 0, 0.07);
-  border-width: 2px;
-  margin-top: 10px;
-  margin-bottom: 10px; }
+  display: inline-block;
+  width: 100%; }
+  .divider hr {
+    width: 70px;
+    border-color: rgba(0, 0, 0, 0.07);
+    border-width: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px; }
 
 .social-icons .social-icon {
   float: right;

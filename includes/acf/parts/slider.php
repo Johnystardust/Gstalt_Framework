@@ -161,7 +161,9 @@ echo '<div id="slider" class="container-fluid no-padding" data-slide-style="'.$s
                                             $divider_align = 'float: right;';
                                         }
 
-                                        echo '<hr class="divider" style="'.$divider_align.'" />';
+                                        echo '<div class="divider">';
+                                            echo '<hr style="'.$divider_align.'" />';
+                                        echo '</div>';
                                     }
 
                                     /*
