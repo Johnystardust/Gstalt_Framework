@@ -56,6 +56,14 @@ function tvds_customizer_init($wp_customize){
         )
     );
 
+    // Hide Contact on mobile
+    $wp_customize->add_setting(
+        'contact_hide_mobile',
+        array(
+            'default' => '1'
+        )
+    );
+
     // Background transparent
     $wp_customize->add_setting(
         'menu_background_transparent',
@@ -175,6 +183,16 @@ function tvds_customizer_init($wp_customize){
         'contact_hide_scroll',
         array(
             'label' => 'Hide contact after scroll',
+            'section' => 'header_section',
+            'type' => 'checkbox'
+        )
+    );
+
+    // Hide Contact on mobile
+    $wp_customize->add_control(
+        'contact_hide_mobile',
+        array(
+            'label' => 'Hide contact on mobile',
             'section' => 'header_section',
             'type' => 'checkbox'
         )

@@ -1,27 +1,142 @@
+// Class that gets added to the html when user is using a mobile device.
 .mobile
 
+  // Hide all the elements that are selected to be hidden on mobile
   .hide-mobile
     display: none !important
 
-  //// Text and Image
-  //#text-with-image
-  //  .text
-  //    position: relative !important
-  //  .image
-  //    img
-  //      float: none !important
-  //      margin: 0 auto
 
-
-// Ipad Portrait mode and small screens
+//--------------------------------------------------------------//
+//           iPad Portrait mode and small screens               //
+//--------------------------------------------------------------//
 @media screen and (max-width: 768px)
 
-  // Cards with icon
+  //-----------------------//
+  //    CARDS WITH ICON    //
+  //-----------------------//
   #cards-with-icon
     .card-with-icon
       margin-bottom: 20px
 
-  // Action Bar
+  //-----------------------//
+  //      ACTION BAR       //
+  //-----------------------//
   #action-bar
     .action-link
       margin-bottom: 20px
+
+//--------------------------------------------------------------//
+//           iPad Landscape mode and small screens              //
+//--------------------------------------------------------------//
+@media screen and (max-width: 1024px)
+
+  // Hide all the elements that are selected to be hidden on mobile
+  .hide-mobile
+    display: none !important
+
+  //-----------------------//
+  //    TEXT AND IMAGE     //
+  //-----------------------//
+  #text-with-image
+    .text
+      position: relative !important
+    .image
+      img
+        float: none !important
+        margin: 0 auto
+
+  //-----------------------//
+  //          MENU         //
+  //-----------------------//
+  .main-menu
+    display: none !important
+
+  .mobile-menu
+    display: block !important
+
+  // Mobile Menu
+  .mobile-menu
+    float: right
+    
+    .menu-icon-wrapper
+      height: 64px
+      .menu-icon
+        cursor: pointer
+        height: 22px
+        width: 36px
+        position: relative
+        top: 21px
+        span
+          display: block
+          position: absolute
+          width: 36px
+          height: 4px
+          border-radius: 9px
+          -webkit-transform: rotate(0deg)
+          -moz-transform: rotate(0deg)
+          -o-transform: rotate(0deg)
+          transform: rotate(0deg)
+          -webkit-transition: .3s ease-in-out
+          -moz-transition: .3s ease-in-out
+          -o-transition: .3s ease-in-out
+          transition: .3s ease-in-out
+
+          background-color: #000000
+        span:nth-child(1)
+          top: 0px
+
+        span:nth-child(2)
+          top: 9px
+          left: 0
+
+        span:nth-child(3)
+          top: 18px
+
+      .open
+        span:nth-child(1)
+          top: 9px
+          -webkit-transform: rotate(135deg)
+          -moz-transform: rotate(135deg)
+          -o-transform: rotate(135deg)
+          transform: rotate(135deg)
+
+        span:nth-child(2)
+          opacity: 0
+          left: -60px
+
+        span:nth-child(3)
+          top: 9px
+          -webkit-transform: rotate(-135deg)
+          -moz-transform: rotate(-135deg)
+          -o-transform: rotate(-135deg)
+          transform: rotate(-135deg)
+
+        
+    .mobile-hoofdmenu-wrapper
+      position: absolute
+      width: 100%
+      left: 0
+
+    ul
+      list-style-type: none
+      max-height: 0
+      overflow: hidden
+      -webkit-transition: .6s ease-in-out
+      -moz-transition: .6s ease-in-out
+      -o-transition: .6s ease-in-out
+      transition: .6s ease-in-out
+      li
+        a
+          display: block
+          font-size: 14px
+          background-color: #222
+          width: 100%
+          padding: 12px 30px
+          border-top: 1px solid rgba(255, 255, 255, 0.1)
+          border-bottom: 1px solid rgba(0,0,0,0.3)
+        a:hover
+          background-color: #2a2a2a
+
+    .mobile-menu-open
+      max-height: 700px
+

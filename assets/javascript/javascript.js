@@ -6,12 +6,22 @@ $ = jQuery;
 
 $(document).ready(function(){
     /*
+    |----------------------------------------------------------------
+    |   Vars
+    |----------------------------------------------------------------
+    */
+    var html        = $('html');
+    var header      = $('#header');
+
+
+    var windowWidth = $(window).width();
+
+    /*
     |-------------------------------------------------------------------------------------------------------------------------------------------------
     |   Set Mobile Device classes.
     |-------------------------------------------------------------------------------------------------------------------------------------------------
     */
     var deviceAgent = navigator.userAgent.toLowerCase();
-    var html        = $('html');
 
     if (deviceAgent.match(/(iphone|ipod|ipad)/)) {
         html.addClass('ios');
@@ -31,6 +41,103 @@ $(document).ready(function(){
     if (deviceAgent.match(/(symbianos|^sonyericsson|^nokia|^samsung|^lg)/)) {
         html.addClass('mobile');
     }
+
+    /*
+    |----------------------------------------------------------------
+    |   Window resize function
+    |----------------------------------------------------------------
+    */
+    $(window).resize(function(){
+        // Reset variables
+        windowWidth = $(window).width();
+
+        // Run functions
+        menu_background_color();
+    });
+
+    /*
+    |----------------------------------------------------------------
+    |   Menu Background color on scroll
+    |----------------------------------------------------------------
+    */
+    function menu_background_color(){
+        // Check if the header has a class of 'transparent' and the 'windowWidth' is above 1024
+        if(header.hasClass('transparent') && windowWidth > 1024){
+            // Add the class to the header
+            header.addClass('menu-transparent');
+
+            // Window scroll function to set menu background color
+            $(window).scroll(function(){
+                var $this = $(this),
+                    pos = $this.scrollTop();
+
+                if(pos < 10 && windowWidth > 1024){
+                    header.addClass('menu-transparent');
+                }
+                else {
+                    header.removeClass('menu-transparent');
+                }
+            });
+        }
+        else {
+            // If the condition isn't met, remove the class
+            header.removeClass('menu-transparent');
+        }
+    }
+    menu_background_color();
+
+    /*
+    |----------------------------------------------------------------
+    |   Hide contact on scroll
+    |----------------------------------------------------------------
+    */
+    function hide_contact_on_scroll(){
+        // Check if the header has a class of 'hide-contact'
+        if(header.hasClass('hide-contact')) {
+
+            // Check if the menu-top has a class of hide-mobile
+            if($('.menu-top').hasClass('hide-mobile')){
+                $(window).scroll(function() {
+                    var $this = $(this),
+                        pos = $this.scrollTop();
+
+                    if(pos > 10 && windowWidth > 1024){
+                        header.addClass('menu-open');
+                    }
+                    else {
+                        header.removeClass('menu-open');
+                    }
+                });
+            }
+            else {
+                $(window).scroll(function() {
+                    var $this = $(this),
+                        pos = $this.scrollTop();
+
+                    if(pos > 10){
+                        header.addClass('menu-open');
+                    }
+                    else {
+                        header.removeClass('menu-open');
+                    }
+                });
+            }
+        }
+    }
+    hide_contact_on_scroll();
+
+    /*
+    |-------------------------------------------------------------------------------------------------------------------------------------------------
+    |   Open the mobile menu
+    |-------------------------------------------------------------------------------------------------------------------------------------------------
+    */
+    $('.menu-icon').click(function(){
+        // Add the class to the mobile hoofdmenu
+        $('#mobile-hoofmenu').toggleClass('mobile-menu-open');
+
+        // Add the class to the menu icon
+        $(this).toggleClass('open');
+    });
 
     /*
     |-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -81,56 +188,6 @@ $(document).ready(function(){
             $('.faq').removeClass('active');
         }
     });
-
-    /*
-    |-------------------------------------------------------------------------------------------------------------------------------------------------
-    |   Menu.
-    |-------------------------------------------------------------------------------------------------------------------------------------------------
-    */
-    var header = $('#header');
-
-    /*
-    |----------------------------------------------------------------
-    |   Hide contact on scroll
-    |----------------------------------------------------------------
-    */
-    if(header.hasClass('hide-contact')){
-
-        // The scroll function
-        $(window).scroll(function() {
-            var $this = $(this),
-                pos = $this.scrollTop();
-
-            if(pos > 10){
-                header.addClass('menu-open');
-            }
-            else {
-                header.removeClass('menu-open');
-            }
-        });
-    }
-
-    /*
-    |----------------------------------------------------------------
-    |   Background color on scroll
-    |----------------------------------------------------------------
-    */
-    if(header.hasClass('transparent')){
-
-        header.addClass('menu-transparent');
-
-        $(window).scroll(function() {
-            var $this = $(this),
-                pos = $this.scrollTop();
-
-            if(pos < 10){
-                header.addClass('menu-transparent');
-            }
-            else {
-                header.removeClass('menu-transparent');
-            }
-        });
-    }
 
     /*
     |-------------------------------------------------------------------------------------------------------------------------------------------------
