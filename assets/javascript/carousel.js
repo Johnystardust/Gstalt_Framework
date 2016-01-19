@@ -20,8 +20,15 @@ $(document).ready(function(){
     var wrapper     = $('.carousel-wrapper');
     var ul          = $('.carousel-container');
     var slide_count = ul.children().length;
+    var item_width;
 
-    var item_width  = wrapper.width() / 5;
+    if(wrapper.width() < 649){
+        item_width = wrapper.width() / 3;
+    }
+    if(wrapper.width() > 649){
+        item_width = wrapper.width() / 5;
+    }
+
     var ul_width    = item_width * (slide_count + 1);
 
     var slide_time  = carousel.attr('data-slide-time');

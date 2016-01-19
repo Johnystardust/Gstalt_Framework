@@ -309,6 +309,10 @@ p {
 #portfolio .buttons {
   margin-top: 20px; }
 
+body {
+  width: 100%;
+  overflow: hidden; }
+
 .container-capped {
   padding: 0 60px; }
 
@@ -359,10 +363,20 @@ p {
   position: fixed;
   text-align: center;
   display: table;
-  z-index: 10000000;
+  z-index: 1000000000;
   cursor: pointer; }
   #go-up i {
     display: table-cell;
     vertical-align: middle; }
+
+.mobile .hide-mobile {
+  display: none !important; }
+
+@media screen and (max-width: 768px) {
+  #cards-with-icon .card-with-icon {
+    margin-bottom: 20px; }
+
+  #action-bar .action-link {
+    margin-bottom: 20px; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -13,8 +13,8 @@ $slider                 = get_sub_field('slider');
 $slider_animation_style = get_sub_field('slider_animation_style');
 $slide_time             = get_sub_field('slide_time');
 $slider_control         = get_sub_field('slider_control');
-$show_on_desktop        = get_sub_field('show_on_desktop');
-$show_on_mobile         = get_sub_field('show_on_mobile');
+
+$hide_on_mobile         = get_sub_field('hide_on_mobile');
 
 $slide_count            = (count($slider));
 
@@ -23,7 +23,7 @@ $slide_count            = (count($slider));
 |   The Slider block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="slider" class="container-fluid no-padding" data-slide-style="'.$slider_animation_style.'" data-slide-time="'.$slide_time.'">';
+echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'hide-mobile' : '').'" data-slide-style="'.$slider_animation_style.'" data-slide-time="'.$slide_time.'">';
     echo '<ul class="slide-container">';
         /*
         |----------------------------------------------------------------
@@ -110,7 +110,7 @@ echo '<div id="slider" class="container-fluid no-padding" data-slide-style="'.$s
                         $image_content_top      = $slide_content['image_content_top'];
                         $image_content_size     = $slide_content['image_content_size'];
 
-                        $show_content_on_mobile = $slide_content['show_on_mobile'];
+                        $hide_content_on_mobile = $slide_content['hide_on_mobile'];
 
                         $margin                 = $slide_content['margin'];
                         $padding                = $slide_content['padding'];
@@ -120,7 +120,7 @@ echo '<div id="slider" class="container-fluid no-padding" data-slide-style="'.$s
                         |   Slider Content.
                         |----------------------------------------------------------------
                         */
-                        echo '<div class="'.$col_size.'">';
+                        echo '<div class="'.$col_size.' '.($hide_content_on_mobile ? 'hide-mobile' : '').'">';
                             echo '<div class="slide-content-inner" style="margin: '.$margin.'; padding: '.$padding.';">';
 
                                 /*

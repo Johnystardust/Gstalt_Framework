@@ -96,8 +96,8 @@ elseif($block_width == 50){
     $image_block = 'col-md-6';
 }
 elseif($block_width == 66){
-    $text_block = 'col-md-8';
-    $image_block = 'col-md-4';
+    $text_block = 'col-md-8 col-sm-12';
+    $image_block = 'col-md-4 col-sm-12';
 }
 elseif($block_width == 75){
     $text_block = 'col-md-9';
@@ -140,6 +140,10 @@ elseif($border == 'none'){
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
 echo '<div id="text-with-image" class="container-fluid no-padding" style="background-color: '.$background_color.'; '.$border_type.'; margin: '.$margin.'; padding: '.$padding.';">';
+
+    echo '<div class="'.$image_block.' no-padding image '.$img_order.'">';
+        echo '<img style="'.$image_alignment.';" src="'.$image.'" width="'.$image_width.'" />';
+    echo '</div>'; // image closing tag
 
     echo '<div class="'.$text_block.' no-padding text" style="'.$txt_order.'">';
         echo '<div class="text-content">';
@@ -213,9 +217,5 @@ echo '<div id="text-with-image" class="container-fluid no-padding" style="backgr
             echo '</div>'; // middle wrap closing tag
         echo '</div>'; // text content closing tag
     echo '</div>'; // text closing tag
-
-    echo '<div class="'.$image_block.' no-padding image '.$img_order.'">';
-        echo '<img style="'.$image_alignment.';" src="'.$image.'" width="'.$image_width.'" />';
-    echo '</div>'; // image closing tag
 
 echo '</div>'; // container closing tag

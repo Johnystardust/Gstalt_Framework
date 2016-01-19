@@ -115,7 +115,7 @@ echo '<div id="action-bar" class="container-fluid container-capped" style="backg
     |----------------------------------------------------------------
     */
     if(!empty($action_link_1)){
-        echo '<div class="'.$col_width.'">';
+        echo '<div class="action-link '.$col_width.'">';
             /*
             |----------------------------------------------------------------
             |   If '$action_blank' is set '$target' is _blank.
@@ -129,7 +129,7 @@ echo '<div id="action-bar" class="container-fluid container-capped" style="backg
             }
 
             // Display the button
-            echo '<a href="'.$action_link_1.'" class="action-link" target="'.$target.'" style="color: '.$button_text_color.'; text-transform: '.$text_transform.';">';
+            echo '<a href="'.$action_link_1.'" target="'.$target.'" style="color: '.$button_text_color.'; text-transform: '.$text_transform.';">';
                 echo '<div class="action-button" style="background: '.$button_background_color.'; border: '.$button_border_color.' solid '.$button_border_width.'px;">'.$action_title_1.'</div>';
             echo '</a>';
 
@@ -142,7 +142,7 @@ echo '<div id="action-bar" class="container-fluid container-capped" style="backg
     |----------------------------------------------------------------
     */
     if(!empty($action_link_2)){
-        echo '<div class="'.$col_width.'">';
+        echo '<div class="action-link '.$col_width.'">';
             /*
             |----------------------------------------------------------------
             |   If '$action_blank' is set '$target' is _blank.
@@ -169,7 +169,7 @@ echo '<div id="action-bar" class="container-fluid container-capped" style="backg
     |----------------------------------------------------------------
     */
     if(!empty($action_link_3)){
-        echo '<div class="'.$col_width.'">';
+        echo '<div class="action-link '.$col_width.'">';
             /*
             |----------------------------------------------------------------
             |   If '$action_blank' is set '$target' is _blank.
@@ -196,7 +196,7 @@ echo '<div id="action-bar" class="container-fluid container-capped" style="backg
     |----------------------------------------------------------------
     */
     if(!empty($action_link_4)){
-        echo '<div class="'.$col_width.'">';
+        echo '<div class="action-link '.$col_width.'">';
             /*
             |----------------------------------------------------------------
             |   If '$action_blank' is set '$target' is _blank.

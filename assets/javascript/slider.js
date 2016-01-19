@@ -103,7 +103,7 @@ $(document).ready(function(){
             slide_index = 0;
         }
     }
-    timer = setInterval(slide_timer, slide_time);
+    //timer = setInterval(slide_timer, slide_time);
 
     /*
     |----------------------------------------------------------------
@@ -115,8 +115,8 @@ $(document).ready(function(){
         var slide_number = $(this).attr('data-slide-number');
 
         //// Restart the timer
-        clearInterval(timer);
-        timer = setInterval(slide_timer, slide_time);
+        //clearInterval(timer);
+        //timer = setInterval(slide_timer, slide_time);
 
         // Call the setSlide function
         slide(slide_number)
@@ -129,8 +129,8 @@ $(document).ready(function(){
     */
     slide_next.click(function(){
         // Restart the timer
-        clearInterval(timer);
-        timer = setInterval(slide_timer, slide_time);
+        //clearInterval(timer);
+        //timer = setInterval(slide_timer, slide_time);
 
         // Call the setSlide function
         slide(slide_index + 1);
@@ -143,8 +143,8 @@ $(document).ready(function(){
     */
     slide_prev.click(function(){
         // Restart the timer
-        clearInterval(timer);
-        timer = setInterval(slide_timer, slide_time);
+        //clearInterval(timer);
+        //timer = setInterval(slide_timer, slide_time);
 
         // Call the setSlide function
         slide(slide_index - 1);
