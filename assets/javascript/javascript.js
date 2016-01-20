@@ -53,6 +53,10 @@ $(document).ready(function(){
 
         // Run functions
         menu_background_color();
+
+        // Set the cols back to auto and run the function
+        $('.col').css('height', 'auto');
+        even_cols();
     });
 
     /*
@@ -144,17 +148,20 @@ $(document).ready(function(){
     |   Even Col Height.
     |-------------------------------------------------------------------------------------------------------------------------------------------------
     */
-    $('.same-col-height').each(function(){
-        var maxHeight = -1;
+    function even_cols(){
+        $('.same-col-height').each(function(){
+            var maxHeight = -1;
 
-        $(this).find('.col').each(function(){
-            if($(this).height() > maxHeight){
-                maxHeight = $(this).height();
-            }
+            $(this).find('.col').each(function(){
+                if($(this).height() > maxHeight){
+                    maxHeight = $(this).height();
+                }
+            });
+
+            $(this).find('.col').height(maxHeight);
         });
-
-        $(this).find('.col').height(maxHeight);
-    });
+    }
+    even_cols();
 
     /*
     |-------------------------------------------------------------------------------------------------------------------------------------------------

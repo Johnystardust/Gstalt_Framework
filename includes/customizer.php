@@ -96,6 +96,62 @@ function tvds_customizer_init($wp_customize){
         )
     );
 
+    // Mobile menu text color
+    $wp_customize->add_setting(
+        'mobile_menu_text_color',
+        array(
+            'default' => '#ffffff'
+        )
+    );
+
+    // Mobile menu background color
+    $wp_customize->add_setting(
+        'mobile_menu_background_color',
+        array(
+            'default' => '#000000'
+        )
+    );
+
+    // Mobile menu background hover color
+    $wp_customize->add_setting(
+        'mobile_menu_background_hover_color',
+        array(
+            'default' => '#000000'
+        )
+    );
+
+    // Mobile menu top border color
+    $wp_customize->add_setting(
+        'mobile_menu_top_border_color',
+        array(
+            'default' => '#000000'
+        )
+    );
+
+    //  Mobile menu top border width
+    $wp_customize->add_setting(
+        'mobile_menu_top_border_width',
+        array(
+            'default' => ''
+        )
+    );
+
+    // Mobile menu bottom border color
+    $wp_customize->add_setting(
+        'mobile_menu_bottom_border_color',
+        array(
+            'default' => '#000000'
+        )
+    );
+
+    //  Mobile menu bottom border width
+    $wp_customize->add_setting(
+        'mobile_menu_bottom_border_width',
+        array(
+            'default' => ''
+        )
+    );
+
     // Font size
     $wp_customize->add_setting(
         'menu_font_size',
@@ -244,6 +300,93 @@ function tvds_customizer_init($wp_customize){
                 'section'   => 'header_section',
                 'settings'  => 'menu_hover_color'
             )
+        )
+    );
+
+    // Mobile menu text color
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'mobile_menu_text_color',
+            array(
+                'label'     => 'Mobile menu text color',
+                'section'   => 'header_section',
+                'settings'  => 'mobile_menu_text_color'
+            )
+        )
+    );
+
+    // Mobile menu background color
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'mobile_menu_background_color',
+            array(
+                'label'     => 'Mobile menu background color',
+                'section'   => 'header_section',
+                'settings'  => 'mobile_menu_background_color'
+            )
+        )
+    );
+
+    // Mobile menu background hover color
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'mobile_menu_background_hover_color',
+            array(
+                'label'     => 'Mobile menu background hover color',
+                'section'   => 'header_section',
+                'settings'  => 'mobile_menu_background_hover_color'
+            )
+        )
+    );
+
+    // Mobile menu top border color
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'mobile_menu_top_border_color',
+            array(
+                'label'     => 'Mobile menu top border color',
+                'section'   => 'header_section',
+                'settings'  => 'mobile_menu_top_border_color'
+            )
+        )
+    );
+
+    //  Mobile menu top border width
+    $wp_customize->add_control(
+        'mobile_menu_top_border_width',
+        array(
+            'label'         => 'Mobile menu top border width',
+            'section'       => 'header_section',
+            'description'   => 'Mobile menu item top border width',
+            'type'          => 'number'
+        )
+    );
+
+    // Mobile menu bottom border color
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'mobile_menu_bottom_border_color',
+            array(
+                'label'     => 'Mobile menu bottom border color',
+                'section'   => 'header_section',
+                'settings'  => 'mobile_menu_bottom_border_color'
+            )
+        )
+    );
+
+    //  Mobile menu bottom border width
+    $wp_customize->add_control(
+        'mobile_menu_bottom_border_width',
+        array(
+            'label'         => 'Mobile menu bottom border width',
+            'section'       => 'header_section',
+            'description'   => 'Mobile menu item bottom border width',
+            'type'          => 'number'
         )
     );
 

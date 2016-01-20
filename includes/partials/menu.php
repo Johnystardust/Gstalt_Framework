@@ -11,45 +11,55 @@
 */
 
 // Styles & images
-$background_color           = get_theme_mod('menu_background_color', '#ffffff');
-$background_transparent     = get_theme_mod('menu_background_transparent');
+$background_color                   = get_theme_mod('menu_background_color', '#ffffff');
+$background_transparent             = get_theme_mod('menu_background_transparent');
 
-$border                     = get_theme_mod('menu_border');
-$border_color               = get_theme_mod('menu_border_color');
-$border_width               = get_theme_mod('menu_border_width');
+$border                             = get_theme_mod('menu_border');
+$border_color                       = get_theme_mod('menu_border_color');
+$border_width                       = get_theme_mod('menu_border_width');
 
-$text_color                 = get_theme_mod('menu_text_color');
-$transparent_text_color     = get_theme_mod('menu_transparent_text_color');
-$hover_color                = get_theme_mod('menu_hover_color');
-$font_size                  = get_theme_mod('menu_font_size');
-$menu_text_transform        = get_theme_mod('menu_text_transform');
+$text_color                         = get_theme_mod('menu_text_color');
+$transparent_text_color             = get_theme_mod('menu_transparent_text_color');
+$hover_color                        = get_theme_mod('menu_hover_color');
 
-$menu_logo                  = get_theme_mod('menu_logo');
-$transparent_menu_logo      = get_theme_mod('transparent_menu_logo');
+$mobile_menu_text_color             = get_theme_mod('mobile_menu_text_color');
+$mobile_menu_background_color       = get_theme_mod('mobile_menu_background_color');
+$mobile_menu_background_hover_color = get_theme_mod('mobile_menu_background_hover_color');
+$mobile_menu_top_border_color       = get_theme_mod('mobile_menu_top_border_color');
+$mobile_menu_top_border_width       = get_theme_mod('mobile_menu_top_border_width');
+$mobile_menu_bottom_border_color    = get_theme_mod('mobile_menu_bottom_border_color');
+$mobile_menu_bottom_border_width    = get_theme_mod('mobile_menu_bottom_border_width');
 
-$menu_position              = get_theme_mod('menu_position', 'fixed');
+$font_size                          = get_theme_mod('menu_font_size');
+$menu_text_transform                = get_theme_mod('menu_text_transform');
 
-$contact_show               = get_theme_mod('contact_show');
-$contact_hide_scroll        = get_theme_mod('contact_hide_scroll');
-$contact_hide_mobile        = get_theme_mod('contact_hide_mobile');
+$menu_logo                          = get_theme_mod('menu_logo');
+$transparent_menu_logo              = get_theme_mod('transparent_menu_logo');
+
+$menu_position                      = get_theme_mod('menu_position', 'fixed');
+
+$contact_show                       = get_theme_mod('contact_show');
+$contact_hide_scroll                = get_theme_mod('contact_hide_scroll');
+$contact_hide_mobile                = get_theme_mod('contact_hide_mobile');
 
 // Contact information
-$contact_telephone          = get_theme_mod('contact_telephone');
-$contact_email              = get_theme_mod('contact_email');
+$contact_telephone                  = get_theme_mod('contact_telephone');
+$contact_email                      = get_theme_mod('contact_email');
 
-$social_facebook            = get_theme_mod('social_facebook');
-$social_google              = get_theme_mod('social_google');
-$social_pinterest           = get_theme_mod('social_pinterest');
-$social_twitter             = get_theme_mod('social_twitter');
-$social_linkedin            = get_theme_mod('social_linkedin');
-$social_instagram           = get_theme_mod('social_instagram');
-$social_youtube             = get_theme_mod('social_youtube');
+$social_facebook                    = get_theme_mod('social_facebook');
+$social_google                      = get_theme_mod('social_google');
+$social_pinterest                   = get_theme_mod('social_pinterest');
+$social_twitter                     = get_theme_mod('social_twitter');
+$social_linkedin                    = get_theme_mod('social_linkedin');
+$social_instagram                   = get_theme_mod('social_instagram');
+$social_youtube                     = get_theme_mod('social_youtube');
 
 /*
 |----------------------------------------------------------------
 |   Menu border options.
 |----------------------------------------------------------------
 */
+// Menu border
 if($border == 'border_bottom'){
     $border_style = 'border-bottom: '.$border_width.'px solid '.$border_color.';';
 }
@@ -63,13 +73,24 @@ else {
     $border_style = '';
 }
 
-
-
+// Mobile menu border
+if(!empty($mobile_menu_top_border_width) && empty($mobile_menu_bottom_border_width)){
+    $mobile_menu_border_style = 'border-top: '.$mobile_menu_top_border_width.'px solid '.$mobile_menu_top_border_color.';';
+}
+elseif(!empty($mobile_menu_bottom_border_width) && empty($mobile_menu_top_border_width)){
+    $mobile_menu_border_style = 'border-top: '.$mobile_menu_bottom_border_width.'px solid '.$mobile_menu_bottom_border_color.';';
+}
+elseif(!empty($mobile_menu_top_border_width) && !empty($mobile_menu_bottom_border_width)){
+    $mobile_menu_border_style = 'border-top: '.$mobile_menu_top_border_width.'px solid '.$mobile_menu_top_border_color.'; border-bottom: '.$mobile_menu_bottom_border_width.'px solid '.$mobile_menu_bottom_border_color.';';
+}
+else {
+    $mobile_menu_border_style = '';
+}
 ?>
 
 <style type="text/css">
     #header {
-    <?php echo $border_style; ?>;
+        <?php echo $border_style; ?>;
     }
 
     .menu-transparent {
@@ -80,17 +101,28 @@ else {
         color: <?php echo $text_color; ?>;
     }
 
-    .main-menu a, .mobile-menu i, .mobile-menu a {
+    .main-menu a {
         text-transform: <?php echo $menu_text_transform; ?>;
         color: <?php echo $text_color; ?>;
     }
 
-    .main-menu a:hover, .mobile-menu i:hover, .mobile-menu a:hover, .social-icon:hover {
+    .main-menu a:hover, .mobile-menu a:hover, .social-icon:hover {
         color: <?php echo $hover_color; ?> !important;
     }
 
     .menu-transparent .main-menu a, .menu-transparent .mobile-menu i, .menu-transparent .mobile-menu a, .menu-transparent .social-icons,  .menu-transparent .menu-top {
         color: <?php echo $transparent_text_color; ?>;
+    }
+
+    .mobile-menu a {
+        text-transform: <?php echo $menu_text_transform; ?>;
+        color: <?php echo $mobile_menu_text_color; ?>;
+        background: <?php echo $mobile_menu_background_color; ?>;
+        <?php echo $mobile_menu_border_style; ?>;
+    }
+
+    .mobile-menu a:hover {
+        background: <?php echo $mobile_menu_background_hover_color; ?> !important;
     }
 </style>
 

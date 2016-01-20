@@ -96,8 +96,8 @@ elseif($block_width == 50){
     $image_block = 'col-md-6';
 }
 elseif($block_width == 66){
-    $text_block = 'col-md-8 col-sm-12';
-    $image_block = 'col-md-4 col-sm-12';
+    $text_block = 'col-md-8 col-sm-12 col-xs-12';
+    $image_block = 'col-md-4 col-sm-12 col-xs-12';
 }
 elseif($block_width == 75){
     $text_block = 'col-md-9';

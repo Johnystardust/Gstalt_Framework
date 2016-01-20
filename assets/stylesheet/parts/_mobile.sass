@@ -11,6 +11,22 @@
 //--------------------------------------------------------------//
 @media screen and (max-width: 768px)
 
+
+
+
+//--------------------------------------------------------------//
+//           iPad Landscape mode and small screens              //
+//--------------------------------------------------------------//
+@media screen and (max-width: 1024px)
+  // Set the container capped
+  .container-capped
+    padding-left: 30px !important
+    padding-right: 30px !important
+
+  // Hide all the elements that are selected to be hidden on mobile
+  .hide-mobile
+    display: none !important
+
   //-----------------------//
   //    CARDS WITH ICON    //
   //-----------------------//
@@ -24,15 +40,6 @@
   #action-bar
     .action-link
       margin-bottom: 20px
-
-//--------------------------------------------------------------//
-//           iPad Landscape mode and small screens              //
-//--------------------------------------------------------------//
-@media screen and (max-width: 1024px)
-
-  // Hide all the elements that are selected to be hidden on mobile
-  .hide-mobile
-    display: none !important
 
   //-----------------------//
   //    TEXT AND IMAGE     //
@@ -129,13 +136,10 @@
         a
           display: block
           font-size: 14px
-          background-color: #222
           width: 100%
-          padding: 12px 30px
-          border-top: 1px solid rgba(255, 255, 255, 0.1)
-          border-bottom: 1px solid rgba(0,0,0,0.3)
+          padding: 14px 30px
         a:hover
-          background-color: #2a2a2a
+          text-decoration: none
 
     .mobile-menu-open
       max-height: 700px

@@ -45,14 +45,14 @@ elseif($align == 'right'){
 |   The call to action block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="call-to-action" class="container-fluid no-padding" style="background-color: '.$background_color.'; height: '.$height.'px;">';
+echo '<div id="call-to-action" class="container-fluid no-padding same-col-height" style="background-color: '.$background_color.'; height: '.$height.'px;">';
     /*
     |----------------------------------------------------------------
     |   If the '$title' isn't empty display it.
     |----------------------------------------------------------------
     */
     if(!empty($title)){
-        echo '<div class="col-md-10 col no-padding" style="float: '.$txt_align.';">';
+        echo '<div class="col-md-10 col-sm-12 col-xs-12 col no-padding" style="float: '.$txt_align.';">';
             echo '<div class="text">';
                 echo '<div class="middle-wrap">';
                     // Display the title
@@ -78,7 +78,7 @@ echo '<div id="call-to-action" class="container-fluid no-padding" style="backgro
     |----------------------------------------------------------------
     */
     if(!empty($btn_link)){
-        echo '<div class="col-md-2 col no-padding" style="float: '.$btn_align.';">';
+        echo '<div class="col-md-2 col-sm-12 col-xs-12 col no-padding" style="float: '.$btn_align.';">';
             echo '<div class="buttons">';
                 echo '<div class="middle-wrap">';
                     // Display the button

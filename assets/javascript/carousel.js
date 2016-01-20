@@ -19,19 +19,51 @@ $(document).ready(function(){
     var carousel    = $('#carousel');
     var wrapper     = $('.carousel-wrapper');
     var ul          = $('.carousel-container');
-    var slide_count = ul.children().length;
-    var item_width;
 
-    if(wrapper.width() < 649){
+    var slide_count = ul.children().length;
+    var slide_time  = carousel.attr('data-slide-time');
+
+    var item_width;
+    var ul_width;
+
+    if(wrapper.width() < 649) {
+        item_width = wrapper.width() / 2;
+    }
+    else if(wrapper.width() > 649){
         item_width = wrapper.width() / 3;
     }
-    if(wrapper.width() > 649){
+    else if(wrapper.width() < 1024){
+        item_width = wrapper.width() / 4;
+    }
+    else if(wrapper.width() > 1024){
         item_width = wrapper.width() / 5;
     }
 
-    var ul_width    = item_width * (slide_count + 1);
+    ul_width = item_width * (slide_count + 1);
 
-    var slide_time  = carousel.attr('data-slide-time');
+    /*
+    |----------------------------------------------------------------
+    |   Resize function.
+    |----------------------------------------------------------------
+    */
+    $(window).resize(function(){
+        if(wrapper.width() < 649) {
+            item_width = wrapper.width() / 2;
+        }
+        else if(wrapper.width() > 649){
+            item_width = wrapper.width() / 3;
+        }
+        else if(wrapper.width() < 1024){
+            item_width = wrapper.width() / 4;
+        }
+        else if(wrapper.width() > 1024){
+            item_width = wrapper.width() / 5;
+        }
+
+        ul_width = item_width * (slide_count + 1);
+
+        setCSS();
+    });
 
     /*
     |----------------------------------------------------------------
