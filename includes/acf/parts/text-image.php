@@ -9,100 +9,18 @@
 |   Get all the fields an put them in variables for easy usage.
 |----------------------------------------------------------------
 */
-$title              = get_sub_field('title');
-$title_color        = get_sub_field('title_color');
-$subtitle           = get_sub_field('subtitle');
-$subtitle_color     = get_sub_field('subtitle_color');
-$subtitle_style     = get_sub_field('subtitle_style');
-$title_align        = get_sub_field('title_align');
-$divider            = get_sub_field('divider');
-
-$content            = get_sub_field('content');
-$content_color      = get_sub_field('content_color');
-$content_align      = get_sub_field('content_align');
-
-$btn_link           = get_sub_field('button_link');
-$btn_color          = get_sub_field('button_color');
-$btn_txt            = get_sub_field('button_text');
-$btn_txt_color      = get_sub_field('button_text_color');
-$btn_align          = get_sub_field('button_align');
-
-$image              = get_sub_field('image');
-$image_width        = get_sub_field('image_width');
-$image_align        = get_sub_field('image_align');
-
-$order              = get_sub_field('order');
-$block_width        = get_sub_field('block_width');
-$background_color   = get_sub_field('background_color');
-
 $margin             = get_sub_field('margin');
 $padding            = get_sub_field('padding');
+
+$background_color   = get_sub_field('background_color');
+$background_image   = get_sub_field('background_image');
+$background_align   = get_sub_field('image_align');
+$background_size    = get_sub_field('image_size');
 
 $border             = get_sub_field('border');
 $border_color       = get_sub_field('border_color');
 $border_size        = get_sub_field('border_size');
 $border_style       = get_sub_field('border_style');
-
-/*
-|-------------------------------------------------------------------------------------------------------------------------------------------------
-|   Alignment options.
-|-------------------------------------------------------------------------------------------------------------------------------------------------
-*/
-
-/*
-|----------------------------------------------------------------
-|   Blocks order
-|----------------------------------------------------------------
-*/
-if($order == 'text'){
-    $txt_order = 'left: 0;';
-    $img_order = 'pull-right';
-}
-elseif($order == 'image'){
-    $txt_order = 'right: 0;';
-    $img_order = 'pull-left';
-}
-
-/*
-|----------------------------------------------------------------
-|   Image align
-|----------------------------------------------------------------
-*/
-if($image_align == 'left'){
-    $image_alignment = 'float: left;';
-}
-elseif($image_align == 'right'){
-    $image_alignment = 'float: right;';
-}
-elseif($image_align == 'center'){
-    $image_alignment = 'margin: 0 auto;';
-}
-
-/*
-|----------------------------------------------------------------
-|   Block width
-|----------------------------------------------------------------
-*/
-if($block_width == 25){
-    $text_block = 'col-md-3';
-    $image_block = 'col-md-9';
-}
-elseif($block_width == 33){
-    $text_block = 'col-md-4';
-    $image_block = 'col-md-8';
-}
-elseif($block_width == 50){
-    $text_block = 'col-md-6';
-    $image_block = 'col-md-6';
-}
-elseif($block_width == 66){
-    $text_block = 'col-md-8 col-sm-12 col-xs-12';
-    $image_block = 'col-md-4 col-sm-12 col-xs-12';
-}
-elseif($block_width == 75){
-    $text_block = 'col-md-9';
-    $image_block = 'col-md-3';
-}
 
 /*
 |----------------------------------------------------------------
@@ -130,7 +48,7 @@ elseif($border == 'right'){
 elseif($border == 'leftright'){
     $border_type = 'border-left: '.$border_size.'px '.$border_style.' '.$border_color.'; border-right: '.$border_size.' '.$border_style.' '.$border_color.';';
 }
-elseif($border == 'none'){
+elseif($border == 'none') {
     $border_type = '';
 }
 
@@ -139,83 +57,264 @@ elseif($border == 'none'){
 |   Text with image block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="text-with-image" class="container-fluid no-padding" style="background-color: '.$background_color.'; '.$border_type.'; margin: '.$margin.'; padding: '.$padding.';">';
-
-    echo '<div class="'.$image_block.' no-padding image '.$img_order.'">';
-        echo '<img style="'.$image_alignment.';" src="'.$image.'" width="'.$image_width.'" />';
-    echo '</div>'; // image closing tag
-
-    echo '<div class="'.$text_block.' no-padding text" style="'.$txt_order.'">';
-        echo '<div class="text-content">';
-            echo '<div class="middle-wrap">';
+echo '<div id="text-with-image" class="container-fluid no-padding same-col-height" style="background: '.$background_color.' url('.$background_image.') '.$image_align.'; background-size: '.$background_size.'; margin: '.$margin.'; padding: '.$padding.'; '.$border_type.'">';
+    /*
+    |----------------------------------------------------------------
+    |   If the field is filled, get the row layout.
+    |----------------------------------------------------------------
+    */
+    if(get_sub_field('content')){
+        while(has_sub_field('content')){
+            switch(get_row_layout()){
                 /*
                 |----------------------------------------------------------------
-                |   If the '$title' isn't empty display it.
+                |   If row layout is text block.
                 |----------------------------------------------------------------
                 */
-                if(!empty($title)){
-                    // Display the title
-                    echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.';">'.$title.'</h3>';
+                case 'text_block':
+                    /*
+                    |----------------------------------------------------------------
+                    |   Get all the fields an put them in variables for easy usage.
+                    |----------------------------------------------------------------
+                    */
+                    $title              = get_sub_field('title');
+                    $title_color        = get_sub_field('title_color');
+
+                    $subtitle           = get_sub_field('subtitle');
+                    $subtitle_color     = get_sub_field('subtitle_color');
+                    $subtitle_style     = get_sub_field('subtitle_style');
+
+                    $divider            = get_sub_field('divider');
+                    $divider_color      = get_sub_field('divider_color');
+
+                    $title_align        = get_sub_field('title_align');
+
+                    $content            = get_sub_field('content');
+                    $content_color      = get_sub_field('content_color');
+                    $content_align      = get_sub_field('content_align');
+
+                    $buttons            = get_sub_field('buttons');
+
+                    $block_width        = get_sub_field('block_width');
+                    $margin             = get_sub_field('margin');
+                    $padding            = get_sub_field('padding');
+
+                    $overlay_active     = get_sub_field('overlay_active');
+                    $overlay_color      = get_sub_field('overlay_color');
+                    $overlay_opacity    = get_sub_field('overlay_opacity') / 100;
 
                     /*
                     |----------------------------------------------------------------
-                    |   If the '$subtitle' isn't empty display it.
+                    |   Determine block width.
                     |----------------------------------------------------------------
                     */
-                    if(!empty($subtitle)){
-                        // Display the subtitle
-                        echo '<h3 class="subtitle no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$title_align.';">'.$subtitle.'</h5>';
+                    if($block_width == '25'){
+                        $col_size = 'col-md-3';
                     }
-                }
+                    elseif($block_width == '33'){
+                        $col_size = 'col-md-4';
+                    }
+                    elseif($block_width == '50'){
+                        $col_size = 'col-md-6';
+                    }
+                    elseif($block_width == '66'){
+                        $col_size = 'col-md-8';
+                    }
+                    elseif($block_width == '75'){
+                        $col_size = 'col-md-9';
+                    }
+                    elseif($block_width == '100'){
+                        $col_size = 'col-md-12';
+                    }
 
-                /*
-                |----------------------------------------------------------------
-                |   If the '$divider' is set true display it.
-                |----------------------------------------------------------------
-                */
-                if($divider == true){
                     /*
                     |----------------------------------------------------------------
-                    |   Align the divider with the '$title_align'.
+                    |   Text Block.
                     |----------------------------------------------------------------
                     */
-                    if($title_align == 'center'){
-                        $divider_align = 'margin-left: auto; margin-right: auto;';
-                    }
-                    elseif($title_align == 'left'){
-                        $divider_align = 'float: left;';
-                    }
-                    elseif($title_align == 'right'){
-                        $divider_align = 'float: right;';
-                    }
+                    echo '<div class="text '.$col_size.' col no-padding" style="margin: '.$margin.'; padding: '.$padding.';">';
+                        echo '<div class="text-content">';
+                            echo '<div class="middle-wrap">';
+                                /*
+                                |----------------------------------------------------------------
+                                |   If the '$title' isn't empty display it.
+                                |----------------------------------------------------------------
+                                */
+                                if(!empty($title)){
+                                    // Display the title
+                                    echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.';">'.$title.'</h3>';
 
-                    echo '<div class="divider">';
-                        echo '<hr style="'.$divider_align.'" />';
-                    echo '</div>';
-                }
+                                    /*
+                                    |----------------------------------------------------------------
+                                    |   If the '$subtitle' isn't empty display it.
+                                    |----------------------------------------------------------------
+                                    */
+                                    if(!empty($subtitle)){
+                                        // Display the subtitle
+                                        echo '<h3 class="subtitle no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$title_align.';">'.$subtitle.'</h5>';
+                                    }
+                                }
 
+                                /*
+                                |----------------------------------------------------------------
+                                |   If the '$divider' is set true display it.
+                                |----------------------------------------------------------------
+                                */
+                                if($divider == true){
+                                    /*
+                                    |----------------------------------------------------------------
+                                    |   Align the divider with the '$title_align'.
+                                    |----------------------------------------------------------------
+                                    */
+                                    if($title_align == 'center'){
+                                        $divider_align = 'margin-left: auto; margin-right: auto;';
+                                    }
+                                    elseif($title_align == 'left'){
+                                        $divider_align = 'float: left;';
+                                    }
+                                    elseif($title_align == 'right'){
+                                        $divider_align = 'float: right;';
+                                    }
+
+                                    echo '<div class="divider">';
+                                        echo '<hr style="'.$divider_align.' border-color: '.$divider_color.';" />';
+                                    echo '</div>';
+                                }
+
+                                /*
+                                |----------------------------------------------------------------
+                                |   If the '$content' isn't empty display it.
+                                |----------------------------------------------------------------
+                                */
+                                if(!empty($content)){
+                                    echo '<div class="content-wrapper" style="color: '.$content_color.'; text-align: '.$content_align.';">'.$content.'</div>';
+                                }
+
+                                /*
+                                |----------------------------------------------------------------
+                                |   If the '$buttons' isn't empty display it.
+                                |----------------------------------------------------------------
+                                */
+                                if(!empty($buttons)){
+                                    echo '<div class="buttons" style="text-align: '.$title_align.'">';
+                                        /*
+                                        |----------------------------------------------------------------
+                                        |   Use foreach to loop over al the buttons.
+                                        |----------------------------------------------------------------
+                                        */
+                                        foreach($buttons as $button){
+                                            /*
+                                            |----------------------------------------------------------------
+                                            |   Get all the button fields.
+                                            |----------------------------------------------------------------
+                                            */
+                                            $btn_choice     = $button['button_choice'];
+                                            $btn_link       = $button['button_link'];
+                                            $btn_new_tab    = $button['button_new_tab'];
+                                            $btn_txt        = $button['button_text'];
+
+                                            /*
+                                            |----------------------------------------------------------------
+                                            |   If '$btn-link' isn't empty, display it.
+                                            |----------------------------------------------------------------
+                                            */
+                                            if(!empty($btn_link)){
+                                                echo '<a class="button '.$btn_choice.'" href="'.$btn_link.'" target="'.($btn_new_tab ? '_blank' : '_self').'">'.$btn_txt.'</a>';
+                                            }
+                                        }
+                                    echo '</div>'; // Buttons closing tag
+                                }
+
+                            echo '</div>'; // Middle Wrap closing tag
+                        echo '</div>'; // Text Content closing tag
+
+
+                        if($overlay_active){
+                            echo '<div class="overlay" style="background-color: '.$overlay_color.'; opacity: '.$overlay_opacity.';"></div>';
+                        }
+
+                    echo '</div>'; // Text closing tag
+
+                break;
                 /*
                 |----------------------------------------------------------------
-                |   If the '$content' isn't empty display it.
+                |   If row layout is text block.
                 |----------------------------------------------------------------
                 */
-                if(!empty($content)){
-                    echo '<div class="content-wrapper" style="color: '.$content_color.'; text-align: '.$content_align.';">'.$content.'</div>';
-                }
+                case 'image':
+                    /*
+                    |----------------------------------------------------------------
+                    |   Get all the fields an put them in variables for easy usage.
+                    |----------------------------------------------------------------
+                    */
+                    $image              = get_sub_field('image');
+                    $image_width        = get_sub_field('image_width');
+                    $image_align        = get_sub_field('image_align');
 
-                /*
-                |----------------------------------------------------------------
-                |   If the '$button_link' isn't empty display it.
-                |----------------------------------------------------------------
-                */
-                if(!empty($btn_link)){
-                    echo '<div class="buttons" style="text-align: '.$btn_align.';">';
-                        echo '<a class="button" href="'.$btn_link.'" style="background-color: '.$btn_color.'; color: '.$btn_txt_color.'">'.$btn_txt.'</a>';
-                    echo '</div>';
-                }
+                    $block_width        = get_sub_field('block_width');
+                    $margin             = get_sub_field('margin');
+                    $padding            = get_sub_field('padding');
 
-            echo '</div>'; // middle wrap closing tag
-        echo '</div>'; // text content closing tag
-    echo '</div>'; // text closing tag
+                    $overlay_active     = get_sub_field('overlay_active');
+                    $overlay_color      = get_sub_field('overlay_color');
+                    $overlay_opacity    = get_sub_field('overlay_opacity') / 100;
 
-echo '</div>'; // container closing tag
+                    /*
+                    |----------------------------------------------------------------
+                    |   Image align
+                    |----------------------------------------------------------------
+                    */
+                    if($image_align == 'left'){
+                        $image_alignment = 'float: left;';
+                    }
+                    elseif($image_align == 'right'){
+                        $image_alignment = 'float: right;';
+                    }
+                    elseif($image_align == 'center'){
+                        $image_alignment = 'margin: 0 auto;';
+                    }
+
+                    /*
+                    |----------------------------------------------------------------
+                    |   Determine block width.
+                    |----------------------------------------------------------------
+                    */
+                    if($block_width == '25'){
+                        $col_size = 'col-md-3';
+                    }
+                    elseif($block_width == '33'){
+                        $col_size = 'col-md-4';
+                    }
+                    elseif($block_width == '50'){
+                        $col_size = 'col-md-6';
+                    }
+                    elseif($block_width == '66'){
+                        $col_size = 'col-md-8';
+                    }
+                    elseif($block_width == '75'){
+                        $col_size = 'col-md-9';
+                    }
+                    elseif($block_width == '100'){
+                        $col_size = 'col-md-12';
+                    }
+
+                    /*
+                    |----------------------------------------------------------------
+                    |   Image Block.
+                    |----------------------------------------------------------------
+                    */
+                    echo '<div class="image '.$col_size.' col no-padding" style="margin: '.$margin.'; padding: '.$padding.';">';
+                        echo '<img style="'.$image_alignment.';" src="'.$image.'" width="'.$image_width.'" />';
+
+                        if($overlay_active){
+                            echo '<div class="overlay" style="background-color: '.$overlay_color.'; opacity: '.$overlay_opacity.';"></div>';
+                        }
+                    echo '</div>'; // Image closing tag
+
+                break;
+            }
+        }
+    }
+
+echo '</div>'; // Container closing tag
+

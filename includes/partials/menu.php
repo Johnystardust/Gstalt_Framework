@@ -165,7 +165,7 @@ echo '<header id="header" class="container-fluid container-capped '.($contact_hi
                 }
             echo '</div>';
 
-            echo '<div class="social-icons">';
+            echo '<div class="social-icons hide-mobile">';
                 /*
                 |----------------------------------------------------------------
                 |   If the social links are not empty display it.

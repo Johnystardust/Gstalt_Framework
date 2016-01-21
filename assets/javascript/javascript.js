@@ -54,7 +54,7 @@ $(document).ready(function(){
         // Run functions
         menu_background_color();
 
-        // Set the cols back to auto and run the function
+        // Set the cols back to auto and run t
         $('.col').css('height', 'auto');
         even_cols();
     });
@@ -159,6 +159,8 @@ $(document).ready(function(){
             });
 
             $(this).find('.col').height(maxHeight);
+
+
         });
     }
     even_cols();

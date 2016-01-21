@@ -179,7 +179,7 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
 
                                 /*
                                 |----------------------------------------------------------------
-                                |   If the '%buttons' isn't empty display it.
+                                |   If the '$buttons' isn't empty display it.
                                 |----------------------------------------------------------------
                                 */
                                 if(!empty($buttons)){
@@ -190,18 +190,23 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
                                     |----------------------------------------------------------------
                                     */
                                     foreach($buttons as $button){
+                                        /*
+                                        |----------------------------------------------------------------
+                                        |   Get all the button fields.
+                                        |----------------------------------------------------------------
+                                        */
+                                        $btn_choice     = $button['button_choice'];
                                         $btn_link       = $button['button_link'];
-                                        $btn_color      = $button['button_color'];
+                                        $btn_new_tab    = $button['button_new_tab'];
                                         $btn_txt        = $button['button_text'];
-                                        $btn_txt_color  = $button['button_text_color'];
 
                                         /*
                                         |----------------------------------------------------------------
-                                        |   If the '$btn_link' isn't empty display it.
+                                        |   If '$btn-link' isn't empty, display it.
                                         |----------------------------------------------------------------
                                         */
                                         if(!empty($btn_link)){
-                                            echo '<a class="button" href="'.$btn_link.'" style="background-color: '.$btn_color.'; color: '.$btn_txt_color.'">'.$btn_txt.'</a>';
+                                            echo '<a class="button '.$btn_choice.'" href="'.$btn_link.'" target="'.($btn_new_tab ? '_blank' : '_self').'">'.$btn_txt.'</a>';
                                         }
                                     }
                                     echo '</div>'; // Buttons closing tag

@@ -9,6 +9,9 @@ html {
 ul {
   margin: 0; }
 
+a:hover {
+  text-decoration: none; }
+
 .no-padding {
   padding: 0; }
 
@@ -76,11 +79,15 @@ ul {
 .menu-open {
   top: -40px !important; }
 
+.buttons .button:last-child {
+  margin-right: 0; }
+
 .button {
-  padding: 7px 20px;
-  border-radius: 10px;
   display: inline-block;
-  margin-right: 20px; }
+  margin-right: 20px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out; }
 
 body {
   font-family: "Lato", sans-serif; }
@@ -126,11 +133,25 @@ p {
   #footer .footer-bottom-inner .copyright {
     float: left; }
 
-#action-bar .action-link:hover {
+#action-bar .action-link a:hover {
   text-decoration: none; }
 #action-bar .action-button {
   padding: 15px 0;
   text-align: center; }
+
+#call-to-action {
+  padding: 35px 60px; }
+  #call-to-action .col {
+    height: 100%; }
+  #call-to-action .text {
+    display: table;
+    height: 100%; }
+    #call-to-action .text h3 {
+      line-height: 34px; }
+  #call-to-action .buttons {
+    display: table;
+    height: 100%;
+    margin-top: 0; }
 
 #cards .card-inner {
   padding: 65px 75px; }
@@ -169,19 +190,45 @@ p {
           width: 100%;
           height: auto; }
 
-#call-to-action {
-  padding: 35px 60px; }
-  #call-to-action .col {
-    height: 100%; }
-  #call-to-action .text {
-    display: table;
-    height: 100%; }
-    #call-to-action .text h3 {
-      line-height: 34px; }
-  #call-to-action .buttons {
-    display: table;
-    height: 100%;
-    margin-top: 0; }
+#faqs .faq-control {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-position: center -17px;
+  float: left;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out; }
+#faqs .faq-heading {
+  margin-left: 15px;
+  line-height: 20px; }
+#faqs .faq-answer {
+  margin-left: 35px;
+  height: auto;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out; }
+#faqs .active .faq-answer {
+  max-height: 400px; }
+
+#opening-times table {
+  width: 50%;
+  margin: 0 auto; }
+  #opening-times table td {
+    width: 50%; }
+
+#portfolio .title-subtitle {
+  margin-bottom: 20px; }
+#portfolio .portfolio-item a {
+  display: block; }
+#portfolio .portfolio-item img {
+  width: 100%;
+  height: auto; }
+#portfolio .buttons {
+  margin-top: 20px; }
 
 #slider {
   height: 100vh; }
@@ -264,52 +311,28 @@ p {
 
 #text-with-image {
   position: relative; }
-  #text-with-image .text {
-    position: absolute;
+  #text-with-image .overlay {
+    width: 100%;
     height: 100%;
-    top: 0; }
-    #text-with-image .text .text-content {
-      width: 100%;
-      height: 100%;
-      display: table;
-      padding: 0 120px; }
-  #text-with-image .image img {
-    display: block;
-    height: auto; }
-
-#faqs .faq-control {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-position: center -17px;
-  float: left;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out; }
-#faqs .faq-heading {
-  margin-left: 15px;
-  line-height: 20px; }
-#faqs .faq-answer {
-  margin-left: 35px;
-  height: auto;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out; }
-#faqs .active .faq-answer {
-  max-height: 400px; }
-
-#portfolio .title-subtitle {
-  margin-bottom: 20px; }
-#portfolio .portfolio-item a {
-  display: block; }
-#portfolio .portfolio-item img {
-  width: 100%;
-  height: auto; }
-#portfolio .buttons {
-  margin-top: 20px; }
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10; }
+  #text-with-image .text .text-content {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    display: table; }
+  #text-with-image .image {
+    position: relative;
+    overflow: hidden;
+    z-index: 100; }
+    #text-with-image .image img {
+      position: relative;
+      z-index: 100;
+      display: block;
+      height: auto; }
 
 body {
   width: 100%;

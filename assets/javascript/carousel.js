@@ -26,10 +26,7 @@ $(document).ready(function(){
     var item_width;
     var ul_width;
 
-    if(wrapper.width() < 649) {
-        item_width = wrapper.width() / 2;
-    }
-    else if(wrapper.width() > 649){
+    if(wrapper.width() < 649){
         item_width = wrapper.width() / 3;
     }
     else if(wrapper.width() < 1024){
@@ -47,10 +44,7 @@ $(document).ready(function(){
     |----------------------------------------------------------------
     */
     $(window).resize(function(){
-        if(wrapper.width() < 649) {
-            item_width = wrapper.width() / 2;
-        }
-        else if(wrapper.width() > 649){
+        if(wrapper.width() < 649){
             item_width = wrapper.width() / 3;
         }
         else if(wrapper.width() < 1024){

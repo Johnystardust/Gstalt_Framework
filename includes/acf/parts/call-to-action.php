@@ -45,7 +45,7 @@ elseif($align == 'right'){
 |   The call to action block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="call-to-action" class="container-fluid no-padding same-col-height" style="background-color: '.$background_color.'; height: '.$height.'px;">';
+echo '<div id="call-to-action" class="container-fluid container-capped same-col-height" style="background-color: '.$background_color.'; height: '.$height.'px;">';
     /*
     |----------------------------------------------------------------
     |   If the '$title' isn't empty display it.

@@ -167,7 +167,7 @@ echo '<div id="opening-times" class="container-fluid no-padding same-col-height"
                                 $time   = $opening_time['time'];
 
                                 echo '<tr>';
-                                    echo '<td colspan="2">'.$day.'</td><td colspan="2">'.$time.'</td>';
+                                    echo '<td>'.$day.'</td><td>'.$time.'</td>';
                                 echo '</tr>';
 
                             }
