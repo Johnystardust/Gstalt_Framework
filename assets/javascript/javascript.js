@@ -4,6 +4,38 @@
  */
 $ = jQuery;
 
+/*
+ |-------------------------------------------------------------------------------------------------------------------------------------------------
+ |   Even Col Height.
+ |-------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+function even_cols(){
+    $('.same-col-height').each(function(){
+        var maxHeight = -1;
+
+        $(this).find('.col').each(function(){
+            var height = $(this).height();
+            var paddingTop = parseInt($(this).css('padding-top'));
+            var paddingBottom = parseInt($(this).css('padding-bottom'));
+
+            var colHeight = (height + paddingTop + paddingBottom);
+
+            if(colHeight > maxHeight){
+                maxHeight = colHeight;
+            }
+        });
+
+        $(this).find('.col').css('height', maxHeight);
+
+        $(this).find('.fill').find('img').css('height', maxHeight);
+        $(this).find('.fill').find('img').css('width', 'auto');
+    });
+}
+
+$(window).load(function(){
+    even_cols();
+});
+
 $(document).ready(function(){
     /*
     |----------------------------------------------------------------
@@ -54,7 +86,7 @@ $(document).ready(function(){
         // Run functions
         menu_background_color();
 
-        // Set the cols back to auto and run t
+        // Set the cols back to auto and run it
         $('.col').css('height', 'auto');
         even_cols();
     });
@@ -67,8 +99,11 @@ $(document).ready(function(){
     function menu_background_color(){
         // Check if the header has a class of 'transparent' and the 'windowWidth' is above 1024
         if(header.hasClass('transparent') && windowWidth > 1024){
-            // Add the class to the header
-            header.addClass('menu-transparent');
+
+            // Add the class to the header if the page is at the top
+            if(document.body.scrollTop == 0){
+                header.addClass('menu-transparent');
+            }
 
             // Window scroll function to set menu background color
             $(window).scroll(function(){
@@ -142,28 +177,6 @@ $(document).ready(function(){
         // Add the class to the menu icon
         $(this).toggleClass('open');
     });
-
-    /*
-    |-------------------------------------------------------------------------------------------------------------------------------------------------
-    |   Even Col Height.
-    |-------------------------------------------------------------------------------------------------------------------------------------------------
-    */
-    function even_cols(){
-        $('.same-col-height').each(function(){
-            var maxHeight = -1;
-
-            $(this).find('.col').each(function(){
-                if($(this).height() > maxHeight){
-                    maxHeight = $(this).height();
-                }
-            });
-
-            $(this).find('.col').height(maxHeight);
-
-
-        });
-    }
-    even_cols();
 
     /*
     |-------------------------------------------------------------------------------------------------------------------------------------------------

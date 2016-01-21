@@ -328,11 +328,14 @@ p {
     position: relative;
     overflow: hidden;
     z-index: 100; }
+    #text-with-image .image .image-content {
+      display: table;
+      height: 100%;
+      width: 100%; }
     #text-with-image .image img {
       position: relative;
       z-index: 100;
-      display: block;
-      height: auto; }
+      display: block; }
 
 body {
   width: 100%;

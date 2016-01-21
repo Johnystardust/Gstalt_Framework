@@ -132,7 +132,7 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                     |   Text Block.
                     |----------------------------------------------------------------
                     */
-                    echo '<div class="text '.$col_size.' col no-padding" style="margin: '.$margin.'; padding: '.$padding.';">';
+                    echo '<div class="text '.$col_size.' col container-capped" style="margin: '.$margin.'; padding: '.$padding.';">';
                         echo '<div class="text-content">';
                             echo '<div class="middle-wrap">';
                                 /*
@@ -248,8 +248,10 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                     |----------------------------------------------------------------
                     */
                     $image              = get_sub_field('image');
-                    $image_width        = get_sub_field('image_width');
+                    $image_size         = get_sub_field('image_size');
+                    $max_image_width    = get_sub_field('max_image_width');
                     $image_align        = get_sub_field('image_align');
+                    $vertical_center    = get_sub_field('vertical_center');
 
                     $block_width        = get_sub_field('block_width');
                     $margin             = get_sub_field('margin');
@@ -261,7 +263,27 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
 
                     /*
                     |----------------------------------------------------------------
-                    |   Image align
+                    |   Image size.
+                    |----------------------------------------------------------------
+                    */
+                    //auto
+                    if($image_size == 'auto'){
+                        $image_width = 'auto';
+                        $image_class = '';
+                    }
+                    elseif($image_size == '100%'){
+                        $image_width = '100%';
+                        $image_class = '';
+                    }
+                    elseif($image_size == 'fill'){
+                        $image_class = 'fill';
+                        $image_width = '100%';
+                    }
+
+
+                    /*
+                    |----------------------------------------------------------------
+                    |   Image align.
                     |----------------------------------------------------------------
                     */
                     if($image_align == 'left'){
@@ -272,6 +294,9 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                     }
                     elseif($image_align == 'center'){
                         $image_alignment = 'margin: 0 auto;';
+                    }
+                    else {
+                        $image_alignment = '';
                     }
 
                     /*
@@ -303,8 +328,22 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                     |   Image Block.
                     |----------------------------------------------------------------
                     */
-                    echo '<div class="image '.$col_size.' col no-padding" style="margin: '.$margin.'; padding: '.$padding.';">';
-                        echo '<img style="'.$image_alignment.';" src="'.$image.'" width="'.$image_width.'" />';
+                    echo '<div class="image '.$col_size.' col '.$image_class.' no-padding" style="margin: '.$margin.'; padding: '.$padding.';">';
+                        /*
+                        |----------------------------------------------------------------
+                        |   If vertical center is true set img in middle wrap.
+                        |----------------------------------------------------------------
+                        */
+                        if($vertical_center){
+                            echo '<div class="image-content">';
+                                echo '<div class="middle-wrap">';
+                                    echo '<img style="'.$image_alignment.'; max-width: '.$max_image_width.'px;" src="'.$image.'" width="'.$image_width.'" />';
+                                echo '</div>';
+                            echo '</div>';
+                        }
+                        else {
+                            echo '<img style="'.$image_alignment.'; max-width: '.$max_image_width.'px;" src="'.$image.'" width="'.$image_width.'" />';
+                        }
 
                         if($overlay_active){
                             echo '<div class="overlay" style="background-color: '.$overlay_color.'; opacity: '.$overlay_opacity.';"></div>';

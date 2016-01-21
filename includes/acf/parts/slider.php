@@ -101,6 +101,7 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
 
                         $title_align            = $slide_content['title_align'];
                         $divider                = $slide_content['divider'];
+                        $divider_color          = $slide_content['divider_color'];
 
                         $buttons                = $slide_content['buttons'];
 
@@ -162,7 +163,7 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
                                         }
 
                                         echo '<div class="divider">';
-                                            echo '<hr style="'.$divider_align.'" />';
+                                            echo '<hr style="'.$divider_align.'; border-color: '.$divider_color.';" />';
                                         echo '</div>';
                                     }
 
