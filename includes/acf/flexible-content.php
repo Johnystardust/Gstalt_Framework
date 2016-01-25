@@ -9,11 +9,6 @@ if(get_field('page_content')):
     while(has_sub_field('page_content')):
 
         switch(get_row_layout()):
-            // blocks done
-            case 'action_bar':
-                get_template_part('includes/acf/parts/action-bar');
-                break;
-
             case 'carousel':
                 get_template_part('includes/acf/parts/carousel');
                 break;

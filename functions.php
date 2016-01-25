@@ -16,7 +16,7 @@ include_once('includes/enqueue.php');
 |   Include the customizer options.
 |----------------------------------------------------------------
 */
-include_once('includes/customizer.php');
+include_once('includes/customizer/customizer.php');
 
 /*
 |-----------------------------------------------------------------------------------------------------------------------

@@ -39,12 +39,12 @@ $transparent_menu_logo              = get_theme_mod('transparent_menu_logo');
 $menu_position                      = get_theme_mod('menu_position', 'fixed');
 
 $contact_show                       = get_theme_mod('contact_show');
+$social_show                        = get_theme_mod('social_show');
 $contact_hide_scroll                = get_theme_mod('contact_hide_scroll');
 $contact_hide_mobile                = get_theme_mod('contact_hide_mobile');
 
 // Contact information
-$contact_telephone                  = get_theme_mod('contact_telephone');
-$contact_email                      = get_theme_mod('contact_email');
+$contact_information                = get_theme_mod('contact_information');
 
 $social_facebook                    = get_theme_mod('social_facebook');
 $social_google                      = get_theme_mod('social_google');
@@ -135,78 +135,84 @@ else {
 echo '<header id="header" class="container-fluid container-capped '.($contact_hide_scroll ? 'hide-contact' : '').' '.($background_transparent ? 'transparent' : '').'" style="background: '.$background_color.'; position: '.$menu_position.'; font-size: '.$font_size.'px;">';
     /*
     |----------------------------------------------------------------
-    |   If '$show_contact' is set display it
+    |   If '$contact_show' or '$social_show' is set display it
     |----------------------------------------------------------------
     */
-    if($contact_show){
+    if($contact_show || $social_show){
         /*
-    |----------------------------------------------------------------
-    |   Menu contact information.
-    |----------------------------------------------------------------
-    */
+        |----------------------------------------------------------------
+        |   Menu contact information.
+        |----------------------------------------------------------------
+        */
         echo '<div class="menu-top '.($contact_hide_mobile ? 'hide-mobile' : '').'">';
-            echo '<div class="mail-number">';
-                /*
-                |----------------------------------------------------------------
-                |   If '$contact_telephone' isn't empty display it
-                |----------------------------------------------------------------
-                */
-                if(!empty($contact_telephone)){
-                    echo '<span><i class="icon icon-mobile"></i>'.$contact_telephone.'</span>';
-                }
+            /*
+            |----------------------------------------------------------------
+            |   If '$contact_show' is set display it
+            |----------------------------------------------------------------
+            */
+            if($contact_show){
+                echo '<div class="mail-number">';
+                    /*
+                    |----------------------------------------------------------------
+                    |   If '$contact_telephone' isn't empty display it
+                    |----------------------------------------------------------------
+                    */
+                    if(!empty($contact_information)){
+                        echo '<span>'.$contact_information.'</span>';
+                    }
+                echo '</div>';
+            }
 
-                /*
-                |----------------------------------------------------------------
-                |   If '$contact_email' isn't empty display it
-                |----------------------------------------------------------------
-                */
-                if(!empty($contact_email)){
-                    echo '<span><i class="icon icon-mail"></i>'.$contact_email.'</span>';
-                }
-            echo '</div>';
+            /*
+            |----------------------------------------------------------------
+            |   If '$social_show' is set display it
+            |----------------------------------------------------------------
+            */
+            if($social_show){
+                echo '<div class="social-icons hide-mobile">';
+                    /*
+                    |----------------------------------------------------------------
+                    |   If the social links are not empty display it.
+                    |----------------------------------------------------------------
+                    */
 
-            echo '<div class="social-icons hide-mobile">';
-                /*
-                |----------------------------------------------------------------
-                |   If the social links are not empty display it.
-                |----------------------------------------------------------------
-                */
+                    // Social YouTube
+                    if(!empty($social_youtube)){
+                        echo '<a class="social-icon" href="'.$social_youtube.'"><i class="icon icon-youtube"></i></a>';
+                    }
 
-                // Social YouTube
-                if(!empty($social_youtube)){
-                    echo '<a class="social-icon" href="'.$social_youtube.'"><i class="icon icon-youtube"></i></a>';
-                }
+                    // Social Instagram
+                    if(!empty($social_instagram)){
+                        echo '<a class="social-icon" href="'.$social_instagram.'"><i class="icon icon-instagram"></i></a>';
+                    }
 
-                // Social Instagram
-                if(!empty($social_instagram)){
-                    echo '<a class="social-icon" href="'.$social_instagram.'"><i class="icon icon-instagram"></i></a>';
-                }
+                    // Social LinkedIn
+                    if(!empty($social_linkedin)){
+                        echo '<a class="social-icon" href="'.$social_linkedin.'"><i class="icon icon-linkedin"></i></a>';
+                    }
 
-                // Social LinkedIn
-                if(!empty($social_linkedin)){
-                    echo '<a class="social-icon" href="'.$social_linkedin.'"><i class="icon icon-linkedin"></i></a>';
-                }
+                    // Social Twitter
+                    if(!empty($social_twitter)){
+                        echo '<a class="social-icon" href="'.$social_twitter.'"><i class="icon icon-twitter"></i></a>';
+                    }
 
-                // Social Twitter
-                if(!empty($social_twitter)){
-                    echo '<a class="social-icon" href="'.$social_twitter.'"><i class="icon icon-twitter"></i></a>';
-                }
+                    // Social Pinterest
+                    if(!empty($social_pinterest)){
+                        echo '<a class="social-icon" href="'.$social_pinterest.'"><i class="icon icon-pinterest"></i></a>';
+                    }
 
-                // Social Pinterest
-                if(!empty($social_pinterest)){
-                    echo '<a class="social-icon" href="'.$social_pinterest.'"><i class="icon icon-pinterest"></i></a>';
-                }
+                    // Social Google
+                    if(!empty($social_google)){
+                        echo '<a class="social-icon" href="'.$social_google.'"><i class="icon icon-google"></i></a>';
+                    }
 
-                // Social Google
-                if(!empty($social_google)){
-                    echo '<a class="social-icon" href="'.$social_google.'"><i class="icon icon-google"></i></a>';
-                }
+                    // Social Facebook
+                    if(!empty($social_facebook)){
+                        echo '<a class="social-icon" href="'.$social_facebook.'"><i class="icon icon-facebook"></i></a>';
+                    }
+                echo '</div>';
+            }
 
-                // Social Facebook
-                if(!empty($social_facebook)){
-                    echo '<a class="social-icon" href="'.$social_facebook.'"><i class="icon icon-facebook"></i></a>';
-                }
-            echo '</div>';
         echo '</div>'; // Menu top closing tag
     }
 
