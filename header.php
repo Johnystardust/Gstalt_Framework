@@ -28,3 +28,5 @@ get_template_part('includes/partials/menu');
 // Get the go-up template
 get_template_part('includes/partials/go-up');
 
+// Get the side icon template
+get_template_part('includes/partials/side-icon');

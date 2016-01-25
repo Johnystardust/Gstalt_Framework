@@ -117,19 +117,9 @@ if($i > 0) {
         */
         if (!empty($action_link_1)) {
             echo '<div class="action-link ' . $col_width . '">';
-                /*
-                |----------------------------------------------------------------
-                |   If '$action_blank' is set '$target' is _blank.
-                |----------------------------------------------------------------
-                */
-                if ($action_blank_1) {
-                    $target = '_blank';
-                } else {
-                    $target = '_self';
-                }
 
                 // Display the button
-                echo '<a href="' . $action_link_1 . '" class="action-link" target="' . $target . '" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
+                echo '<a href="' . $action_link_1 . '" class="action-link" target="'.($action_blank_1 ? '_blank' : '_self').'" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
                     echo '<div class="action-button" style="background: ' . $button_background_color . '; border: ' . $button_border_color . ' solid ' . $button_border_width . 'px;">' . $action_title_1 . '</div>';
                 echo '</a>';
 
@@ -143,19 +133,9 @@ if($i > 0) {
         */
         if (!empty($action_link_2)) {
             echo '<div class="action-link ' . $col_width . '">';
-                /*
-                |----------------------------------------------------------------
-                |   If '$action_blank' is set '$target' is _blank.
-                |----------------------------------------------------------------
-                */
-                if ($action_blank_2) {
-                    $target = '_blank';
-                } else {
-                    $target = '_self';
-                }
 
                 // Display the button
-                echo '<a href="' . $action_link_2 . '" class="action-link" target="' . $target . '" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
+                echo '<a href="' . $action_link_2 . '" class="action-link" target="'.($action_blank_2 ? '_blank' : '_self').'" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
                     echo '<div class="action-button" style="background: ' . $button_background_color . '; border: ' . $button_border_color . ' solid ' . $button_border_width . 'px;">' . $action_title_2 . '</div>';
                 echo '</a>';
 
@@ -169,19 +149,9 @@ if($i > 0) {
         */
         if (!empty($action_link_3)) {
             echo '<div class="action-link ' . $col_width . '">';
-                /*
-                |----------------------------------------------------------------
-                |   If '$action_blank' is set '$target' is _blank.
-                |----------------------------------------------------------------
-                */
-                if ($action_blank_3) {
-                    $target = '_blank';
-                } else {
-                    $target = '_self';
-                }
 
                 // Display the button
-                echo '<a href="' . $action_link_3 . '" class="action-link" target="' . $target . '" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
+                echo '<a href="' . $action_link_3 . '" class="action-link" target="'.($action_blank_3 ? '_blank' : '_self').'" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
                     echo '<div class="action-button" style="background: ' . $button_background_color . '; border: ' . $button_border_color . ' solid ' . $button_border_width . 'px;">' . $action_title_3 . '</div>';
                 echo '</a>';
 
@@ -195,19 +165,9 @@ if($i > 0) {
         */
         if (!empty($action_link_4)) {
             echo '<div class="action-link ' . $col_width . '">';
-                /*
-                |----------------------------------------------------------------
-                |   If '$action_blank' is set '$target' is _blank.
-                |----------------------------------------------------------------
-                */
-                if ($action_blank_4) {
-                    $target = '_blank';
-                } else {
-                    $target = '_self';
-                }
 
                 // Display the button
-                echo '<a href="' . $action_link_4 . '" class="action-link" target="' . $target . '" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
+                echo '<a href="' . $action_link_4 . '" class="action-link" target="'.($action_blank_4 ? '_blank' : '_self').'" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
                     echo '<div class="action-button" style="background: ' . $button_background_color . '; border: ' . $button_border_color . ' solid ' . $button_border_width . 'px;">' . $action_title_4 . '</div>';
                 echo '</a>';
 

@@ -29,4 +29,7 @@ function tvds_customizer_init($wp_customize){
     // Header
     include_once('parts/customizer-header.php');
 
+    // Side icon
+    include_once('parts/customizer-side-icon.php');
+
 }

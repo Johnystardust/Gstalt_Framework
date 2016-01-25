@@ -3,6 +3,7 @@
  * Created by:  Tim van der Slik
  * Project:     Gstalt Framework
  */
+
 /*
 |----------------------------------------------------------------
 |   Get the fields and put them in variables for easy usage.

@@ -133,6 +133,13 @@ p {
   #footer .footer-bottom-inner .copyright {
     float: left; }
 
+#side-icons {
+  position: fixed;
+  right: 0;
+  z-index: 10000000; }
+  #side-icons .side-icon {
+    margin-top: 20px; }
+
 #action-bar .action-link a:hover {
   text-decoration: none; }
 #action-bar .action-button {
