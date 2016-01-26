@@ -12,6 +12,7 @@
 
 // Styles & images
 $background_color                   = get_theme_mod('menu_background_color', '#ffffff');
+$menu_submenu_background_color      = get_theme_mod('menu_submenu_background_color');
 $background_transparent             = get_theme_mod('menu_background_transparent');
 
 $border                             = get_theme_mod('menu_border');
@@ -21,6 +22,7 @@ $border_width                       = get_theme_mod('menu_border_width');
 $text_color                         = get_theme_mod('menu_text_color');
 $transparent_text_color             = get_theme_mod('menu_transparent_text_color');
 $hover_color                        = get_theme_mod('menu_hover_color');
+$menu_submenu_text_color            = get_theme_mod('menu_submenu_text_color');
 
 $mobile_menu_text_color             = get_theme_mod('mobile_menu_text_color');
 $mobile_menu_background_color       = get_theme_mod('mobile_menu_background_color');
@@ -31,7 +33,9 @@ $mobile_menu_bottom_border_color    = get_theme_mod('mobile_menu_bottom_border_c
 $mobile_menu_bottom_border_width    = get_theme_mod('mobile_menu_bottom_border_width');
 
 $font_size                          = get_theme_mod('menu_font_size');
+$menu_submenu_font_size             = get_theme_mod('menu_submenu_font_size');
 $menu_text_transform                = get_theme_mod('menu_text_transform');
+$menu_submenu_text_transform        = get_theme_mod('menu_submenu_text_transform');
 
 $menu_logo                          = get_theme_mod('menu_logo');
 $transparent_menu_logo              = get_theme_mod('transparent_menu_logo');
@@ -104,9 +108,10 @@ else {
     .main-menu a {
         text-transform: <?php echo $menu_text_transform; ?>;
         color: <?php echo $text_color; ?>;
+        font-size: <?php echo $font_size; ?>px;
     }
 
-    .main-menu a:hover, .mobile-menu a:hover, .social-icon:hover {
+    .main-menu a:hover, .social-icon:hover {
         color: <?php echo $hover_color; ?> !important;
     }
 
@@ -123,6 +128,29 @@ else {
 
     .mobile-menu a:hover {
         background: <?php echo $mobile_menu_background_hover_color; ?> !important;
+        color: <?php echo $hover_color; ?> !important;
+    }
+
+    .mobile-menu a:hover i {
+        color: <?php echo $mobile_menu_text_color; ?>;
+    }
+
+    .mobile-menu a i:hover {
+        color: <?php echo $hover_color; ?> !important;
+    }
+
+    .sub-menu {
+        background-color: <?php echo $menu_submenu_background_color; ?>;
+    }
+
+    .sub-menu a {
+        color: <?php echo $menu_submenu_text_color; ?>;
+        font-size: <?php echo $menu_submenu_font_size; ?>px;
+    }
+
+    .sub-menu li a {
+        background-color: <?php echo $menu_submenu_background_color; ?>;
+        text-transform: <?php echo $menu_submenu_text_transform; ?>;
     }
 </style>
 
@@ -132,7 +160,7 @@ else {
 |   The Header.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<header id="header" class="container-fluid container-capped '.($contact_hide_scroll ? 'hide-contact' : '').' '.($background_transparent ? 'transparent' : '').'" style="background: '.$background_color.'; position: '.$menu_position.'; font-size: '.$font_size.'px;">';
+echo '<header id="header" class="container-fluid container-capped '.($contact_hide_scroll ? 'hide-contact' : '').' '.($background_transparent ? 'transparent' : '').'" style="background: '.$background_color.'; position: '.$menu_position.';">';
     /*
     |----------------------------------------------------------------
     |   If '$contact_show' or '$social_show' is set display it

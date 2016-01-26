@@ -141,6 +141,46 @@
         a:hover
           text-decoration: none
 
+    .menu-item-has-children
+      i
+        float: right
+        position: relative
+        top: -2px
+        font-size: 18px
+        transform: rotate(0deg)
+        -webkit-transform: rotate(0deg)
+        -moz-transform: rotate(0deg)
+        -o-transform: rotate(0deg)
+        -webkit-transition: all 0.3s ease-in-out
+        -moz-transition: all 0.3s ease-in-out
+        -o-transition: all 0.3s ease-in-out
+        transition: all 0.3s ease-in-out
+
+    .sub-menu
+      .sub-menu
+        li
+          a
+            padding: 14px 60px
+        .sub-menu
+          li
+            a
+              padding: 14px 90px
+
+
+
+
     .mobile-menu-open
       max-height: 700px
+
+    .sub-menu-open
+      max-height: 400px !important
+
+    .sub-menu-clicked
+      transform: rotate(180deg) !important
+      -webkit-transform: rotate(180deg) !important
+      -moz-transform: rotate(180deg) !important
+      -o-transform: rotate(180deg) !important
+
+
+
 

@@ -266,7 +266,6 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                     |   Image size.
                     |----------------------------------------------------------------
                     */
-                    //auto
                     if($image_size == 'auto'){
                         $image_width = 'auto';
                         $image_class = '';
@@ -276,10 +275,13 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                         $image_class = '';
                     }
                     elseif($image_size == 'fill'){
-                        $image_class = 'fill';
                         $image_width = '100%';
+                        $image_class = 'fill';
                     }
-
+                    else {
+                        $image_width = '';
+                        $image_class = '';
+                    }
 
                     /*
                     |----------------------------------------------------------------

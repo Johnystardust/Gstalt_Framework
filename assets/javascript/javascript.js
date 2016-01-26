@@ -234,4 +234,18 @@ $(document).ready(function(){
         return false
     });
 
+    /*
+    |-------------------------------------------------------------------------------------------------------------------------------------------------
+    |   Add Icon to Sub-menu.
+    |-------------------------------------------------------------------------------------------------------------------------------------------------
+    */
+    $('.menu-item-has-children').each(function(){
+        $(this).find('a').first().append('<i class="icon icon-angle-down"></i>');
+    });
+
+    $('.menu-item-has-children a i').click(function(){
+        $(this).toggleClass('sub-menu-clicked');
+        $(this).closest('.menu-item-has-children').find('.sub-menu').first().toggleClass('sub-menu-open');
+        return false;
+    });
 });

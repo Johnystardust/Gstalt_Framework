@@ -2,7 +2,7 @@
 #header
   width: 100%
   display: block
-  z-index: 1000000
+  z-index: 100000000
   top: 0
   transition: all 0.3s ease-in-out
   -webkit-transition: all 0.3s ease-in-out
@@ -59,6 +59,18 @@
             -moz-transition: all 0.3s ease-in-out
           a:hover
             text-decoration: none
+
+          .sub-menu
+            display: none
+            position: absolute
+            border-top: 1px solid #08ada7
+            li
+              float: none
+              line-height: 44px
+
+        li:hover
+          .sub-menu
+            display: block
 
 
 // Transparent Menu

@@ -12,6 +12,9 @@ ul {
 a:hover {
   text-decoration: none; }
 
+a:focus {
+  text-decoration: none; }
+
 .no-padding {
   padding: 0; }
 
@@ -21,7 +24,7 @@ a:hover {
 #header {
   width: 100%;
   display: block;
-  z-index: 1000000;
+  z-index: 100000000;
   top: 0;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
@@ -68,6 +71,15 @@ a:hover {
             -moz-transition: all 0.3s ease-in-out; }
           #header .menu-bottom .main-menu ul li a:hover {
             text-decoration: none; }
+          #header .menu-bottom .main-menu ul li .sub-menu {
+            display: none;
+            position: absolute;
+            border-top: 1px solid #08ada7; }
+            #header .menu-bottom .main-menu ul li .sub-menu li {
+              float: none;
+              line-height: 44px; }
+        #header .menu-bottom .main-menu ul li:hover .sub-menu {
+          display: block; }
 
 .menu-transparent {
   background: transparent !important; }
@@ -503,7 +515,31 @@ body {
         padding: 14px 30px; }
       .mobile-menu ul li a:hover {
         text-decoration: none; }
+    .mobile-menu .menu-item-has-children i {
+      float: right;
+      position: relative;
+      top: -2px;
+      font-size: 18px;
+      transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out; }
+    .mobile-menu .sub-menu .sub-menu li a {
+      padding: 14px 60px; }
+    .mobile-menu .sub-menu .sub-menu .sub-menu li a {
+      padding: 14px 90px; }
     .mobile-menu .mobile-menu-open {
-      max-height: 700px; } }
+      max-height: 700px; }
+    .mobile-menu .sub-menu-open {
+      max-height: 400px !important; }
+    .mobile-menu .sub-menu-clicked {
+      transform: rotate(180deg) !important;
+      -webkit-transform: rotate(180deg) !important;
+      -moz-transform: rotate(180deg) !important;
+      -o-transform: rotate(180deg) !important; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -254,109 +254,114 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
     /*
     |----------------------------------------------------------------
     |   Slide Menu.
+    |
+    |   Only display the slide menu if there is more than 1 slide.
     |----------------------------------------------------------------
     */
-    if($slider_control == 'bottom'){
-        /*
-        |----------------------------------------------------------------
-        |   Slide bottom menu.
-        |----------------------------------------------------------------
-        */
-
-        // Calculate the menu width
-        $menu_width = $i * 20;
-
-        echo '<div class="slider-menu">';
-            echo '<ul class="bottom-menu" style=" width: '.$menu_width.'px;">';
-                /*
-                |----------------------------------------------------------------
-                |   Foreach slide render a dot.
-                |----------------------------------------------------------------
-                */
-                for ($x = 0; $x <= ($i - 1); $x++) {
-                    /*
-                    |----------------------------------------------------------------
-                    |   If $x == 0 render the active dot.
-                    |----------------------------------------------------------------
-                    */
-                    if($x == 0){
-                        echo '<li class="active" data-slide-number="'.$x.'"><i class="icon-circle"></i></li>';
-                    }
-                    else {
-                        echo '<li data-slide-number="'.$x.'"><i class="icon-circle-empty"></i></li>';
-                    }
-                }
-            echo '</ul>';
-        echo '</div>';
-    }
-    elseif($slider_control == 'leftright'){
-        /*
-        |----------------------------------------------------------------
-        |   Slide left right menu.
-        |----------------------------------------------------------------
-        */
-        echo '<div class="slider-menu">';
-            echo '<div class="slide-button slide-next">';
-                echo '<i class="icon icon-right-open"></i>';
-            echo '</div>';
-
-            echo '<div class="slide-button slide-prev">';
-                echo '<i class="icon icon-left-open"></i>';
-            echo '</div>';
-        echo '</div>';
-    }
-    elseif($slider_control == 'both'){
-        /*
-        |----------------------------------------------------------------
-        |   Slide menu both.
-        |----------------------------------------------------------------
-        */
-        // Calculate the menu width
-        $menu_width = $i * 20;
-
-        echo '<div class="slider-menu">';
-
+    if($i > 1){
+        if($slider_control == 'bottom'){
             /*
             |----------------------------------------------------------------
             |   Slide bottom menu.
             |----------------------------------------------------------------
             */
-            echo '<ul class="bottom-menu" style=" width: '.$menu_width.'px;">';
-            /*
-            |----------------------------------------------------------------
-            |   Foreach slide render a dot.
-            |----------------------------------------------------------------
-            */
-            for ($x = 0; $x <= ($i - 1); $x++) {
-                /*
-                |----------------------------------------------------------------
-                |   If $x == 0 render the active dot.
-                |----------------------------------------------------------------
-                */
-                if($x == 0){
-                    echo '<li class="active" data-slide-number="'.$x.'"><i class="icon icon-circle"></i></li>';
-                }
-                else {
-                    echo '<li data-slide-number="'.$x.'"><i class="icon icon-circle-empty"></i></li>';
-                }
-            }
-            echo '</ul>';
 
+            // Calculate the menu width
+            $menu_width = $i * 20;
+
+            echo '<div class="slider-menu">';
+                echo '<ul class="bottom-menu" style=" width: '.$menu_width.'px;">';
+                    /*
+                    |----------------------------------------------------------------
+                    |   Foreach slide render a dot.
+                    |----------------------------------------------------------------
+                    */
+                    for ($x = 0; $x <= ($i - 1); $x++) {
+                        /*
+                        |----------------------------------------------------------------
+                        |   If $x == 0 render the active dot.
+                        |----------------------------------------------------------------
+                        */
+                        if($x == 0){
+                            echo '<li class="active" data-slide-number="'.$x.'"><i class="icon-circle"></i></li>';
+                        }
+                        else {
+                            echo '<li data-slide-number="'.$x.'"><i class="icon-circle-empty"></i></li>';
+                        }
+                    }
+                echo '</ul>';
+            echo '</div>';
+        }
+        elseif($slider_control == 'leftright'){
             /*
             |----------------------------------------------------------------
             |   Slide left right menu.
             |----------------------------------------------------------------
             */
-            echo '<div class="slide-button slide-next">';
-                echo '<i class="icon icon-right-open"></i>';
+            echo '<div class="slider-menu">';
+                echo '<div class="slide-button slide-next">';
+                    echo '<i class="icon icon-right-open"></i>';
+                echo '</div>';
+
+                echo '<div class="slide-button slide-prev">';
+                    echo '<i class="icon icon-left-open"></i>';
+                echo '</div>';
+            echo '</div>';
+        }
+        elseif($slider_control == 'both'){
+            /*
+            |----------------------------------------------------------------
+            |   Slide menu both.
+            |----------------------------------------------------------------
+            */
+            // Calculate the menu width
+            $menu_width = $i * 20;
+
+            echo '<div class="slider-menu">';
+
+                /*
+                |----------------------------------------------------------------
+                |   Slide bottom menu.
+                |----------------------------------------------------------------
+                */
+                echo '<ul class="bottom-menu" style=" width: '.$menu_width.'px;">';
+                    /*
+                    |----------------------------------------------------------------
+                    |   Foreach slide render a dot.
+                    |----------------------------------------------------------------
+                    */
+                    for ($x = 0; $x <= ($i - 1); $x++) {
+                        /*
+                        |----------------------------------------------------------------
+                        |   If $x == 0 render the active dot.
+                        |----------------------------------------------------------------
+                        */
+                        if($x == 0){
+                            echo '<li class="active" data-slide-number="'.$x.'"><i class="icon icon-circle"></i></li>';
+                        }
+                        else {
+                            echo '<li data-slide-number="'.$x.'"><i class="icon icon-circle-empty"></i></li>';
+                        }
+                    }
+                echo '</ul>';
+
+                /*
+                |----------------------------------------------------------------
+                |   Slide left right menu.
+                |----------------------------------------------------------------
+                */
+                echo '<div class="slide-button slide-next">';
+                    echo '<i class="icon icon-right-open"></i>';
+                echo '</div>';
+
+                echo '<div class="slide-button slide-prev">';
+                    echo '<i class="icon icon-left-open"></i>';
+                echo '</div>';
+
+
             echo '</div>';
 
-            echo '<div class="slide-button slide-prev">';
-                echo '<i class="icon icon-left-open"></i>';
-            echo '</div>';
-
-
-        echo '</div>';
-
+        }
     }
+
 echo '</div>'; // Container closing tag
