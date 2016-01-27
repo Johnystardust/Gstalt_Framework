@@ -51,10 +51,12 @@ a:focus {
     height: 64px; }
     #header .menu-bottom .menu-logo {
       float: left;
-      margin-top: 5px; }
+      height: 100%; }
       #header .menu-bottom .menu-logo .logo {
+        height: 100%;
         display: block; }
       #header .menu-bottom .menu-logo .logo-transparent {
+        height: 100%;
         display: none; }
     #header .menu-bottom .main-menu {
       float: right; }
@@ -74,12 +76,18 @@ a:focus {
           #header .menu-bottom .main-menu ul li .sub-menu {
             display: none;
             position: absolute;
-            border-top: 1px solid #08ada7; }
+            border-top: 1px solid #ffcb08; }
             #header .menu-bottom .main-menu ul li .sub-menu li {
               float: none;
               line-height: 44px; }
+              #header .menu-bottom .main-menu ul li .sub-menu li a {
+                width: 100%; }
         #header .menu-bottom .main-menu ul li:hover .sub-menu {
           display: block; }
+          #header .menu-bottom .main-menu ul li:hover .sub-menu .sub-menu {
+            display: none; }
+          #header .menu-bottom .main-menu ul li:hover .sub-menu li:hover .sub-menu {
+            display: block; }
 
 .menu-transparent {
   background: transparent !important; }
@@ -173,7 +181,7 @@ p {
     margin-top: 0; }
 
 #cards .card-inner {
-  padding: 65px 75px; }
+  padding: 65px 60px; }
 
 #cards-with-icon .card-with-icon-inner {
   padding: 0 15px; }

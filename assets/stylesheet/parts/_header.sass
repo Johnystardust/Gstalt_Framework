@@ -37,10 +37,12 @@
     // Menu Logo
     .menu-logo
       float: left
-      margin-top: 5px
+      height: 100%
       .logo
+        height: 100%
         display: block
       .logo-transparent
+        height: 100%
         display: none
 
     // Main Menu
@@ -63,14 +65,23 @@
           .sub-menu
             display: none
             position: absolute
-            border-top: 1px solid #08ada7
+            border-top: 1px solid #ffcb08
             li
               float: none
               line-height: 44px
+              a
+                width: 100%
 
         li:hover
           .sub-menu
             display: block
+
+            .sub-menu
+              display: none
+
+            li:hover
+              .sub-menu
+                display: block
 
 
 // Transparent Menu
