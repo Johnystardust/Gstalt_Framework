@@ -79,6 +79,7 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                     */
                     $title              = get_sub_field('title');
                     $title_color        = get_sub_field('title_color');
+                    $title_uppercase    = get_sub_field('title_uppercase');
 
                     $subtitle           = get_sub_field('subtitle');
                     $subtitle_color     = get_sub_field('subtitle_color');
@@ -141,8 +142,11 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                                 |----------------------------------------------------------------
                                 */
                                 if(!empty($title)){
+                                    // See if title needs to be uppercase
+                                    $title_uppercase ? $text_transform = 'uppercase' : $text_transform = 'none';
+
                                     // Display the title
-                                    echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.';">'.$title.'</h3>';
+                                    echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-transform: '.$text_transform.'; text-align: '.$title_align.';">'.$title.'</h3>';
 
                                     /*
                                     |----------------------------------------------------------------

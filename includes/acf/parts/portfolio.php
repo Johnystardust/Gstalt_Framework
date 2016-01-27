@@ -11,6 +11,7 @@
 */
 $title              = get_sub_field('title');
 $title_color        = get_sub_field('title_color');
+$title_uppercase    = get_sub_field('title_uppercase');
 
 $subtitle           = get_sub_field('subtitle');
 $subtitle_color     = get_sub_field('subtitle_color');
@@ -25,7 +26,7 @@ $buttons            = get_sub_field('buttons');
 
 $max_posts          = get_sub_field('max_items');
 $max_posts_row      = get_sub_field('max_items_row');
-$category           = get_sub_field('category');
+$categories         = get_sub_field('categories');
 
 $margin             = get_sub_field('margin');
 $padding            = get_sub_field('padding');
@@ -42,8 +43,11 @@ echo '<div id="portfolio" class="container-fluid container-capped" style="margin
     |----------------------------------------------------------------
     */
     if(!empty($title)){
+        // See if title needs to be uppercase
+        $title_uppercase ? $text_transform = 'uppercase' : $text_transform = 'none';
+
         // Display the title
-        echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.';">'.$title.'</h3>';
+        echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-transform: '.$text_transform.'; text-align: '.$title_align.';">'.$title.'</h3>';
 
         /*
         |----------------------------------------------------------------
@@ -108,12 +112,25 @@ echo '<div id="portfolio" class="container-fluid container-capped" style="margin
     echo '<div class="row no-margin">';
         /*
         |----------------------------------------------------------------
+        |   Get all the included category id's.
+        |----------------------------------------------------------------
+        */
+        $included_categories = array();
+
+        foreach($categories as $category){
+            $cat_id = get_cat_ID($category['category']);
+            array_push($included_categories, $cat_id);
+        }
+
+        /*
+        |----------------------------------------------------------------
         |   WP_Query.
         |----------------------------------------------------------------
         */
         $args = array(
-            'category' => '',
-            'posts_per_page' => $max_posts,
+            'post_type'         => 'portfolio',
+            'cat'               => $included_categories,
+            'posts_per_page'    => $max_posts,
         );
 
         $the_query = new WP_Query($args);

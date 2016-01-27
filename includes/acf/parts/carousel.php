@@ -9,41 +9,47 @@
 |   Get the fields and put them in variables for easy usage.
 |----------------------------------------------------------------
 */
-$title              = get_sub_field('title');
-$title_color        = get_sub_field('title_color');
-$title_uppercase    = get_sub_field('title_uppercase');
+$title                  = get_sub_field('title');
+$title_color            = get_sub_field('title_color');
+$title_uppercase        = get_sub_field('title_uppercase');
 
-$subtitle           = get_sub_field('subtitle');
-$subtitle_color     = get_sub_field('subtitle_color');
-$subtitle_style     = get_sub_field('subtitle_style');
+$subtitle               = get_sub_field('subtitle');
+$subtitle_color         = get_sub_field('subtitle_color');
+$subtitle_style         = get_sub_field('subtitle_style');
 
-$divider            = get_sub_field('divider');
-$title_align        = get_sub_field('title_align');
+$divider                = get_sub_field('divider');
+$divider_color          = get_sub_field('divider_color');
 
-$margin             = get_sub_field('margin');
-$padding            = get_sub_field('padding');
+$title_align            = get_sub_field('title_align');
 
-$background_color   = get_sub_field('background_color');
-$background_image   = get_sub_field('background_image');
-$background_align   = get_sub_field('image_align');
-$background_size    = get_sub_field('image_size');
+$margin                 = get_sub_field('margin');
+$padding                = get_sub_field('padding');
 
-$carousel           = get_sub_field('carousel');
-$slide_time         = get_sub_field('slide_time');
+$background_color       = get_sub_field('background_color');
+$background_image       = get_sub_field('background_image');
+$background_align       = get_sub_field('image_align');
+$background_size        = get_sub_field('image_size');
+
+$image_overlay_active   = get_sub_field('image_overlay_active');
+$image_overlay          = get_sub_field('image_overlay');
+$image_overlay_opacity  = get_sub_field('image_overlay_opacity') / 100;
+
+$carousel               = get_sub_field('carousel');
+$slide_time             = get_sub_field('slide_time');
 
 /*
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 |   The Carousel block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="carousel" class="container-fluid container-capped" style="margin: '.$margin.'; padding: '.$padding.';" data-slide-time="'.$slide_time.'">';
+echo '<div id="carousel" class="container-fluid container-capped" style="margin: '.$margin.'; padding: '.$padding.'; background: '.$background_color.' url('.$background_image.') '.$background_align.'; background-size: '.$background_size.';" data-slide-time="'.$slide_time.'">';
 
     /*
     |----------------------------------------------------------------
     |   Title/Subtitle.
     |----------------------------------------------------------------
     */
-    echo '<div class="row">';
+    echo '<div class="row title-subtitle">';
         /*
         |----------------------------------------------------------------
         |   If the '$title' isn't empty display it.
@@ -83,7 +89,7 @@ echo '<div id="carousel" class="container-fluid container-capped" style="margin:
                 }
 
                 echo '<div class="divider">';
-                    echo '<hr style="'.$divider_align.'" />';
+                    echo '<hr style="'.$divider_align.'; border-color: '.$divider_color.';" />';
                 echo '</div>';
             }
 
@@ -151,5 +157,14 @@ echo '<div id="carousel" class="container-fluid container-capped" style="margin:
 
         echo '</ul>';
     echo '</div>'; // Carousel Wrapper closing div
+
+    /*
+    |----------------------------------------------------------------
+    |   If image overlay set active show the overlay.
+    |----------------------------------------------------------------
+    */
+    if($image_overlay_active == true){
+        echo '<div class="image-overlay" style="background: '.$image_overlay.'; opacity: '.$image_overlay_opacity.'"></div>';
+    }
 
 echo '</div>'; // Carousel closing div

@@ -139,12 +139,7 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
                                             */
                                             if(!empty($title)){
                                                 // See if title needs to be uppercase
-                                                if($title_uppercase == true){
-                                                    $text_transform = 'uppercase';
-                                                }
-                                                else {
-                                                    $text_transform = 'none';
-                                                }
+                                                $title_uppercase ? $text_transform = 'uppercase' : $text_transform = 'none';
 
                                                 // Display the title
                                                 echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.'; font-size: '.$title_size.'px; text-transform: '.$text_transform.'; ">'.$title.'</h3>';

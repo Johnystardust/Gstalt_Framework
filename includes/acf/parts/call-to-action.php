@@ -15,10 +15,7 @@ $subtitle           = get_sub_field('subtitle');
 $subtitle_color     = get_sub_field('subtitle_color');
 $subtitle_style     = get_sub_field('subtitle_style');
 
-$btn_link           = get_sub_field('button_link');
-$btn_color          = get_sub_field('button_color');
-$btn_txt            = get_sub_field('button_text');
-$btn_txt_color      = get_sub_field('button_text_color');
+$buttons            = get_sub_field('buttons');
 
 $background_color   = get_sub_field('background_color');
 $height             = get_sub_field('height');
@@ -74,17 +71,42 @@ echo '<div id="call-to-action" class="container-fluid container-capped same-col-
 
     /*
     |----------------------------------------------------------------
-    |   If the '$button_link' isn't empty display it.
+    |   If the '$buttons' isn't empty display it.
     |----------------------------------------------------------------
     */
-    if(!empty($btn_link)){
+    if(!empty($buttons)){
         echo '<div class="col-md-2 col-sm-12 col-xs-12 col no-padding" style="float: '.$btn_align.';">';
-            echo '<div class="buttons">';
+            echo '<div class="buttons" style="text-align: '.$title_align.'">';
                 echo '<div class="middle-wrap">';
-                    // Display the button
-                    echo '<a class="button" href="'.$btn_link.'" style="background-color: '.$btn_color.'; color: '.$btn_txt_color.'">'.$btn_txt.'</a>';
-                echo '</div>';
-            echo '</div>';
+
+                    /*
+                    |----------------------------------------------------------------
+                    |   Use foreach to loop over al the buttons.
+                    |----------------------------------------------------------------
+                    */
+                    foreach($buttons as $button){
+                        /*
+                        |----------------------------------------------------------------
+                        |   Get all the button fields.
+                        |----------------------------------------------------------------
+                        */
+                        $btn_choice     = $button['button_choice'];
+                        $btn_link       = $button['button_link'];
+                        $btn_new_tab    = $button['button_new_tab'];
+                        $btn_txt        = $button['button_text'];
+
+                        /*
+                        |----------------------------------------------------------------
+                        |   If '$btn-link' isn't empty, display it.
+                        |----------------------------------------------------------------
+                        */
+                        if(!empty($btn_link)){
+                            echo '<a class="button '.$btn_choice.'" href="'.$btn_link.'" target="'.($btn_new_tab ? '_blank' : '_self').'">'.$btn_txt.'</a>';
+                        }
+                    }
+                echo '</div>'; // Middle Wrap closing tag
+            echo '</div>'; // Buttons closing tag
         echo '</div>';
     }
+
 echo '</div>';

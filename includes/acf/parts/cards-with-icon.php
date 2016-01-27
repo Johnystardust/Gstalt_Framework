@@ -118,12 +118,7 @@ echo '<div id="cards-with-icon" class="container-fluid container-capped" style="
                     */
                     if(!empty($title)){
                         // See if title needs to be uppercase
-                        if($title_uppercase == true){
-                            $text_transform = 'uppercase';
-                        }
-                        else {
-                            $text_transform = 'none';
-                        }
+                        $title_uppercase ? $text_transform = 'uppercase' : $text_transform = 'none';
 
                         // Display the title
                         echo '<h3 class="title no-margin" style="color: '.$title_color.'; text-transform: '.$text_transform.'; text-align: '.$title_align.';">'.$title.'</h3>';
