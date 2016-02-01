@@ -54,7 +54,6 @@ foreach($button_options as $option){
         echo 'border: '.$button_border_width.'px solid '.$button_border_hover_color.' !important;';
     echo '}';
 
-
 }
 ?>
 </style>

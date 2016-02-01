@@ -168,7 +168,7 @@ echo '<div id="portfolio" class="container-fluid container-capped" style="margin
 
         /*
         |----------------------------------------------------------------
-        |   Reset the postdata.
+        |   Reset the post data.
         |----------------------------------------------------------------
         */
         wp_reset_postdata();

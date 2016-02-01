@@ -55,6 +55,111 @@ class tvds_recent_post_widget extends WP_Widget {
 
         /*
         |----------------------------------------------------------------
+        |   Get all the fields an put them in variables for easy usage.
+        |----------------------------------------------------------------
+        */
+        $categories = get_field('category', 'widget_' . $args['widget_id']);
+        $max_posts  = get_field('max_posts', 'widget_' . $args['widget_id']);
+
+        /*
+        |----------------------------------------------------------------
+        |   Get all the included category id's.
+        |----------------------------------------------------------------
+        */
+        $included_categories = array();
+
+        foreach($categories as $category){
+            $cat_id = get_cat_ID($category['category']);
+            array_push($included_categories, $cat_id);
+        }
+
+        /*
+        |----------------------------------------------------------------
+        |   WP_Query.
+        |----------------------------------------------------------------
+        */
+        $query_args = array(
+            'post-type'         => 'post',
+            'cat'               => $included_categories,
+            'posts_per_page'    => $max_posts
+        );
+
+        $the_query = new WP_Query($query_args);
+
+        if($the_query->have_posts()) {
+            while ($the_query->have_posts()) : $the_query->the_post();
+
+                echo '<a class="recent-post-item" href="'.get_permalink().'">';
+                    /*
+                    |----------------------------------------------------------------
+                    |  Image.
+                    |----------------------------------------------------------------
+                    */
+                    echo '<div class="image col-md-3 no-padding">';
+                        echo '<div class="middle-wrap">';
+                            if(has_post_thumbnail()){
+                                the_post_thumbnail('thumbnail');
+                            }
+                        echo '</div>';
+                    echo '</div>';
+
+
+                    /*
+                    |----------------------------------------------------------------
+                    |  Title/date/author.
+                    |----------------------------------------------------------------
+                    */
+                    echo '<div class="text col-md-9 no-padding">';
+                        echo '<h4 class="no-margin">'.get_the_title().'</h4>';
+                        echo '<h5 class="no-margin">'.get_the_date().'</h5>';
+                        echo '<h5 class="no-margin">'.get_the_author().'</h5>';
+
+                    echo '</div>';
+
+                    /*
+                    |----------------------------------------------------------------
+                    |   Apply filter to set a max lenght for the_content() string.
+                    |----------------------------------------------------------------
+                    */
+                    $content = apply_filters( 'the_content', get_the_content() );
+                    $content = str_replace( ']]>', ']]&gt;', $content );
+                    $content = substr($content, 0, 100);
+                    $content .= '...';
+
+                    /*
+                    |----------------------------------------------------------------
+                    |  Content.
+                    |----------------------------------------------------------------
+                    */
+                    echo '<div class="content col-md-12 no-padding">';
+                        echo $content;
+                    echo '</div>';
+
+                echo '</a>';
+
+            endwhile;
+
+        }
+
+        /*
+        |----------------------------------------------------------------
+        |   If there aren't any posts display a warning.
+        |----------------------------------------------------------------
+        */
+        else {
+            echo 'There are no posts to display';
+        }
+
+        /*
+        |----------------------------------------------------------------
+        |   Reset the post data.
+        |----------------------------------------------------------------
+        */
+        wp_reset_postdata();
+
+
+        /*
+        |----------------------------------------------------------------
         |   The 'after_widget' argument is defined in the theme.
         |----------------------------------------------------------------
         */

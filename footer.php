@@ -52,8 +52,13 @@ if($footer_fixed){
     .widget-title {
         color: <?php echo $top_title_color; ?> !important;
     }
+
     .footer-top a:hover {
         color: <?php echo $top_hover_color; ?> !important;
+    }
+
+    .footer-top .recent-post-item:hover .content p {
+        color: <?php echo $top_text_color; ?> !important;
     }
 
     .footer-bottom a:hover {
