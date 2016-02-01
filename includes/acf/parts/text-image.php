@@ -146,7 +146,7 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                                     $title_uppercase ? $text_transform = 'uppercase' : $text_transform = 'none';
 
                                     // Display the title
-                                    echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-transform: '.$text_transform.'; text-align: '.$title_align.';">'.$title.'</h3>';
+                                    echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-transform: '.$text_transform.'; text-align: '.$title_align.';">'.$title.'</h1>';
 
                                     /*
                                     |----------------------------------------------------------------

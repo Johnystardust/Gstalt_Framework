@@ -142,7 +142,7 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
                                                 $title_uppercase ? $text_transform = 'uppercase' : $text_transform = 'none';
 
                                                 // Display the title
-                                                echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.'; font-size: '.$title_size.'px; text-transform: '.$text_transform.'; ">'.$title.'</h3>';
+                                                echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.'; font-size: '.$title_size.'px; text-transform: '.$text_transform.'; ">'.$title.'</h1>';
 
                                                 /*
                                                 |----------------------------------------------------------------
@@ -177,7 +177,7 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
                                                 */
                                                 if(!empty($subtitle)){
                                                     // Display the subtitle
-                                                    echo '<h3 class="subtitle no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$title_align.'; font-size: '.$subtitle_size.'px;">'.$subtitle.'</h5>';
+                                                    echo '<h3 class="subtitle no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$title_align.'; font-size: '.$subtitle_size.'px;">'.$subtitle.'</h3>';
                                                 }
                                             }
 

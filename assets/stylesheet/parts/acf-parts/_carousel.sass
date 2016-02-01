@@ -1,4 +1,4 @@
-#carousel
+.carousel
   overflow: hidden
   position: relative
 
@@ -19,7 +19,7 @@
     z-index: 1000
     margin-top: 30px
     overflow: hidden
-    height: 120px
+    height: 360px
 
     .carousel-container
       position: absolute
@@ -29,6 +29,22 @@
       li
         float: left
         padding: 0 10px
+
+  .normal-carousel
+    .content-wrapper
+      padding-left: 50px
+      padding-right: 50px
+
+    .image
+      display: block
+      margin-bottom: 10px
+      img
+        display: block
+
+  .logo-carousel
+    height: 120px
+    .carousel-container
+      li
         img
           width: 100%
           height: auto

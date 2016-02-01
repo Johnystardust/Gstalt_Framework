@@ -87,57 +87,13 @@ class tvds_recent_post_widget extends WP_Widget {
         $the_query = new WP_Query($query_args);
 
         if($the_query->have_posts()) {
-            while ($the_query->have_posts()) : $the_query->the_post();
+            echo '<ul>';
+                while ($the_query->have_posts()) : $the_query->the_post();
 
-                echo '<a class="recent-post-item" href="'.get_permalink().'">';
-                    /*
-                    |----------------------------------------------------------------
-                    |  Image.
-                    |----------------------------------------------------------------
-                    */
-                    echo '<div class="image col-md-3 no-padding">';
-                        echo '<div class="middle-wrap">';
-                            if(has_post_thumbnail()){
-                                the_post_thumbnail('thumbnail');
-                            }
-                        echo '</div>';
-                    echo '</div>';
+                    echo '<li><a href="'.get_permalink().'">'.get_the_title().'</a></li>';
 
-
-                    /*
-                    |----------------------------------------------------------------
-                    |  Title/date/author.
-                    |----------------------------------------------------------------
-                    */
-                    echo '<div class="text col-md-9 no-padding">';
-                        echo '<h4 class="no-margin">'.get_the_title().'</h4>';
-                        echo '<h5 class="no-margin">'.get_the_date().'</h5>';
-                        echo '<h5 class="no-margin">'.get_the_author().'</h5>';
-
-                    echo '</div>';
-
-                    /*
-                    |----------------------------------------------------------------
-                    |   Apply filter to set a max lenght for the_content() string.
-                    |----------------------------------------------------------------
-                    */
-                    $content = apply_filters( 'the_content', get_the_content() );
-                    $content = str_replace( ']]>', ']]&gt;', $content );
-                    $content = substr($content, 0, 100);
-                    $content .= '...';
-
-                    /*
-                    |----------------------------------------------------------------
-                    |  Content.
-                    |----------------------------------------------------------------
-                    */
-                    echo '<div class="content col-md-12 no-padding">';
-                        echo $content;
-                    echo '</div>';
-
-                echo '</a>';
-
-            endwhile;
+                endwhile;
+            echo '</ul>';
 
         }
 

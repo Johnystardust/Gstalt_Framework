@@ -78,11 +78,7 @@ echo '<div id="cards-with-icon" class="container-fluid container-capped" style="
             $title_align            = $card['title_align'];
             $divider                = $card['divider'];
 
-            $btn_link               = $card['button_link'];
-            $btn_color              = $card['button_color'];
-            $btn_txt                = $card['button_text'];
-            $btn_txt_color          = $card['button_text_color'];
-            $btn_align              = $card['button_align'];
+            $buttons                = $card['buttons'];
 
             $content                = $card['content'];
             $content_color          = $card['content_color'];
@@ -171,13 +167,37 @@ echo '<div id="cards-with-icon" class="container-fluid container-capped" style="
 
                     /*
                     |----------------------------------------------------------------
-                    |   If the '$btn_link' isn't empty display it.
+                    |   If the '$buttons' isn't empty display it.
                     |----------------------------------------------------------------
                     */
-                    if(!empty($btn_link)){
-                        echo '<div class="buttons" style="text-align: '.$btn_align.';">';
-                            echo '<a class="button" href="'.$btn_link.'" style="background-color: '.$btn_color.'; color: '.$btn_txt_color.'">'.$btn_txt.'</a>';
-                        echo '</div>';
+                    if(!empty($buttons)){
+                        echo '<div class="buttons" style="text-align: '.$title_align.'">';
+                        /*
+                        |----------------------------------------------------------------
+                        |   Use foreach to loop over al the buttons.
+                        |----------------------------------------------------------------
+                        */
+                        foreach($buttons as $button){
+                            /*
+                            |----------------------------------------------------------------
+                            |   Get all the button fields.
+                            |----------------------------------------------------------------
+                            */
+                            $btn_choice     = $button['button_choice'];
+                            $btn_link       = $button['button_link'];
+                            $btn_new_tab    = $button['button_new_tab'];
+                            $btn_txt        = $button['button_text'];
+
+                            /*
+                            |----------------------------------------------------------------
+                            |   If '$btn-link' isn't empty, display it.
+                            |----------------------------------------------------------------
+                            */
+                            if(!empty($btn_link)){
+                                echo '<a class="button '.$btn_choice.'" href="'.$btn_link.'" target="'.($btn_new_tab ? '_blank' : '_self').'">'.$btn_txt.'</a>';
+                            }
+                        }
+                        echo '</div>'; // Buttons closing tag
                     }
 
                 echo '</div>'; // card-with-icon-inner closing tag
