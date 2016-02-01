@@ -120,19 +120,19 @@ p {
 #footer .widget-inner {
   padding-left: 15px;
   padding-right: 15px; }
-#footer .widget_nav_menu ul {
+#footer .widget_nav_menu ul, #footer .widget_tvds_recent_post_widget ul {
   list-style-type: none; }
-  #footer .widget_nav_menu ul li {
+  #footer .widget_nav_menu ul li, #footer .widget_tvds_recent_post_widget ul li {
     margin-bottom: 3px;
     line-height: 1.5em; }
-    #footer .widget_nav_menu ul li a {
+    #footer .widget_nav_menu ul li a, #footer .widget_tvds_recent_post_widget ul li a {
       position: relative;
       color: inherit;
       font-size: 14px;
       left: 0; }
-    #footer .widget_nav_menu ul li a:hover {
+    #footer .widget_nav_menu ul li a:hover, #footer .widget_tvds_recent_post_widget ul li a:hover {
       text-decoration: none; }
-    #footer .widget_nav_menu ul li a:before {
+    #footer .widget_nav_menu ul li a:before, #footer .widget_tvds_recent_post_widget ul li a:before {
       content: "";
       font-family: "fontello", sans-serif;
       display: inline-block;
@@ -211,8 +211,7 @@ p {
     position: relative;
     z-index: 1000;
     margin-top: 30px;
-    overflow: hidden;
-    height: 360px; }
+    overflow: hidden; }
     .carousel .carousel-wrapper .carousel-container {
       position: absolute;
       top: 0;
@@ -225,15 +224,13 @@ p {
     padding-left: 50px;
     padding-right: 50px; }
   .carousel .normal-carousel .image {
-    display: block;
-    margin-bottom: 10px; }
+    display: block; }
     .carousel .normal-carousel .image img {
-      display: block; }
-  .carousel .logo-carousel {
-    height: 120px; }
-    .carousel .logo-carousel .carousel-container li img {
-      width: 100%;
-      height: auto; }
+      display: block;
+      margin-bottom: 10px; }
+  .carousel .logo-carousel .carousel-container li img {
+    width: 100%;
+    height: auto; }
 
 #faqs .faq-control {
   display: block;
@@ -476,6 +473,9 @@ body {
 .mobile .hide-mobile {
   display: none !important; }
 
+@media screen and (max-width: 992px) {
+  #action-bar .action-link {
+    margin-bottom: 20px; } }
 @media screen and (max-width: 1024px) {
   .container-capped {
     padding-left: 30px !important;
@@ -485,9 +485,6 @@ body {
     display: none !important; }
 
   #cards-with-icon .card-with-icon {
-    margin-bottom: 20px; }
-
-  #action-bar .action-link {
     margin-bottom: 20px; }
 
   #text-with-image .text {

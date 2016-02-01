@@ -35,6 +35,8 @@ $image_overlay          = get_sub_field('image_overlay');
 $image_overlay_opacity  = get_sub_field('image_overlay_opacity') / 100;
 
 $slide_time             = get_sub_field('slide_time');
+$animate_time           = get_sub_field('animate_time');
+$max_items_in_view      = get_sub_field('max_carousel_items_in_view');
 
 $unique_identifier     = rand(0,200);
 /*
@@ -42,7 +44,7 @@ $unique_identifier     = rand(0,200);
 |   The Carousel block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid container-capped" style="margin: '.$margin.'; padding: '.$padding.'; background: '.$background_color.' url('.$background_image.') '.$background_align.'; background-size: '.$background_size.';" data-slide-time="'.$slide_time.'">';
+echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid container-capped" style="margin: '.$margin.'; padding: '.$padding.'; background: '.$background_color.' url('.$background_image.') '.$background_align.'; background-size: '.$background_size.';" data-slide-time="'.$slide_time.'" data-animate-time="'.$animate_time.'" data-max-view="'.$max_items_in_view.'">';
 
 ?>
 
@@ -63,35 +65,42 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
          */
         var unique_identifier = <?php echo $unique_identifier; ?>;
 
-        var carousel    = $('#carousel-'+unique_identifier+'');
-        var wrapper     = carousel.find('.carousel-wrapper');
-        var ul          = carousel.find('.carousel-container');
+        var carousel        = $('#carousel-'+unique_identifier+'');
+        var wrapper         = carousel.find('.carousel-wrapper');
+        var ul              = carousel.find('.carousel-container');
 
-        var slide_count = ul.children().length;
-        var slide_time  = carousel.attr('data-slide-time');
+        var slide_count     = ul.children().length;
+        var slide_time      = carousel.attr('data-slide-time');
+        var animate_time    = carousel.attr('data-animate-time');
+        var max_view        = carousel.attr('data-max-view');
 
         var item_width;
         var ul_width;
 
-        if(wrapper.hasClass('logo-carousel')){
-            if(wrapper.width() < 649){
-                item_width = wrapper.width() / 3;
-            }
-            else if(wrapper.width() < 1024){
-                item_width = wrapper.width() / 4;
-            }
-            else if(wrapper.width() > 1024){
-                item_width = wrapper.width() / 5;
-            }
+        item_width = wrapper.width() / max_view;
+        ul_width = item_width * (slide_count + 1);
 
-            ul_width = item_width * (slide_count + 1);
-        }
 
-        if(wrapper.hasClass('normal-carousel')){
-            item_width = wrapper.width();
 
-            ul_width = item_width * (slide_count + 1);
-        }
+//        if(wrapper.hasClass('logo-carousel')){
+//            if(wrapper.width() < 649){
+//                item_width = wrapper.width() / 3;
+//            }
+//            else if(wrapper.width() < 1024){
+//                item_width = wrapper.width() / 4;
+//            }
+//            else if(wrapper.width() > 1024){
+//                item_width = wrapper.width() / 5;
+//            }
+//
+//            ul_width = item_width * (slide_count + 1);
+//        }
+//
+//        if(wrapper.hasClass('normal-carousel')){
+//            item_width = wrapper.width();
+//
+//            ul_width = item_width * (slide_count + 1);
+//        }
 
         /*
          |----------------------------------------------------------------
@@ -99,25 +108,28 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
          |----------------------------------------------------------------
          */
         $(window).resize(function(){
-            if(wrapper.hasClass('logo-carousel')){
-                if(wrapper.width() < 649){
-                    item_width = wrapper.width() / 3;
-                }
-                else if(wrapper.width() < 1024){
-                    item_width = wrapper.width() / 4;
-                }
-                else if(wrapper.width() > 1024){
-                    item_width = wrapper.width() / 5;
-                }
+            item_width = wrapper.width() / max_view;
+            ul_width = item_width * (slide_count + 1);
 
-                ul_width = item_width * (slide_count + 1);
-            }
-
-            if(wrapper.hasClass('normal-carousel')){
-                item_width = wrapper.width();
-
-                ul_width = item_width * (slide_count + 1);
-            }
+//            if(wrapper.hasClass('logo-carousel')){
+//                if(wrapper.width() < 649){
+//                    item_width = wrapper.width() / 3;
+//                }
+//                else if(wrapper.width() < 1024){
+//                    item_width = wrapper.width() / 4;
+//                }
+//                else if(wrapper.width() > 1024){
+//                    item_width = wrapper.width() / 5;
+//                }
+//
+//                ul_width = item_width * (slide_count + 1);
+//            }
+//
+//            if(wrapper.hasClass('normal-carousel')){
+//                item_width = wrapper.width();
+//
+//                ul_width = item_width * (slide_count + 1);
+//            }
 
             setCSS();
         });
@@ -140,6 +152,9 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
             ul.find('li:first').before(ul.find('li:last'));
 
             ul.css('left', -item_width);
+
+            var carousel_height = ul.height();
+            wrapper.height(carousel_height);
         }
         setCSS();
 
@@ -167,7 +182,7 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
                 'left': left_indent
             },{
                 queue: false,
-                duration: 300,
+                duration: animate_time,
                 complete: function(){
                     ul.find('li:last').after(ul.find('li:first'));
 
@@ -347,7 +362,6 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
                                 $border_color           = $carousel_item['border_color'];
                                 $border_size            = $carousel_item['border_size'];
                                 $border_radius          = $carousel_item['border_radius'];
-
                                 $image_align            = $carousel_item['image_align'];
 
                                 $title                  = $carousel_item['title'];
@@ -371,6 +385,28 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
                                 |----------------------------------------------------------------
                                 */
                                 echo '<li class="carousel-item">';
+
+                                    /*
+                                    |----------------------------------------------------------------
+                                    |   Image size.
+                                    |----------------------------------------------------------------
+                                    */
+                                    if($image_size == 'auto'){
+                                        $image_width = 'auto';
+                                        $image_class = '';
+                                    }
+                                    elseif($image_size == '100%'){
+                                        $image_width = '100%';
+                                        $image_class = '';
+                                    }
+                                    elseif($image_size == 'fill'){
+                                        $image_width = '100%';
+                                        $image_class = 'fill';
+                                    }
+                                    else {
+                                        $image_width = '';
+                                        $image_class = '';
+                                    }
 
                                     /*
                                     |----------------------------------------------------------------
@@ -427,7 +463,7 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
                                     */
                                     if(!empty($image)){
                                         echo '<div class="image">';
-                                            echo '<img style="'.$image_alignment.'; max-width: '.$max_image_width.'px; '.$border_type.' border-radius: '.$border_radius.'px;" src="'.$image.'" width="'.$max_image_width.'" />';
+                                            echo '<img style="'.$image_alignment.'; max-width: '.$max_image_width.'px; '.$border_type.' border-radius: '.$border_radius.'px;" src="'.$image.'" width="'.$image_width.'" />';
                                         echo '</div>'; // Image closing tag
                                     }
 
