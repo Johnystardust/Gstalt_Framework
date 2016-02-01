@@ -20,6 +20,8 @@ function add_my_custom_scripts(){
     wp_register_script('my_javascript', get_stylesheet_directory_uri().'/assets/javascript/javascript.js');
     wp_register_script('my_slider', get_stylesheet_directory_uri().'/assets/javascript/slider.js');
     wp_register_script('my_carousel', get_stylesheet_directory_uri().'/assets/javascript/carousel.js');
+    wp_register_script('google_maps', 'https://maps.googleapis.com/maps/api/js');
+
 
     // enqueue scripts
     wp_enqueue_script('my_jquery');
@@ -27,6 +29,7 @@ function add_my_custom_scripts(){
     wp_enqueue_script('my_javascript');
     wp_enqueue_script('my_slider');
     wp_enqueue_script('my_carousel');
+    wp_enqueue_script('google_maps');
 }
 
 /*
