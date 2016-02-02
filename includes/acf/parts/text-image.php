@@ -12,11 +12,13 @@
 $margin             = get_sub_field('margin');
 $padding            = get_sub_field('padding');
 
+$background         = get_sub_field('background');
 $background_color   = get_sub_field('background_color');
 $background_image   = get_sub_field('background_image');
 $background_align   = get_sub_field('image_align');
 $background_size    = get_sub_field('image_size');
 
+$show_border        = get_sub_field('show_border');
 $border             = get_sub_field('border');
 $border_color       = get_sub_field('border_color');
 $border_size        = get_sub_field('border_size');
@@ -27,29 +29,28 @@ $border_style       = get_sub_field('border_style');
 |   Border type
 |----------------------------------------------------------------
 */
-if($border == 'all'){
-    $border_type = 'border: '.$border_size.'px '.$border_style.' '.$border_color.';';
-}
-elseif($border == 'top'){
-    $border_type = 'border-top: '.$border_size.'px '.$border_style.' '.$border_color.';';
-}
-elseif($border == 'bottom'){
-    $border_type = 'border-bottom: '.$border_size.'px '.$border_style.' '.$border_color.';';
-}
-elseif($border == 'topbottom'){
-    $border_type = 'border-top: '.$border_size.'px '.$border_style.' '.$border_color.'; border-bottom: '.$border_size.' '.$border_style.' '.$border_color.';';
-}
-elseif($border == 'left'){
-    $border_type = 'border-left: '.$border_size.'px '.$border_style.' '.$border_color.';';
-}
-elseif($border == 'right'){
-    $border_type = 'border-right: '.$border_size.'px '.$border_style.' '.$border_color.';';
-}
-elseif($border == 'leftright'){
-    $border_type = 'border-left: '.$border_size.'px '.$border_style.' '.$border_color.'; border-right: '.$border_size.' '.$border_style.' '.$border_color.';';
-}
-elseif($border == 'none') {
-    $border_type = '';
+if($show_border){
+    if($border == 'all'){
+        $border_type = 'border: '.$border_size.'px '.$border_style.' '.$border_color.';';
+    }
+    elseif($border == 'top'){
+        $border_type = 'border-top: '.$border_size.'px '.$border_style.' '.$border_color.';';
+    }
+    elseif($border == 'bottom'){
+        $border_type = 'border-bottom: '.$border_size.'px '.$border_style.' '.$border_color.';';
+    }
+    elseif($border == 'topbottom'){
+        $border_type = 'border-top: '.$border_size.'px '.$border_style.' '.$border_color.'; border-bottom: '.$border_size.' '.$border_style.' '.$border_color.';';
+    }
+    elseif($border == 'left'){
+        $border_type = 'border-left: '.$border_size.'px '.$border_style.' '.$border_color.';';
+    }
+    elseif($border == 'right'){
+        $border_type = 'border-right: '.$border_size.'px '.$border_style.' '.$border_color.';';
+    }
+    elseif($border == 'leftright'){
+        $border_type = 'border-left: '.$border_size.'px '.$border_style.' '.$border_color.'; border-right: '.$border_size.' '.$border_style.' '.$border_color.';';
+    }
 }
 
 /*
@@ -77,10 +78,12 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                     |   Get all the fields an put them in variables for easy usage.
                     |----------------------------------------------------------------
                     */
+                    $show_title         = get_sub_field('show_title');
                     $title              = get_sub_field('title');
                     $title_color        = get_sub_field('title_color');
                     $title_uppercase    = get_sub_field('title_uppercase');
 
+                    $show_subtitle      = get_sub_field('show_subtitle');
                     $subtitle           = get_sub_field('subtitle');
                     $subtitle_color     = get_sub_field('subtitle_color');
                     $subtitle_style     = get_sub_field('subtitle_style');
@@ -141,7 +144,7 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                                 |   If the '$title' isn't empty display it.
                                 |----------------------------------------------------------------
                                 */
-                                if(!empty($title)){
+                                if($show_title){
                                     // See if title needs to be uppercase
                                     $title_uppercase ? $text_transform = 'uppercase' : $text_transform = 'none';
 
@@ -153,7 +156,7 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                                     |   If the '$subtitle' isn't empty display it.
                                     |----------------------------------------------------------------
                                     */
-                                    if(!empty($subtitle)){
+                                    if($show_subtitle){
                                         // Display the subtitle
                                         echo '<h3 class="subtitle no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$title_align.';">'.$subtitle.'</h5>';
                                     }

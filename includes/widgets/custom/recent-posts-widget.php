@@ -79,7 +79,7 @@ class tvds_recent_post_widget extends WP_Widget {
         |----------------------------------------------------------------
         */
         $query_args = array(
-            'post-type'         => 'post',
+            'post_type'         => 'post',
             'cat'               => $included_categories,
             'posts_per_page'    => $max_posts
         );

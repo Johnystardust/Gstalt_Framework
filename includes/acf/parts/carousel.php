@@ -9,27 +9,29 @@
 |   Get the fields and put them in variables for easy usage.
 |----------------------------------------------------------------
 */
+$show_title             = get_sub_field('show_title');
 $title                  = get_sub_field('title');
 $title_color            = get_sub_field('title_color');
 $title_uppercase        = get_sub_field('title_uppercase');
 
+$divider                = get_sub_field('divider');
+$divider_color          = get_sub_field('divider_color');
+
+$show_subtitle          = get_sub_field('show_subtitle');
 $subtitle               = get_sub_field('subtitle');
 $subtitle_color         = get_sub_field('subtitle_color');
 $subtitle_style         = get_sub_field('subtitle_style');
-
-$divider                = get_sub_field('divider');
-$divider_color          = get_sub_field('divider_color');
 
 $title_align            = get_sub_field('title_align');
 
 $margin                 = get_sub_field('margin');
 $padding                = get_sub_field('padding');
 
+$background             = get_sub_field('background');
 $background_color       = get_sub_field('background_color');
 $background_image       = get_sub_field('background_image');
 $background_align       = get_sub_field('image_align');
 $background_size        = get_sub_field('image_size');
-
 $image_overlay_active   = get_sub_field('image_overlay_active');
 $image_overlay          = get_sub_field('image_overlay');
 $image_overlay_opacity  = get_sub_field('image_overlay_opacity') / 100;
@@ -38,7 +40,7 @@ $slide_time             = get_sub_field('slide_time');
 $animate_time           = get_sub_field('animate_time');
 $max_items_in_view      = get_sub_field('max_carousel_items_in_view');
 
-$unique_identifier     = rand(0,200);
+$unique_identifier     = rand(0,2000);
 
 /*
 |-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -197,6 +199,8 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
         }
 
     });
+
+
 </script>
 
 <?php
@@ -212,7 +216,7 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
         |   If the '$title' isn't empty display it.
         |----------------------------------------------------------------
         */
-        if(!empty($title)){
+        if($show_title){
             // See if title needs to be uppercase
             if($title_uppercase == true){
                 $text_transform = 'uppercase';
@@ -255,7 +259,7 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
             |   If the '$subtitle' isn't empty display it.
             |----------------------------------------------------------------
             */
-            if(!empty($subtitle)){
+            if($show_subtitle){
                 // Display the subtitle
                 echo '<h3 class="subtitle no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$title_align.';">'.$subtitle.'</h3>';
             }
@@ -272,15 +276,29 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
             switch(get_row_layout()){
                 /*
                 |----------------------------------------------------------------
-                |   If row layout is Logo slider
+                |   If row layout is Logo Carousel
                 |----------------------------------------------------------------
                 */
                 case 'logo_carousel':
                     get_template_part('includes/acf/parts/carousel-logo');
                     break;
 
+                /*
+                |----------------------------------------------------------------
+                |   If row layout is Testimonial Carousel
+                |----------------------------------------------------------------
+                */
                 case 'testimonial_carousel':
                     get_template_part('includes/acf/parts/carousel-testimonial');
+                    break;
+
+                /*
+                |----------------------------------------------------------------
+                |   If row layout is Post Carousel
+                |----------------------------------------------------------------
+                */
+                case 'post_carousel':
+                    get_template_part('includes/acf/parts/carousel-post');
                     break;
             }
         }

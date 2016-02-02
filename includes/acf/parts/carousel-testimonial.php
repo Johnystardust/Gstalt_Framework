@@ -16,7 +16,7 @@ $carousel = get_sub_field('carousel');
 |   Carousel Wrapper.
 |----------------------------------------------------------------
 */
-echo '<div class="carousel-wrapper normal-carousel">';
+echo '<div class="carousel-wrapper testimonial-carousel">';
     echo '<ul class="carousel-container">';
     /*
     |----------------------------------------------------------------

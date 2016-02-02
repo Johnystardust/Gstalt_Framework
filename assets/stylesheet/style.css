@@ -220,15 +220,20 @@ p {
       .carousel .carousel-wrapper .carousel-container li {
         float: left;
         padding: 0 10px; }
-  .carousel .normal-carousel .content-wrapper {
+  .carousel .testimonial-carousel .content-wrapper {
     padding-left: 50px;
     padding-right: 50px; }
-  .carousel .normal-carousel .image {
+  .carousel .testimonial-carousel .image {
     display: block; }
-    .carousel .normal-carousel .image img {
+    .carousel .testimonial-carousel .image img {
       display: block;
       margin-bottom: 10px; }
   .carousel .logo-carousel .carousel-container li img {
+    width: 100%;
+    height: auto; }
+  .carousel .post-carousel .carousel-item:hover {
+    opacity: 0.7; }
+  .carousel .post-carousel .image img {
     width: 100%;
     height: auto; }
 
