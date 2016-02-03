@@ -210,47 +210,25 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
     |   Title/Subtitle.
     |----------------------------------------------------------------
     */
-    echo '<div class="row title-subtitle">';
+    if($show_title || $show_subtitle) {
+        echo '<div class="row title-subtitle">';
         /*
         |----------------------------------------------------------------
         |   If the '$title' isn't empty display it.
         |----------------------------------------------------------------
         */
-        if($show_title){
-            // See if title needs to be uppercase
-            if($title_uppercase == true){
-                $text_transform = 'uppercase';
-            }
-            else {
-                $text_transform = 'none';
-            }
-
+        if ($show_title) {
             // Display the title
-            echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.'; text-transform: '.$text_transform.'; ">'.$title.'</h1>';
+            echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.'; '.text_transform($title_uppercase).'; ">'.$title.'</h1>';
 
             /*
             |----------------------------------------------------------------
             |   If the '$divider' is set true display it.
             |----------------------------------------------------------------
             */
-            if($divider == true){
-                /*
-                |----------------------------------------------------------------
-                |   Align the divider with the '$title_align'.
-                |----------------------------------------------------------------
-                */
-                if($title_align == 'center'){
-                    $divider_align = 'margin-left: auto; margin-right: auto;';
-                }
-                elseif($title_align == 'left'){
-                    $divider_align = 'float: left;';
-                }
-                elseif($title_align == 'right'){
-                    $divider_align = 'float: right;';
-                }
-
+            if ($divider == true) {
                 echo '<div class="divider">';
-                    echo '<hr style="'.$divider_align.'; border-color: '.$divider_color.';" />';
+                    echo '<hr style="'.align_left_right_center($title_align).'; border-color: '.$divider_color.';" />';
                 echo '</div>';
             }
 
@@ -259,12 +237,13 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
             |   If the '$subtitle' isn't empty display it.
             |----------------------------------------------------------------
             */
-            if($show_subtitle){
+            if ($show_subtitle) {
                 // Display the subtitle
-                echo '<h3 class="subtitle no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$title_align.';">'.$subtitle.'</h3>';
+                echo '<h3 class="subtitle no-margin" style="font-style: ' . $subtitle_style . '; color: ' . $subtitle_color . '; text-align: ' . $title_align . ';">' . $subtitle . '</h3>';
             }
         }
-    echo '</div>';
+        echo '</div>';
+    }
 
     /*
     |----------------------------------------------------------------

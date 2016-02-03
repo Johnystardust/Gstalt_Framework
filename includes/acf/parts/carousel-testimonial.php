@@ -35,6 +35,7 @@ echo '<div class="carousel-wrapper testimonial-carousel">';
         $border                 = $carousel_item['border'];
         $border_color           = $carousel_item['border_color'];
         $border_size            = $carousel_item['border_size'];
+        $border_style           = $carousel_item['border_style'];
         $border_radius          = $carousel_item['border_radius'];
         $image_align            = $carousel_item['image_align'];
 
@@ -84,60 +85,12 @@ echo '<div class="carousel-wrapper testimonial-carousel">';
 
         /*
         |----------------------------------------------------------------
-        |   Border type
-        |----------------------------------------------------------------
-        */
-        if($border == 'all'){
-            $border_type = 'border: '.$border_size.'px solid '.$border_color.';';
-        }
-        elseif($border == 'top'){
-            $border_type = 'border-top: '.$border_size.'px solid '.$border_color.';';
-        }
-        elseif($border == 'bottom'){
-            $border_type = 'border-bottom: '.$border_size.'px solid '.$border_color.';';
-        }
-        elseif($border == 'topbottom'){
-            $border_type = 'border-top: '.$border_size.'px solid '.$border_color.'; border-bottom: '.$border_size.' solid '.$border_color.';';
-        }
-        elseif($border == 'left'){
-            $border_type = 'border-left: '.$border_size.'px solid '.$border_color.';';
-        }
-        elseif($border == 'right'){
-            $border_type = 'border-right: '.$border_size.'px solid '.$border_color.';';
-        }
-        elseif($border == 'leftright'){
-            $border_type = 'border-left: '.$border_size.'px solid '.$border_color.'; border-right: '.$border_size.' solid '.$border_color.';';
-        }
-        elseif($border == 'none'){
-            $border_type = '';
-        }
-
-        /*
-        |----------------------------------------------------------------
-        |   Image align.
-        |----------------------------------------------------------------
-        */
-        if($image_align == 'left'){
-            $image_alignment = 'float: left;';
-        }
-        elseif($image_align == 'right'){
-            $image_alignment = 'float: right;';
-        }
-        elseif($image_align == 'center'){
-            $image_alignment = 'margin: 0 auto;';
-        }
-        else {
-            $image_alignment = '';
-        }
-
-        /*
-        |----------------------------------------------------------------
         |   If the '$image' isn't empty display it.
         |----------------------------------------------------------------
         */
         if(!empty($image)){
             echo '<div class="image">';
-                echo '<img style="'.$image_alignment.'; max-width: '.$max_image_width.'px; '.$border_type.' border-radius: '.$border_radius.'px;" src="'.$image.'" width="'.$image_width.'" />';
+                echo '<img style="'.align_left_right_center($image_align).'; '.border_style($border, $border_size, $border_style, $border_color).' max-width: '.$max_image_width.'px; border-radius: '.$border_radius.'px;" src="'.$image.'" width="'.$image_width.'" />';
             echo '</div>'; // Image closing tag
         }
 
@@ -147,11 +100,8 @@ echo '<div class="carousel-wrapper testimonial-carousel">';
         |----------------------------------------------------------------
         */
         if(!empty($title)){
-            // See if title needs to be uppercase
-            $title_uppercase ? $text_transform = 'uppercase' : $text_transform = 'none';
-
             // Display the title
-            echo '<h3 class="title no-margin" style="color: '.$title_color.'; text-transform: '.$text_transform.'; text-align: '.$title_align.';">'.$title.'</h3>';
+            echo '<h3 class="title no-margin" style="color: '.$title_color.'; '.text_transform($title_uppercase).'; text-align: '.$title_align.';">'.$title.'</h3>';
 
             /*
             |----------------------------------------------------------------
@@ -170,23 +120,8 @@ echo '<div class="carousel-wrapper testimonial-carousel">';
         |----------------------------------------------------------------
         */
         if($divider == true){
-            /*
-            |----------------------------------------------------------------
-            |   Align the divider with the '$title_align'.
-            |----------------------------------------------------------------
-            */
-            if($title_align == 'center'){
-                $divider_align = 'margin-left: auto; margin-right: auto;';
-            }
-            elseif($title_align == 'left'){
-                $divider_align = 'float: left;';
-            }
-            elseif($title_align == 'right'){
-                $divider_align = 'float: right;';
-            }
-
             echo '<div class="divider">';
-            echo '<hr style="'.$divider_align.' border-color: '.$divider_color.';" />';
+                echo '<hr style="'.align_left_right_center($title_align).' border-color: '.$divider_color.';" />';
             echo '</div>';
         }
 

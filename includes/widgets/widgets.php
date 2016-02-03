@@ -6,7 +6,6 @@
 
 include_once('custom/opening-times-widget.php');
 include_once('custom/maps-widget.php');
-include_once('custom/mailing-list-widget.php');
 include_once('custom/recent-posts-widget.php');
 
 /*
@@ -19,7 +18,6 @@ include_once('custom/recent-posts-widget.php');
 function tvds_load_widget() {
     register_widget('tvds_opening_times_widget');
     register_widget('tvds_maps_widget');
-    register_widget('tvds_mailing_list_widget');
     register_widget('tvds_recent_post_widget');
 }
 add_action( 'widgets_init', 'tvds_load_widget' );

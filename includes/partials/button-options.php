@@ -43,7 +43,12 @@ foreach($button_options as $option){
     echo '.'.$btn_name.' {';
         echo 'background-color: '.$btn_color.';';
         echo 'color: '.$button_text_color.';';
-        echo 'border: '.$button_border_width.'px solid '.$button_border_color.';';
+        if($button_border_width || $button_border_color){
+            echo 'border: '.$button_border_width.'px solid '.$button_border_color.';';
+        }
+        else {
+            echo 'border: none;';
+        }
         echo 'border-radius: '.$button_border_radius.'px;';
         echo 'padding: '.$button_padding.';';
     echo '}';
@@ -51,7 +56,12 @@ foreach($button_options as $option){
     echo '.'.$btn_name.':hover {';
         echo 'background-color: '.$btn_hover_color.' !important;';
         echo 'color: '.$button_text_hover_color.' !important;';
-        echo 'border: '.$button_border_width.'px solid '.$button_border_hover_color.' !important;';
+        if($button_border_width || $button_border_color){
+            echo 'border: '.$button_border_width.'px solid '.$button_border_hover_color.' !important;';
+        }
+        else {
+            echo 'border: none;';
+        }
     echo '}';
 
 }

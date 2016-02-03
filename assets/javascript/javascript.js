@@ -231,7 +231,7 @@ $(document).ready(function(){
     // Scroll to top
     $scroll_top.click(function(){
         $("html, body").animate({ scrollTop: 0 },600);
-        return false
+        return false;
     });
 
     /*

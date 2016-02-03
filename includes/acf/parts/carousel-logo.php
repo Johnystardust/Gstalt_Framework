@@ -17,45 +17,45 @@ $carousel = get_sub_field('carousel');
 |----------------------------------------------------------------
 */
 echo '<div class="carousel-wrapper logo-carousel">';
-echo '<ul class="carousel-container">';
-/*
-|----------------------------------------------------------------
-|   Use foreach to loop over al the slides.
-|----------------------------------------------------------------
-*/
-foreach($carousel as $carousel_item){
-    /*
-    |----------------------------------------------------------------
-    |   Get the slide fields and put them in variables for easy usage.
-    |----------------------------------------------------------------
-    */
-    $image          = $carousel_item['image'];
-    $link           = $carousel_item['link'];
-    $open_in_tab    = $carousel_item['open_link_new'];
-
-    /*
-    |----------------------------------------------------------------
-    |   Carousel item.
-    |
-    |   If '$image' isn't empty display the carousel item.
-    |----------------------------------------------------------------
-    */
-    if(!empty($image)){
-
+    echo '<ul class="carousel-container">';
         /*
         |----------------------------------------------------------------
-        |   If '$link' isn't empty display the carousel item with link.
+        |   Use foreach to loop over al the slides.
         |----------------------------------------------------------------
         */
-        if(!empty($link)){ echo '<a href="'.$link.'">';}
+        foreach($carousel as $carousel_item){
+            /*
+            |----------------------------------------------------------------
+            |   Get the slide fields and put them in variables for easy usage.
+            |----------------------------------------------------------------
+            */
+            $image          = $carousel_item['image'];
+            $link           = $carousel_item['link'];
+            $open_in_tab    = $carousel_item['open_link_new'];
 
-        echo '<li class="carousel-item">';
-        echo '<img src="'.$image.'">';
-        echo '</li>';
+            /*
+            |----------------------------------------------------------------
+            |   Carousel item.
+            |
+            |   If '$image' isn't empty display the carousel item.
+            |----------------------------------------------------------------
+            */
+            if(!empty($image)){
 
-        if(!empty($link)){ echo '</a>';}
-    }
-}
+                /*
+                |----------------------------------------------------------------
+                |   If '$link' isn't empty display the carousel item with link.
+                |----------------------------------------------------------------
+                */
+                if(!empty($link)){ echo '<a href="'.$link.'">';}
 
-echo '</ul>';
+                echo '<li class="carousel-item">';
+                    echo '<img src="'.$image.'">';
+                echo '</li>';
+
+                if(!empty($link)){ echo '</a>';}
+            }
+        }
+
+    echo '</ul>';
 echo '</div>'; // Carousel Wrapper closing div

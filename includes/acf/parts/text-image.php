@@ -30,27 +30,7 @@ $border_style       = get_sub_field('border_style');
 |----------------------------------------------------------------
 */
 if($show_border){
-    if($border == 'all'){
-        $border_type = 'border: '.$border_size.'px '.$border_style.' '.$border_color.';';
-    }
-    elseif($border == 'top'){
-        $border_type = 'border-top: '.$border_size.'px '.$border_style.' '.$border_color.';';
-    }
-    elseif($border == 'bottom'){
-        $border_type = 'border-bottom: '.$border_size.'px '.$border_style.' '.$border_color.';';
-    }
-    elseif($border == 'topbottom'){
-        $border_type = 'border-top: '.$border_size.'px '.$border_style.' '.$border_color.'; border-bottom: '.$border_size.' '.$border_style.' '.$border_color.';';
-    }
-    elseif($border == 'left'){
-        $border_type = 'border-left: '.$border_size.'px '.$border_style.' '.$border_color.';';
-    }
-    elseif($border == 'right'){
-        $border_type = 'border-right: '.$border_size.'px '.$border_style.' '.$border_color.';';
-    }
-    elseif($border == 'leftright'){
-        $border_type = 'border-left: '.$border_size.'px '.$border_style.' '.$border_color.'; border-right: '.$border_size.' '.$border_style.' '.$border_color.';';
-    }
+    $border_type = border_style($border, $border_size, $border_style, $border_color);
 }
 
 /*
@@ -109,34 +89,10 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
 
                     /*
                     |----------------------------------------------------------------
-                    |   Determine block width.
-                    |----------------------------------------------------------------
-                    */
-                    if($block_width == '25'){
-                        $col_size = 'col-md-3';
-                    }
-                    elseif($block_width == '33'){
-                        $col_size = 'col-md-4';
-                    }
-                    elseif($block_width == '50'){
-                        $col_size = 'col-md-6';
-                    }
-                    elseif($block_width == '66'){
-                        $col_size = 'col-md-8';
-                    }
-                    elseif($block_width == '75'){
-                        $col_size = 'col-md-9';
-                    }
-                    elseif($block_width == '100'){
-                        $col_size = 'col-md-12';
-                    }
-
-                    /*
-                    |----------------------------------------------------------------
                     |   Text Block.
                     |----------------------------------------------------------------
                     */
-                    echo '<div class="text '.$col_size.' col container-capped" style="margin: '.$margin.'; padding: '.$padding.';">';
+                    echo '<div class="text '.determine_col_size($block_width).' col container-capped" style="margin: '.$margin.'; padding: '.$padding.';">';
                         echo '<div class="text-content">';
                             echo '<div class="middle-wrap">';
                                 /*
@@ -292,52 +248,10 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
 
                     /*
                     |----------------------------------------------------------------
-                    |   Image align.
-                    |----------------------------------------------------------------
-                    */
-                    if($image_align == 'left'){
-                        $image_alignment = 'float: left;';
-                    }
-                    elseif($image_align == 'right'){
-                        $image_alignment = 'float: right;';
-                    }
-                    elseif($image_align == 'center'){
-                        $image_alignment = 'margin: 0 auto;';
-                    }
-                    else {
-                        $image_alignment = '';
-                    }
-
-                    /*
-                    |----------------------------------------------------------------
-                    |   Determine block width.
-                    |----------------------------------------------------------------
-                    */
-                    if($block_width == '25'){
-                        $col_size = 'col-md-3';
-                    }
-                    elseif($block_width == '33'){
-                        $col_size = 'col-md-4';
-                    }
-                    elseif($block_width == '50'){
-                        $col_size = 'col-md-6';
-                    }
-                    elseif($block_width == '66'){
-                        $col_size = 'col-md-8';
-                    }
-                    elseif($block_width == '75'){
-                        $col_size = 'col-md-9';
-                    }
-                    elseif($block_width == '100'){
-                        $col_size = 'col-md-12';
-                    }
-
-                    /*
-                    |----------------------------------------------------------------
                     |   Image Block.
                     |----------------------------------------------------------------
                     */
-                    echo '<div class="image '.$col_size.' col '.$image_class.' no-padding" style="margin: '.$margin.'; padding: '.$padding.';">';
+                    echo '<div class="image '.determine_col_size($block_width).' col '.$image_class.' no-padding" style="margin: '.$margin.'; padding: '.$padding.';">';
                         /*
                         |----------------------------------------------------------------
                         |   If vertical center is true set img in middle wrap.
@@ -346,12 +260,12 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                         if($vertical_center){
                             echo '<div class="image-content">';
                                 echo '<div class="middle-wrap">';
-                                    echo '<img style="'.$image_alignment.'; max-width: '.$max_image_width.'px;" src="'.$image.'" width="'.$image_width.'" />';
+                                    echo '<img style="'.align_left_right_center($image_align).'; max-width: '.$max_image_width.'px;" src="'.$image.'" width="'.$image_width.'" />';
                                 echo '</div>';
                             echo '</div>';
                         }
                         else {
-                            echo '<img style="'.$image_alignment.'; max-width: '.$max_image_width.'px;" src="'.$image.'" width="'.$image_width.'" />';
+                            echo '<img style="'.align_left_right_center($image_align).'; max-width: '.$max_image_width.'px;" src="'.$image.'" width="'.$image_width.'" />';
                         }
 
                         if($overlay_active){
