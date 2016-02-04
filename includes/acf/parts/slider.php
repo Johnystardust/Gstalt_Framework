@@ -138,11 +138,8 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
                                             |----------------------------------------------------------------
                                             */
                                             if(!empty($title)){
-                                                // See if title needs to be uppercase
-                                                $title_uppercase ? $text_transform = 'uppercase' : $text_transform = 'none';
-
                                                 // Display the title
-                                                echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.'; font-size: '.$title_size.'px; text-transform: '.$text_transform.'; ">'.$title.'</h1>';
+                                                echo '<h1 class="title no-margin" style="'.text_transform($title_uppercase).' color: '.$title_color.'; text-align: '.$title_align.'; font-size: '.$title_size.'px; ">'.$title.'</h1>';
 
                                                 /*
                                                 |----------------------------------------------------------------
@@ -150,23 +147,8 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
                                                 |----------------------------------------------------------------
                                                 */
                                                 if($divider == true){
-                                                    /*
-                                                    |----------------------------------------------------------------
-                                                    |   Align the divider with the '$title_align'.
-                                                    |----------------------------------------------------------------
-                                                    */
-                                                    if($title_align == 'center'){
-                                                        $divider_align = 'margin-left: auto; margin-right: auto;';
-                                                    }
-                                                    elseif($title_align == 'left'){
-                                                        $divider_align = 'float: left;';
-                                                    }
-                                                    elseif($title_align == 'right'){
-                                                        $divider_align = 'float: right;';
-                                                    }
-
                                                     echo '<div class="divider">';
-                                                        echo '<hr style="'.$divider_align.'; border-color: '.$divider_color.';" />';
+                                                        echo '<hr style="'.align_left_right_center($title_align).'; border-color: '.$divider_color.';" />';
                                                     echo '</div>';
                                                 }
 

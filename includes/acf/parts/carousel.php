@@ -212,24 +212,25 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
     */
     if($show_title || $show_subtitle) {
         echo '<div class="row title-subtitle">';
-        /*
-        |----------------------------------------------------------------
-        |   If the '$title' isn't empty display it.
-        |----------------------------------------------------------------
-        */
-        if ($show_title) {
-            // Display the title
-            echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.'; '.text_transform($title_uppercase).'; ">'.$title.'</h1>';
-
             /*
             |----------------------------------------------------------------
-            |   If the '$divider' is set true display it.
+            |   If the '$title' isn't empty display it.
             |----------------------------------------------------------------
             */
-            if ($divider == true) {
-                echo '<div class="divider">';
-                    echo '<hr style="'.align_left_right_center($title_align).'; border-color: '.$divider_color.';" />';
-                echo '</div>';
+            if ($show_title) {
+                // Display the title
+                echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-align: '.$title_align.'; '.text_transform($title_uppercase).'; ">'.$title.'</h1>';
+
+                /*
+                |----------------------------------------------------------------
+                |   If the '$divider' is set true display it.
+                |----------------------------------------------------------------
+                */
+                if ($divider == true) {
+                    echo '<div class="divider">';
+                        echo '<hr style="'.align_left_right_center($title_align).'; border-color: '.$divider_color.';" />';
+                    echo '</div>';
+                }
             }
 
             /*
@@ -241,7 +242,6 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
                 // Display the subtitle
                 echo '<h3 class="subtitle no-margin" style="font-style: ' . $subtitle_style . '; color: ' . $subtitle_color . '; text-align: ' . $title_align . ';">' . $subtitle . '</h3>';
             }
-        }
         echo '</div>';
     }
 

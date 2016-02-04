@@ -25,20 +25,11 @@ $border_size        = get_sub_field('border_size');
 $border_style       = get_sub_field('border_style');
 
 /*
-|----------------------------------------------------------------
-|   Border type
-|----------------------------------------------------------------
-*/
-if($show_border){
-    $border_type = border_style($border, $border_size, $border_style, $border_color);
-}
-
-/*
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 |   Text with image block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="text-with-image" class="container-fluid no-padding same-col-height" style="background: '.$background_color.' url('.$background_image.') '.$image_align.'; background-size: '.$background_size.'; margin: '.$margin.'; padding: '.$padding.'; '.$border_type.'">';
+echo '<div id="text-with-image" class="container-fluid no-padding same-col-height" style="'.set_background_style($background, $background_color, $background_image, $background_align, $background_size).' margin: '.$margin.'; padding: '.$padding.'; '.border_style($border, $border_size, $border_style, $border_color).'">';
     /*
     |----------------------------------------------------------------
     |   If the field is filled, get the row layout.
@@ -101,11 +92,8 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                                 |----------------------------------------------------------------
                                 */
                                 if($show_title){
-                                    // See if title needs to be uppercase
-                                    $title_uppercase ? $text_transform = 'uppercase' : $text_transform = 'none';
-
                                     // Display the title
-                                    echo '<h1 class="title no-margin" style="color: '.$title_color.'; text-transform: '.$text_transform.'; text-align: '.$title_align.';">'.$title.'</h1>';
+                                    echo '<h1 class="title no-margin" style="color: '.$title_color.'; '.text_transform($title_uppercase).'; text-align: '.$title_align.';">'.$title.'</h1>';
 
                                     /*
                                     |----------------------------------------------------------------
@@ -124,23 +112,8 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                                 |----------------------------------------------------------------
                                 */
                                 if($divider == true){
-                                    /*
-                                    |----------------------------------------------------------------
-                                    |   Align the divider with the '$title_align'.
-                                    |----------------------------------------------------------------
-                                    */
-                                    if($title_align == 'center'){
-                                        $divider_align = 'margin-left: auto; margin-right: auto;';
-                                    }
-                                    elseif($title_align == 'left'){
-                                        $divider_align = 'float: left;';
-                                    }
-                                    elseif($title_align == 'right'){
-                                        $divider_align = 'float: right;';
-                                    }
-
                                     echo '<div class="divider">';
-                                        echo '<hr style="'.$divider_align.' border-color: '.$divider_color.';" />';
+                                        echo '<hr style="'.align_left_right_center($title_align).' border-color: '.$divider_color.';" />';
                                     echo '</div>';
                                 }
 

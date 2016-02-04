@@ -51,6 +51,7 @@ foreach($button_options as $option){
         }
         echo 'border-radius: '.$button_border_radius.'px;';
         echo 'padding: '.$button_padding.';';
+        echo 'display: inline-block;';
     echo '}';
 
     echo '.'.$btn_name.':hover {';

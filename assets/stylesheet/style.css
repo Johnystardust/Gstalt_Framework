@@ -171,8 +171,11 @@ p {
     height: 100%; }
     #call-to-action .text h3 {
       line-height: 34px; }
+  #call-to-action .title {
+    margin-bottom: 0; }
   #call-to-action .buttons {
     display: table;
+    width: 100%;
     height: 100%;
     margin-top: 0; }
 
@@ -474,6 +477,12 @@ body {
     .widget_tvds_recent_post_widget .recent-post-item .content p {
       color: inherit;
       font-size: 14px; }
+
+.logo-header p {
+  display: none; }
+
+.mobile .logo-header p {
+  display: block; }
 
 .mobile .hide-mobile {
   display: none !important; }

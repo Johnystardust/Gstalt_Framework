@@ -60,10 +60,10 @@ function align_left_right_center($align){
 */
 function text_transform($text_transform){
     if($text_transform == true){
-        return 'text-transform: uppercase';
+        return 'text-transform: uppercase;';
     }
     else {
-        return 'text-transform: none';
+        return 'text-transform: none;';
     }
 }
 
@@ -98,3 +98,25 @@ function border_style($border, $border_size, $border_style, $border_color){
         return false;
     }
 }
+
+/*
+|-----------------------------------------------------------------------------------------------------------------------
+|   Set background style.
+|-----------------------------------------------------------------------------------------------------------------------
+*/
+function set_background_style($background, $background_color, $background_image, $background_position, $background_size){
+    if($background == 'color'){
+        return 'background-color: '.$background_color.';';
+    }
+    elseif($background == 'image'){
+        return 'background: url('.$background_image.'); background-position: '.$background_position.'; background-size: '.$background_size.';';
+    }
+    elseif($background == 'both'){
+        return 'background: '.$background_color.' url('.$background_image.'); background-position: '.$background_position.'; background-size: '.$background_size.';';
+    }
+    else {
+        return false;
+    }
+}
+
+
