@@ -147,6 +147,7 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
                                                 |----------------------------------------------------------------
                                                 */
                                                 if($divider == true){
+
                                                     echo '<div class="divider">';
                                                         echo '<hr style="'.align_left_right_center($title_align).'; border-color: '.$divider_color.';" />';
                                                     echo '</div>';

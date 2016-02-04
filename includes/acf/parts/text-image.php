@@ -83,7 +83,7 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                     |   Text Block.
                     |----------------------------------------------------------------
                     */
-                    echo '<div class="text '.determine_col_size($block_width).' col container-capped" style="margin: '.$margin.'; padding: '.$padding.';">';
+                    echo '<div class="text '.set_col_size($block_width).' col container-capped" style="margin: '.$margin.'; padding: '.$padding.';">';
                         echo '<div class="text-content">';
                             echo '<div class="middle-wrap">';
                                 /*
@@ -224,7 +224,7 @@ echo '<div id="text-with-image" class="container-fluid no-padding same-col-heigh
                     |   Image Block.
                     |----------------------------------------------------------------
                     */
-                    echo '<div class="image '.determine_col_size($block_width).' col '.$image_class.' no-padding" style="margin: '.$margin.'; padding: '.$padding.';">';
+                    echo '<div class="image '.set_col_size($block_width).' col '.$image_class.' no-padding" style="margin: '.$margin.'; padding: '.$padding.';">';
                         /*
                         |----------------------------------------------------------------
                         |   If vertical center is true set img in middle wrap.

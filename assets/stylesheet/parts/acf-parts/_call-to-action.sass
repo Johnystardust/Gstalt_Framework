@@ -1,20 +1,11 @@
 #call-to-action
-  padding: 35px 60px
+  position: relative
 
-  .col
-    height: 100%
+  .on-top-overlay
+    position: relative
+    z-index: 101
 
-  .text
-    display: table
-    height: 100%
-    h3
-      line-height: 34px
-
-  .title
-    margin-bottom: 0
-
-  .buttons
-    display: table
-    width: 100%
-    height: 100%
-    margin-top: 0
+@media screen and (max-width: 992px)
+  #call-to-action
+    .buttons-row
+      height: auto !important

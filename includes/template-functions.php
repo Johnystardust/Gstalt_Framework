@@ -9,7 +9,7 @@
 |   Determine col size.
 |-----------------------------------------------------------------------------------------------------------------------
 */
-function determine_col_size($col_size){
+function set_col_size($col_size){
     if($col_size == '25'){
         return 'col-md-3';
     }
@@ -46,7 +46,7 @@ function align_left_right_center($align){
         return 'float: right;';
     }
     elseif($align == 'center'){
-        return 'margin: 0 auto; float: none;';
+        return 'margin-left: auto; margin-right: auto; float: none;';
     }
     else {
         return false;

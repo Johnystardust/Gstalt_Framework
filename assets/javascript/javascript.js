@@ -60,6 +60,16 @@ $(document).ready(function(){
         html.addClass('mobile');
     }
 
+    if (deviceAgent.match(/(Windows Phone)/i)) {
+        html.addClass('windows');
+        html.addClass('mobile');
+    }
+
+    if (deviceAgent.match(/(iemobile)/i)) {
+        html.addClass('iemobile');
+        html.addClass('mobile');
+    }
+
     if (deviceAgent.match(/android/)) {
         html.addClass('android');
         html.addClass('mobile');

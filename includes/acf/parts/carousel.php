@@ -24,6 +24,7 @@ $subtitle_style         = get_sub_field('subtitle_style');
 
 $title_align            = get_sub_field('title_align');
 
+
 $margin                 = get_sub_field('margin');
 $padding                = get_sub_field('padding');
 
