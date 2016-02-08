@@ -49,9 +49,9 @@ echo '<div id="call-to-action" class="container-fluid container-capped same-col-
         |   If the field is filled, get the row layout.
         |----------------------------------------------------------------
         */
-        if(get_sub_field('action_type')) {
-            while (has_sub_field('action_type')) {
-                switch (get_row_layout()) {
+        if(get_sub_field('action_type')){
+            while(has_sub_field('action_type')){
+                switch (get_row_layout()){
                     /*
                     |----------------------------------------------------------------
                     |   If row layout is link.
@@ -68,6 +68,7 @@ echo '<div id="call-to-action" class="container-fluid container-capped same-col-
                     */
                     case 'download':
                         get_template_part('includes/acf/parts/call-to-action-download');
+                        break;
                 }
             }
         }

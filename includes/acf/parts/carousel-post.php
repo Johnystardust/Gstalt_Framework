@@ -57,7 +57,7 @@ echo '<div class="carousel-wrapper post-carousel">';
                 |   Carousel item.
                 |----------------------------------------------------------------
                 */
-                echo '<a class="carousel-link" href="'.get_the_permalink().'"><li class="carousel-item">';
+                echo '<li class="carousel-item"><a class="carousel-link" href="'.get_the_permalink().'">';
 
 
                     echo '<div class="image">';
@@ -69,7 +69,7 @@ echo '<div class="carousel-wrapper post-carousel">';
                     echo '<h3>'.get_the_title().'</h3>';
 
 
-                echo '</li></a>'; // Carousel Item closing tag
+                echo '</a></li>'; // Carousel Item closing tag
 
             endwhile;
         }

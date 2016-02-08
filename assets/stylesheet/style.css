@@ -163,9 +163,6 @@ p {
 
 #call-to-action {
   position: relative; }
-  #call-to-action .on-top-overlay {
-    position: relative;
-    z-index: 101; }
 
 @media screen and (max-width: 992px) {
   #call-to-action .buttons-row {
@@ -229,6 +226,9 @@ p {
   .carousel .post-carousel .image img {
     width: 100%;
     height: auto; }
+
+#contact-form {
+  position: relative; }
 
 #faqs .faq-control {
   display: block;
@@ -446,6 +446,10 @@ body {
   top: 0;
   left: 0;
   z-index: 100; }
+
+.on-top-overlay {
+  position: relative;
+  z-index: 101; }
 
 .widget_tvds_recent_post_widget .recent-post-item {
   display: inline-block;

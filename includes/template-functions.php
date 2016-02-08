@@ -94,6 +94,9 @@ function border_style($border, $border_size, $border_style, $border_color){
     elseif($border == 'leftright'){
         return 'border-left: '.$border_size.'px '.$border_style.' '.$border_color.'; border-right: '.$border_size.' '.$border_style.' '.$border_color.';';
     }
+    elseif($border == 'none'){
+        return 'border: none;';
+    }
     else {
         return false;
     }
