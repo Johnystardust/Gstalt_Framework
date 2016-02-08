@@ -23,11 +23,30 @@ $margin_container       = get_sub_field('margin_container');
 $padding_container      = get_sub_field('padding_container');
 
 /*
+|----------------------------------------------------------------
+|   Determine if the container needs to have padding class.
+|----------------------------------------------------------------
+*/
+if(get_sub_field('card_type')){
+    while (has_sub_field('card_type')){
+        switch(get_row_layout()){
+            case 'cards_normal':
+                $card_type = 'no-padding';
+                break;
+            case 'cards_with_icon':
+                $card_type = 'container-capped';
+                break;
+        }
+
+    }
+}
+
+/*
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 |   The Cards block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="cards" class="container-fluid no-padding same-col-height" style="'.set_background_style($background, $background_color, $background_image, $background_align, $background_size, $background_repeat).' margin: '.$margin_container.'; padding: '.$padding_container.';">';
+echo '<div id="cards" class="container-fluid '.$card_type.' same-col-height" style="'.set_background_style($background, $background_color, $background_image, $background_align, $background_size, $background_repeat).' margin: '.$margin_container.'; padding: '.$padding_container.';">';
 
     /*
     |----------------------------------------------------------------

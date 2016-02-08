@@ -74,6 +74,13 @@ echo '<div class="carousel-wrapper post-carousel">';
             endwhile;
         }
 
+        /*
+        |----------------------------------------------------------------
+        |   Reset the post data.
+        |----------------------------------------------------------------
+        */
+        wp_reset_postdata();
+
     echo '<ul>'; // Carousel Container closing tag
 echo '</div>'; // Carousel Wrapper closing tag
 

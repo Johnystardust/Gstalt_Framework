@@ -32,8 +32,6 @@ if(get_sub_field('cards')){
         $content_color          = get_sub_field('content_color');
         $content_align          = get_sub_field('content_align');
 
-        $buttons                = get_sub_field('buttons');
-
         /*
         |----------------------------------------------------------------
         |   Card block.
