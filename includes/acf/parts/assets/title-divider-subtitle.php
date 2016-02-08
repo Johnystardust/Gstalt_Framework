@@ -39,7 +39,7 @@ if($show_title){
     |   If the '$divider' is set true display it.
     |----------------------------------------------------------------
     */
-    if ($divider == true) {
+    if($divider == true){
         echo '<div class="divider">';
             echo '<hr style="'.align_left_right_center($title_align).' border-color: '.$divider_color.';" />';
         echo '</div>';
@@ -51,7 +51,7 @@ if($show_title){
 |   If the '$subtitle' isn't empty display it.
 |----------------------------------------------------------------
 */
-if ($show_subtitle) {
+if($show_subtitle){
     // Display the subtitle
     echo '<h3 class="subtitle no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$title_align.'; font-size: '.$subtitle_size.'px; ">'.$subtitle.'</h3>';
 }

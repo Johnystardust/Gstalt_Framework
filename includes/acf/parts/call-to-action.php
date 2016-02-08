@@ -18,12 +18,12 @@ $background_color       = get_sub_field('background_color');
 $background_image       = get_sub_field('background_image');
 $background_align       = get_sub_field('image_align');
 $background_size        = get_sub_field('image_size');
+$background_repeat      = get_sub_field('image_repeat');
 
 $image_overlay_active   = get_sub_field('image_overlay_active');
 $image_overlay          = get_sub_field('image_overlay');
 $image_overlay_opacity  = get_sub_field('image_overlay_opacity') / 100;
 
-$height                 = get_sub_field('height');
 $margin_container       = get_sub_field('margin_container');
 $padding_container      = get_sub_field('padding_container');
 
@@ -32,12 +32,12 @@ $padding_container      = get_sub_field('padding_container');
 |   The call to action block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="call-to-action" class="container-fluid container-capped same-col-height" style="'.set_background_style($background, $background_color, $background_image, $background_align, $background_size).' margin: '.$margin_container.'; padding: '.$padding_container.'; height: '.$height.';">';
+echo '<div id="call-to-action" class="container-fluid container-capped same-col-height" style="'.set_background_style($background, $background_color, $background_image, $background_align, $background_size, $background_repeat).' margin: '.$margin_container.'; padding: '.$padding_container.'; ">';
     echo '<div class="row on-top-overlay">';
 
         /*
         |----------------------------------------------------------------
-        |   Title/Subtitle.
+        |   Title/Divider/Subtitle.
         |----------------------------------------------------------------
         */
         echo '<div class="'.set_col_size($title_subtitle_width).' col-sm-12 col-xs-12 col" style="margin: '.$margin_title.'; padding: '.$padding_title.'">';
@@ -52,10 +52,20 @@ echo '<div id="call-to-action" class="container-fluid container-capped same-col-
         if(get_sub_field('action_type')) {
             while (has_sub_field('action_type')) {
                 switch (get_row_layout()) {
+                    /*
+                    |----------------------------------------------------------------
+                    |   If row layout is link.
+                    |----------------------------------------------------------------
+                    */
                     case 'link':
                         get_template_part('includes/acf/parts/call-to-action-link');
                         break;
 
+                    /*
+                    |----------------------------------------------------------------
+                    |   If row layout is download.
+                    |----------------------------------------------------------------
+                    */
                     case 'download':
                         get_template_part('includes/acf/parts/call-to-action-download');
                 }

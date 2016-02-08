@@ -21,10 +21,6 @@ if(get_field('page_content')):
                 get_template_part('includes/acf/parts/cards');
                 break;
 
-            case 'cards_with_icon':
-                get_template_part('includes/acf/parts/cards-with-icon');
-                break;
-
             case 'contact_form':
                 get_template_part('includes/acf/parts/contact-form');
                 break;

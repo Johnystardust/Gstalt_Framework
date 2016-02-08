@@ -104,15 +104,15 @@ function border_style($border, $border_size, $border_style, $border_color){
 |   Set background style.
 |-----------------------------------------------------------------------------------------------------------------------
 */
-function set_background_style($background, $background_color, $background_image, $background_position, $background_size){
+function set_background_style($background, $background_color, $background_image, $background_position, $background_size, $background_repeat){
     if($background == 'color'){
         return 'background-color: '.$background_color.';';
     }
     elseif($background == 'image'){
-        return 'background: url('.$background_image.'); background-position: '.$background_position.'; background-size: '.$background_size.';';
+        return 'background: url('.$background_image.'); background-position: '.$background_position.'; background-size: '.$background_size.'; background-repeat: '.$background_repeat.';';
     }
     elseif($background == 'both'){
-        return 'background: '.$background_color.' url('.$background_image.'); background-position: '.$background_position.'; background-size: '.$background_size.';';
+        return 'background: '.$background_color.' url('.$background_image.'); background-position: '.$background_position.'; background-size: '.$background_size.'; background-repeat: '.$background_repeat.';';
     }
     else {
         return false;
