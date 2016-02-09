@@ -14,6 +14,7 @@ $content_color      = get_sub_field('content_color');
 $content_align      = get_sub_field('content_align');
 
 $block_width        = get_sub_field('block_width');
+$block_offset_width = get_sub_field('block_offset_width');
 $margin             = get_sub_field('margin');
 $padding            = get_sub_field('padding');
 
@@ -22,7 +23,7 @@ $padding            = get_sub_field('padding');
 |   Text Block.
 |----------------------------------------------------------------
 */
-echo '<div class="text '.set_col_size($block_width).' col container-capped" style="margin: '.$margin.'; padding: '.$padding.';">';
+echo '<div class="text '.set_col_size($block_width).' '.set_offset_size($block_offset_width).' col container-capped" style="margin: '.$margin.'; padding: '.$padding.';">';
     echo '<div class="text-content on-top-overlay">';
         echo '<div class="middle-wrap">';
 

@@ -10,20 +10,38 @@
 |-----------------------------------------------------------------------------------------------------------------------
 */
 function set_col_size($col_size){
-    if($col_size == '25'){
+    if($col_size == '8'){
+        return 'col-md-1';
+    }
+    elseif($col_size == '16'){
+        return 'col-md-2';
+    }
+    elseif($col_size == '25'){
         return 'col-md-3';
     }
     elseif($col_size == '33'){
         return 'col-md-4';
     }
+    elseif($col_size == '41'){
+        return 'col-md-5';
+    }
     elseif($col_size == '50'){
         return 'col-md-6';
+    }
+    elseif($col_size == '58'){
+        return 'col-md-7';
     }
     elseif($col_size == '66'){
         return 'col-md-8';
     }
     elseif($col_size == '75'){
         return 'col-md-9';
+    }
+    elseif($col_size == '83'){
+        return 'col-md-10';
+    }
+    elseif($col_size == '91'){
+        return 'col-md-11';
     }
     elseif($col_size == '100'){
         return 'col-md-12';
@@ -56,6 +74,51 @@ function set_col_size_offset($col_size){
     }
     elseif($col_size == '100'){
         return 'col-md-offset-12';
+    }
+    else {
+        return false;
+    }
+}
+
+function set_offset_size($offset_size){
+    if($offset_size == '8'){
+        return 'col-md-offset-1';
+    }
+    elseif($offset_size == '16'){
+        return 'col-md-offset-2';
+    }
+    elseif($offset_size == '25'){
+        return 'col-md-offset-3';
+    }
+    elseif($offset_size == '33'){
+        return 'col-md-offset-4';
+    }
+    elseif($offset_size == '41'){
+        return 'col-md-offset-5';
+    }
+    elseif($offset_size == '50'){
+        return 'col-md-offset-6';
+    }
+    elseif($offset_size == '58'){
+        return 'col-md-offset-7';
+    }
+    elseif($offset_size == '66'){
+        return 'col-md-offset-8';
+    }
+    elseif($offset_size == '75'){
+        return 'col-md-offset-9';
+    }
+    elseif($offset_size == '83'){
+        return 'col-md-offset-10';
+    }
+    elseif($offset_size == '91'){
+        return 'col-md-offset-11';
+    }
+    elseif($offset_size == '100'){
+        return 'col-md-offset-12';
+    }
+    elseif($offset_size == 'none') {
+        return false;
     }
     else {
         return false;
