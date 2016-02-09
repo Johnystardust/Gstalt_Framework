@@ -25,8 +25,16 @@ if(get_field('page_content')):
                 get_template_part('includes/acf/parts/contact-form');
                 break;
 
+            case 'faq':
+                get_template_part('includes/acf/parts/faq');
+                break;
+
             case 'opening_times':
                 get_template_part('includes/acf/parts/opening-times');
+                break;
+
+            case 'portfolio':
+                get_template_part('includes/acf/parts/portfolio');
                 break;
 
             case 'slider':
@@ -34,18 +42,9 @@ if(get_field('page_content')):
                 break;
 
             case 'text_with_image':
-                get_template_part('includes/acf/parts/text-image');
+                get_template_part('includes/acf/parts/text-with-image');
                 break;
 
-
-            // blocks not done
-            case 'portfolio':
-                get_template_part('includes/acf/parts/portfolio');
-                break;
-
-            case 'faq':
-                get_template_part('includes/acf/parts/faq');
-                break;
         endswitch;
 
     endwhile;

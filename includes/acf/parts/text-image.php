@@ -17,6 +17,7 @@ $background_color   = get_sub_field('background_color');
 $background_image   = get_sub_field('background_image');
 $background_align   = get_sub_field('image_align');
 $background_size    = get_sub_field('image_size');
+$background_repeat  = get_sub_field('image_repeat');
 
 $show_border        = get_sub_field('show_border');
 $border             = get_sub_field('border');

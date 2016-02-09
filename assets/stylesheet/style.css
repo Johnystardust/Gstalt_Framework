@@ -459,7 +459,7 @@ body {
 
 .on-top-overlay {
   position: relative;
-  z-index: 101; }
+  z-index: 101 !important; }
 
 .widget_tvds_recent_post_widget .recent-post-item {
   display: inline-block;
