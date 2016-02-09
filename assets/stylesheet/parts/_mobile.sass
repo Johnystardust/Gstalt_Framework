@@ -5,26 +5,19 @@
   .logo-header p
     display: block
 
-
-
 // Class that gets added to the html when user is using a mobile device.
 .mobile
-
   // Hide all the elements that are selected to be hidden on mobile
   .hide-mobile
     display: none !important
 
 
-
-
-
-
-//--------------------------------------------------------------//
-//           iPad Portrait mode and small screens               //
-//--------------------------------------------------------------//
 @media screen and (max-width: 768px)
 
 @media screen and (max-width: 992px)
+  .mobile
+    .col
+      height: auto !important
 
   //-----------------------//
   //      ACTION BAR       //
@@ -183,10 +176,10 @@
 
 
     .mobile-menu-open
-      max-height: 700px
+      max-height: 1100px
 
     .sub-menu-open
-      max-height: 400px !important
+      max-height: 800px !important
 
     .sub-menu-clicked
       transform: rotate(180deg) !important

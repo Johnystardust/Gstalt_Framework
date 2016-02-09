@@ -48,10 +48,12 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
                 |   Get the slide fields and put them in variables for easy usage.
                 |----------------------------------------------------------------
                 */
+                $background             = get_sub_field('background');
                 $background_color       = get_sub_field('background_color');
-                $background             = get_sub_field('image');
-                $background_pos         = get_sub_field('image_align');
+                $background_image       = get_sub_field('background_image');
+                $background_align       = get_sub_field('image_align');
                 $background_size        = get_sub_field('image_size');
+                $background_repeat      = get_sub_field('image_repeat');
 
                 $image_overlay_active   = get_sub_field('image_overlay_active');
                 $image_overlay          = get_sub_field('image_overlay');
@@ -59,28 +61,10 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
 
                 /*
                 |----------------------------------------------------------------
-                |   Count the layouts in the flexible content field.
-                |----------------------------------------------------------------
-                */
-                $content                = get_sub_field('content');
-                $count                  = count($content);
-
-                if($count == 1){
-                    $col_size = 'col-md-12';
-                }
-                elseif($count == 2) {
-                    $col_size = 'col-md-6';
-                }
-                else {
-                    $col_size = '';
-                }
-
-                /*
-                |----------------------------------------------------------------
                 |   Slide.
                 |----------------------------------------------------------------
                 */
-                echo '<li class="slide" style="background: '.$background_color.' url('.$background.') '.$background_pos.'; background-size: '.$background_size.';" data-slide-index="'.$i.'">';
+                echo '<li class="slide" style="'.set_background_style($background, $background_color, $background_image, $background_align, $background_size, $background_repeat).'" data-slide-index="'.$i.'">';
                     echo '<div class="slide-content">';
                         /*
                         |----------------------------------------------------------------
@@ -94,159 +78,24 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
                             |----------------------------------------------------------------
                             */
                             while(have_rows('content')) : the_row();
-                                /*
-                                |----------------------------------------------------------------
-                                |   If row layout is 'text'.
-                                |----------------------------------------------------------------
-                                */
-                                if(get_row_layout('text')){
+                                switch (get_row_layout()){
                                     /*
                                     |----------------------------------------------------------------
-                                    |   Get the slide fields and put them in variables for easy usage.
+                                    |   If row layout is 'text'.
                                     |----------------------------------------------------------------
                                     */
-                                    $title                  = get_sub_field('title');
-                                    $title_size             = get_sub_field('title_size');
-                                    $title_color            = get_sub_field('title_color');
-                                    $title_uppercase        = get_sub_field('title_uppercase');
-
-                                    $subtitle               = get_sub_field('sub_title');
-                                    $subtitle_size          = get_sub_field('subtitle_size');
-                                    $subtitle_color         = get_sub_field('subtitle_color');
-                                    $subtitle_style         = get_sub_field('subtitle_style');
-
-                                    $title_align            = get_sub_field('title_align');
-                                    $divider                = get_sub_field('divider');
-                                    $divider_color          = get_sub_field('divider_color');
-
-                                    $buttons                = get_sub_field('buttons');
-
-                                    $margin                 = get_sub_field('margin');
-                                    $padding                = get_sub_field('padding');
+                                    case 'text':
+                                        get_template_part('includes/acf/parts/slider-text');
+                                        break;
 
                                     /*
                                     |----------------------------------------------------------------
-                                    |   Slider Text Content.
+                                    |   If row layout is 'image'.
                                     |----------------------------------------------------------------
                                     */
-                                    echo '<div class="'.$col_size.'" style="margin: '.$margin.'; padding: '.$padding.';">';
-                                        echo '<div class="slide-content-inner">';
-
-                                            /*
-                                            |----------------------------------------------------------------
-                                            |   If the '$title' isn't empty display it.
-                                            |----------------------------------------------------------------
-                                            */
-                                            if(!empty($title)){
-                                                // Display the title
-                                                echo '<h1 class="title no-margin" style="'.text_transform($title_uppercase).' color: '.$title_color.'; text-align: '.$title_align.'; font-size: '.$title_size.'px; ">'.$title.'</h1>';
-
-                                                /*
-                                                |----------------------------------------------------------------
-                                                |   If the '$divider' is set true display it.
-                                                |----------------------------------------------------------------
-                                                */
-                                                if($divider == true){
-
-                                                    echo '<div class="divider">';
-                                                        echo '<hr style="'.align_left_right_center($title_align).'; border-color: '.$divider_color.';" />';
-                                                    echo '</div>';
-                                                }
-
-                                                /*
-                                                |----------------------------------------------------------------
-                                                |   If the '$subtitle' isn't empty display it.
-                                                |----------------------------------------------------------------
-                                                */
-                                                if(!empty($subtitle)){
-                                                    // Display the subtitle
-                                                    echo '<h3 class="subtitle no-margin" style="font-style: '.$subtitle_style.'; color: '.$subtitle_color.'; text-align: '.$title_align.'; font-size: '.$subtitle_size.'px;">'.$subtitle.'</h3>';
-                                                }
-                                            }
-
-                                            /*
-                                            |----------------------------------------------------------------
-                                            |   If the '$buttons' isn't empty display it.
-                                            |----------------------------------------------------------------
-                                            */
-                                            if(!empty($buttons)){
-                                                echo '<div class="buttons" style="text-align: '.$title_align.'">';
-                                                /*
-                                                |----------------------------------------------------------------
-                                                |   Use foreach to loop over al the buttons.
-                                                |----------------------------------------------------------------
-                                                */
-                                                foreach($buttons as $button){
-                                                    /*
-                                                    |----------------------------------------------------------------
-                                                    |   Get all the button fields.
-                                                    |----------------------------------------------------------------
-                                                    */
-                                                    $btn_choice     = $button['button_choice'];
-                                                    $btn_link       = $button['button_link'];
-                                                    $btn_new_tab    = $button['button_new_tab'];
-                                                    $btn_txt        = $button['button_text'];
-
-                                                    /*
-                                                    |----------------------------------------------------------------
-                                                    |   If '$btn-link' isn't empty, display it.
-                                                    |----------------------------------------------------------------
-                                                    */
-                                                    if(!empty($btn_link)){
-                                                        echo '<a class="button '.$btn_choice.'" href="'.$btn_link.'" target="'.($btn_new_tab ? '_blank' : '_self').'">'.$btn_txt.'</a>';
-                                                    }
-                                                }
-                                                echo '</div>'; // Buttons closing tag
-                                            }
-
-                                        echo '</div>'; // Slide Content Inner closing tag
-                                    echo '</div>'; // Col Size closing tag
-                                }
-
-                                /*
-                                |----------------------------------------------------------------
-                                |   If row layout is 'image'.
-                                |----------------------------------------------------------------
-                                */
-                                if(get_row_layout('image')){
-
-                                    /*
-                                    |----------------------------------------------------------------
-                                    |   Get the slide fields and put them in variables for easy usage.
-                                    |----------------------------------------------------------------
-                                    */
-                                    $image_content          = get_sub_field('image_content');
-                                    $image_content_left     = get_sub_field('image_content_left');
-                                    $image_content_right    = get_sub_field('image_content_right');
-                                    $image_content_top      = get_sub_field('image_content_top');
-                                    $image_content_size     = get_sub_field('image_content_size');
-
-                                    $hide_content_on_mobile = get_sub_field('hide_on_mobile');
-
-                                    $margin                 = get_sub_field('margin');
-                                    $padding                = get_sub_field('padding');
-
-                                    /*
-                                    |----------------------------------------------------------------
-                                    |   Slider Image Content.
-                                    |----------------------------------------------------------------
-                                    */
-                                    echo '<div class="'.$col_size.' '.($hide_content_on_mobile ? 'hide-mobile' : '').'" style="margin: '.$margin.'; padding: '.$padding.';">';
-                                        echo '<div class="slide-content-inner">';
-
-                                            /*
-                                            |----------------------------------------------------------------
-                                            |   If the '$image_content' isn't empty display it.
-                                            |----------------------------------------------------------------
-                                            */
-                                            if(!empty($image_content)){
-                                                echo '<div class="content-image" style="left: '.$image_content_left.'px; right: '.$image_content_right.'px; top: '.$image_content_top.'px; ">';
-                                                    echo '<img src="'.$image_content.'" width="'.$image_content_size.'">';
-                                                echo '</div>';
-                                            }
-
-                                        echo '</div>'; // Slide Content Inner closing tag
-                                    echo '</div>'; // Col Size closing tag
+                                    case 'image':
+                                        get_template_part('includes/acf/parts/slider-image');
+                                        break;
                                 }
 
                             endwhile;

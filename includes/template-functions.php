@@ -35,6 +35,35 @@ function set_col_size($col_size){
 
 /*
 |-----------------------------------------------------------------------------------------------------------------------
+|   Determine col size offset.
+|-----------------------------------------------------------------------------------------------------------------------
+*/
+function set_col_size_offset($col_size){
+    if($col_size == '25'){
+        return 'col-md-offset-9';
+    }
+    elseif($col_size == '33'){
+        return 'col-md-offset-8';
+    }
+    elseif($col_size == '50'){
+        return 'col-md-offset-6';
+    }
+    elseif($col_size == '66'){
+        return 'col-md-offset-3';
+    }
+    elseif($col_size == '75'){
+        return 'col-md-offset-3';
+    }
+    elseif($col_size == '100'){
+        return 'col-md-offset-12';
+    }
+    else {
+        return false;
+    }
+}
+
+/*
+|-----------------------------------------------------------------------------------------------------------------------
 |   Align left/right/center.
 |-----------------------------------------------------------------------------------------------------------------------
 */
