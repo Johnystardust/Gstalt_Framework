@@ -18,10 +18,6 @@ $background_image       = get_sub_field('background_image');
 $background_align       = get_sub_field('image_align');
 $background_size        = get_sub_field('image_size');
 
-$image_overlay_active   = get_sub_field('image_overlay_active');
-$image_overlay          = get_sub_field('image_overlay');
-$image_overlay_opacity  = get_sub_field('image_overlay_opacity') / 100;
-
 $contact_form_shortcode = get_sub_field('contact_form_7_id');
 $contact_form_style     = get_sub_field('contact_form_style');
 $contact_form_align     = get_sub_field('contact_form_align');
@@ -51,6 +47,7 @@ echo '<div id="contact-form" class="container-fluid container-capped" style="'.s
         echo '<div class="'.set_col_size($contact_form_width).'" style="'.align_left_right_center($contact_form_align).'">';
             echo do_shortcode($contact_form_shortcode);
         echo '</div>'; // Col Size closing tag
+
     echo '</div>'; // Contact Form closing tag
 
     /*
@@ -58,10 +55,6 @@ echo '<div id="contact-form" class="container-fluid container-capped" style="'.s
     |   If image overlay set active show the overlay.
     |----------------------------------------------------------------
     */
-    if($background == 'image' || $background == 'both'){
-        if($image_overlay_active == true){
-            echo '<div class="image-overlay" style="background: '.$image_overlay.'; opacity: '.$image_overlay_opacity.'"></div>';
-        }
-    }
+    get_template_part('includes/acf/parts/assets/image-overlay');
 
 echo '</div>'; // Container closing tag

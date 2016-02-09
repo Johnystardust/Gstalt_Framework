@@ -55,10 +55,6 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
                 $background_size        = get_sub_field('image_size');
                 $background_repeat      = get_sub_field('image_repeat');
 
-                $image_overlay_active   = get_sub_field('image_overlay_active');
-                $image_overlay          = get_sub_field('image_overlay');
-                $image_overlay_opacity  = get_sub_field('image_overlay_opacity') / 100;
-
                 /*
                 |----------------------------------------------------------------
                 |   Slide.
@@ -108,9 +104,8 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
                     |   If image overlay set active show the overlay.
                     |----------------------------------------------------------------
                     */
-                    if($image_overlay_active == true){
-                        echo '<div class="image-overlay" style="background: '.$image_overlay.'; opacity: '.$image_overlay_opacity.'"></div>';
-                    }
+                    get_template_part('includes/acf/parts/assets/image-overlay');
+
 
                 echo '</li>'; // Slide closing tag
 

@@ -14,10 +14,7 @@ $background_color       = get_sub_field('background_color');
 $background_image       = get_sub_field('background_image');
 $background_align       = get_sub_field('image_align');
 $background_size        = get_sub_field('image_size');
-
-$image_overlay_active   = get_sub_field('image_overlay_active');
-$image_overlay          = get_sub_field('image_overlay');
-$image_overlay_opacity  = get_sub_field('image_overlay_opacity') / 100;
+$background_repeat      = get_sub_field('image_repeat');
 
 $margin_container       = get_sub_field('margin_container');
 $padding_container      = get_sub_field('padding_container');
@@ -82,11 +79,7 @@ echo '<div id="cards" class="container-fluid '.$card_type.' same-col-height" sty
     |   If image overlay set active show the overlay.
     |----------------------------------------------------------------
     */
-    if($background == 'image' || $background == 'both'){
-        if($image_overlay_active == true){
-            echo '<div class="image-overlay" style="background: '.$image_overlay.'; opacity: '.$image_overlay_opacity.'"></div>';
-        }
-    }
+    get_template_part('includes/acf/parts/assets/image-overlay');
 
 echo '</div>'; // container closing tag
 
