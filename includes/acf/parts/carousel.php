@@ -161,7 +161,8 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
             var carousel_height = ul.height();
             wrapper.height(carousel_height);
         }
-        setCSS();
+        setTimeout(setCSS(), 500);
+
 
         /*
          |----------------------------------------------------------------
