@@ -76,6 +76,6 @@ echo '<div id="call-to-action" class="container-fluid container-capped same-col-
     |   If image overlay set active show the overlay.
     |----------------------------------------------------------------
     */
-    get_template_part('includes/acf/parts/assets/image-overlay');
+get_template_part('includes/acf/parts/assets/image-overlay');
 
 echo '</div>'; // Container closing tag
