@@ -247,9 +247,6 @@ p {
     width: 100%;
     height: auto; }
 
-#contact-form {
-  position: relative; }
-
 #faqs .faq-control {
   display: block;
   width: 20px;
@@ -279,12 +276,6 @@ p {
   -o-transition: all 0.3s ease-in-out; }
 #faqs .active .faq-answer {
   max-height: 400px; }
-
-#opening-times table {
-  width: 50%;
-  margin: 0 auto; }
-  #opening-times table td {
-    width: 50%; }
 
 #portfolio .title-subtitle {
   margin-bottom: 20px; }
@@ -378,34 +369,6 @@ p {
         width: 20px;
         height: 20px;
         color: #ffffff; }
-
-#text-with-image {
-  position: relative; }
-  #text-with-image .overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10; }
-  #text-with-image .text .text-content {
-    position: relative;
-    z-index: 100;
-    width: 100%;
-    height: 100%;
-    display: table; }
-  #text-with-image .image {
-    position: relative;
-    overflow: hidden;
-    z-index: 100; }
-    #text-with-image .image .image-content {
-      display: table;
-      height: 100%;
-      width: 100%; }
-    #text-with-image .image img {
-      position: relative;
-      z-index: 100;
-      display: block; }
 
 body {
   width: 100%;
