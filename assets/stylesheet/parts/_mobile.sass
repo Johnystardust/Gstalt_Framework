@@ -14,14 +14,31 @@
 
 @media screen and (max-width: 768px)
 
+//--------------------------------------------------------------//
+//           iPad Portrait mode and small screens               //
+//--------------------------------------------------------------//
 @media screen and (max-width: 992px)
   .mobile
     .col
       height: auto !important
 
-  //-----------------------//
-  //      ACTION BAR       //
-  //-----------------------//
+  // CALL TO ACTION
+  #call-to-action
+    .middle-wrap
+      h1
+        text-align: center !important
+      h3
+        text-align: center !important
+      .divider
+        hr
+          margin-left: auto !important
+          margin-right: auto !important
+          float: none !important
+
+    .buttons
+      margin-top: 10px
+
+  // ACTION BAR
   #action-bar
     .action-link
       margin-bottom: 20px

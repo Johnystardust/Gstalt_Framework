@@ -41,7 +41,6 @@ else {
 |   Image Align.
 |----------------------------------------------------------------
 */
-echo $image_align;
 if($image_align == 'right'){
     $image_alignment = 'right: 0;';
 }
@@ -58,11 +57,11 @@ else {
 |   Slider Image Content.
 |----------------------------------------------------------------
 */
-echo '<div class="'.set_col_size($block_width).' '.set_col_size_offset($block_width).' block-image '.($hide_content_on_mobile ? 'hide-mobile' : '').'" style="margin: '.$margin.'; padding: '.$padding.'; '.$image_alignment.'">';
+echo '<div class="'.set_col_size($block_width).' '.set_col_size_offset($block_width).' block-image '.($hide_content_on_mobile ? 'hide-mobile' : '').'" style="margin: '.$margin.'; padding: '.$padding.';">';
     echo '<div class="slide-content-inner">';
 
         echo '<div class="content-image">';
-            echo '<img style="bottom: '.$bottom_value.'px; max-width: '.$max_image_width.'px;" src="'.$image_content.'" width="'.$image_width.'" />';
+            echo '<img style="'.$image_alignment.' bottom: '.$bottom_value.'px; max-width: '.$max_image_width.'px;" src="'.$image_content.'" width="'.$image_width.'" />';
         echo '</div>';
 
     echo '</div>'; // Slide Content Inner closing tag

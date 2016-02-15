@@ -96,7 +96,7 @@ $(document).ready(function(){
 
     function slide_timer(){
         if(slide_index <= (slide_count - 2)){
-            slide(slide_index + 1);
+            slide(parseInt(slide_index) + 1);
         }
         else {
             slide(0);
@@ -133,7 +133,7 @@ $(document).ready(function(){
         timer = setInterval(slide_timer, slide_time);
 
         // Call the setSlide function
-        slide(slide_index + 1);
+        slide(parseInt(slide_index) + 1);
     });
 
     /*

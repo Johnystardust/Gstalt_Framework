@@ -26,7 +26,7 @@ $content_align      = get_sub_field('content_align');
 |----------------------------------------------------------------
 */
 echo '<div class="column-item '.set_col_size($block_width).' '.set_offset_size($block_offset).' '.($even_col_height ? 'col' : '').'" style="margin: '.$margin.'; padding: '.$padding.';">';
-    echo '<div class="column-content text-content on-top-overlay">';
+    echo '<div class="column-content text-content on-top-overlay" style="display: '.($vertical_center ? 'table' : '').'">';
 
         /*
         |----------------------------------------------------------------

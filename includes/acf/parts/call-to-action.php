@@ -36,8 +36,10 @@ echo '<div id="call-to-action" class="container-fluid container-capped same-col-
         |   Title/Divider/Subtitle.
         |----------------------------------------------------------------
         */
-        echo '<div class="'.set_col_size($title_subtitle_width).' col-sm-12 col-xs-12 col" style="margin: '.$margin_title.'; padding: '.$padding_title.'">';
-            get_template_part('includes/acf/parts/assets/title-divider-subtitle');
+        echo '<div class="'.set_col_size($title_subtitle_width).' col-sm-12 col-xs-12 col" style="margin: '.$margin_title.'; padding: '.$padding_title.'; display: table;">';
+            echo '<div class="middle-wrap">';
+                get_template_part('includes/acf/parts/assets/title-divider-subtitle');
+            echo '</div>';
         echo '</div>';
 
         /*

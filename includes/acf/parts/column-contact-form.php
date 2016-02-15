@@ -26,9 +26,14 @@ $contact_form_max_width     = get_sub_field('contact_form_max_width');
 |----------------------------------------------------------------
 */
 echo '<div class="column-item '.set_col_size($block_width).' '.set_offset_size($block_offset).' '.($even_col_height ? 'col' : '').'" style="margin: '.$margin.'; padding: '.$padding.';">';
+    echo '<div class="column-content contact-form-content '.$contact_form_style.' on-top-overlay" style="display: '.($vertical_center ? 'table' : '').'">';
 
-    echo '<div class="column-content contact-form-content on-top-overlay">';
-        echo '<div class="middle-wrap">';
+        /*
+        |----------------------------------------------------------------
+        |   If vertical center is true set img in middle wrap.
+        |----------------------------------------------------------------
+        */
+        echo ($vertical_center ? '<div class="middle-wrap">' : '');
 
             /*
             |----------------------------------------------------------------
@@ -47,7 +52,7 @@ echo '<div class="column-item '.set_col_size($block_width).' '.set_offset_size($
             echo '</div>'; // Col Size closing tag
 
 
-        echo '</div>'; // Middle Wrap closing tag
+        echo ($vertical_center ? '</div>' : '');
     echo '</div>'; // Column Content closing tag
 
     /*
