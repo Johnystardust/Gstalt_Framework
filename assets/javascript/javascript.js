@@ -29,6 +29,14 @@ function even_cols(){
 
         $(this).find('.fill').find('img').css('height', maxHeight);
         $(this).find('.fill').find('img').css('width', 'auto');
+
+        var fillWidth = $(this).find('.fill').width();
+        var imageWidth = $(this).find('.fill').find('img').width();
+
+        var left = ((imageWidth - fillWidth) / 2);
+
+        $(this).find('.fill').find('img').css('left', -left);
+
     });
 }
 

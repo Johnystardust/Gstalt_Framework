@@ -9,9 +9,6 @@ if(get_field('page_content')):
     while(has_sub_field('page_content')):
 
         switch(get_row_layout()):
-            case 'carousel':
-                get_template_part('includes/acf/parts/carousel');
-                break;
 
             case 'call_to_action':
                 get_template_part('includes/acf/parts/call-to-action');
@@ -19,6 +16,14 @@ if(get_field('page_content')):
 
             case 'cards':
                 get_template_part('includes/acf/parts/cards');
+                break;
+
+            case 'carousel':
+                get_template_part('includes/acf/parts/carousel');
+                break;
+
+            case 'column':
+                get_template_part('includes/acf/parts/column');
                 break;
 
             case 'contact_form':

@@ -9,22 +9,24 @@
 |   Get all the fields an put them in variables for easy usage.
 |----------------------------------------------------------------
 */
-$content            = get_sub_field('content');
-$content_color      = get_sub_field('content_color');
-$content_align      = get_sub_field('content_align');
-
 $block_width        = get_sub_field('block_width');
-$block_offset_width = get_sub_field('block_offset_width');
+$block_offset       = get_sub_field('block_offset');
+$vertical_center    = get_sub_field('vertical_center');
+
 $margin             = get_sub_field('margin');
 $padding            = get_sub_field('padding');
 
+$content_color      = get_sub_field('content_color');
+$opening_times      = get_field('opening_hours', 'option');
+
 /*
 |----------------------------------------------------------------
-|   Text Block.
+|   Column Item.
 |----------------------------------------------------------------
 */
-echo '<div class="text '.set_col_size($block_width).' '.set_offset_size($block_offset_width).' col container-capped" style="margin: '.$margin.'; padding: '.$padding.';">';
-    echo '<div class="text-content on-top-overlay">';
+echo '<div class="column-item '.set_col_size($block_width).' '.set_offset_size($block_offset).' '.($even_col_height ? 'col' : '').'" style="margin: '.$margin.'; padding: '.$padding.';">';
+
+echo '<div class="column-content opening-times-content on-top-overlay">';
         echo '<div class="middle-wrap">';
 
             /*
@@ -36,28 +38,35 @@ echo '<div class="text '.set_col_size($block_width).' '.set_offset_size($block_o
 
             /*
             |----------------------------------------------------------------
-            |   If the '$content' isn't empty display it.
+            |   Opening Times.
             |----------------------------------------------------------------
             */
-            if(!empty($content)){
-                echo '<div class="content-wrapper" style="color: '.$content_color.'; text-align: '.$content_align.';">'.$content.'</div>';
-            }
+            echo '<table style="color: '.$content_color.'">';
+                /*
+                |----------------------------------------------------------------
+                |   Use foreach to loop over al the opening times.
+                |----------------------------------------------------------------
+                */
+                foreach($opening_times as $opening_time){
+                    $day    = $opening_time['day'];
+                    $time   = $opening_time['time'];
 
-            /*
-            |----------------------------------------------------------------
-            |   Buttons.
-            |----------------------------------------------------------------
-            */
-            get_template_part('includes/acf/parts/assets/buttons');
+                    echo '<tr>';
+                        echo '<td>'.$day.'</td><td>'.$time.'</td>';
+                    echo '</tr>';
+
+                }
+            echo '</table>';
+
 
         echo '</div>'; // Middle Wrap closing tag
-    echo '</div>'; // Text Content closing tag
+    echo '</div>'; // Column Content closing tag
 
     /*
     |----------------------------------------------------------------
-    |   If image overlay set active show the overlay.
+    |   The Image overlay.
     |----------------------------------------------------------------
     */
     get_template_part('includes/acf/parts/assets/image-overlay');
 
-echo '</div>'; // Text closing tag
+echo '</div>'; // Column Item closing tag
