@@ -30,14 +30,59 @@ add_action( 'widgets_init', 'tvds_load_widget' );
 function tvds_add_widgets_init(){
     /*
     |----------------------------------------------------------------
-    |   Footer widget.
+    |   Footer widget col 1.
     |----------------------------------------------------------------
     */
     register_sidebar(array(
-        'name' 			=> __( 'Footer', 'gstalt-framework' ),
-        'id' 			=> 'footer',
+        'name' 			=> __( 'Footer Col 1', 'gstalt-framework' ),
+        'id' 			=> 'footer-col-1',
         'description' 	=> __( 'Footer ruimte', 'gstalt-framework' ),
-        'before_widget' => '<div id="%1$s" class="col-md-3 col-sm-6 col-xs-12 no-padding footer-widget %2$s"><div class="widget-inner">',
+        'before_widget' => '<div id="%1$s" class="col-md-12 no-padding footer-widget %2$s"><div class="widget-inner">',
+        'after_widget' 	=> '</div></div>',
+        'before_title' 	=> '<h4 class="widget-title">',
+        'after_title' 	=> '</h4>',
+    ));
+
+    /*
+    |----------------------------------------------------------------
+    |   Footer widget col 2.
+    |----------------------------------------------------------------
+    */
+    register_sidebar(array(
+        'name' 			=> __( 'Footer Col 2', 'gstalt-framework' ),
+        'id' 			=> 'footer-col-2',
+        'description' 	=> __( 'Footer ruimte', 'gstalt-framework' ),
+        'before_widget' => '<div id="%1$s" class="col-md-12 no-padding footer-widget %2$s"><div class="widget-inner">',
+        'after_widget' 	=> '</div></div>',
+        'before_title' 	=> '<h4 class="widget-title">',
+        'after_title' 	=> '</h4>',
+    ));
+
+    /*
+    |----------------------------------------------------------------
+    |   Footer widget col 3.
+    |----------------------------------------------------------------
+    */
+    register_sidebar(array(
+        'name' 			=> __( 'Footer Col 3', 'gstalt-framework' ),
+        'id' 			=> 'footer-col-3',
+        'description' 	=> __( 'Footer ruimte', 'gstalt-framework' ),
+        'before_widget' => '<div id="%1$s" class="col-md-12 no-padding footer-widget %2$s"><div class="widget-inner">',
+        'after_widget' 	=> '</div></div>',
+        'before_title' 	=> '<h4 class="widget-title">',
+        'after_title' 	=> '</h4>',
+    ));
+
+    /*
+    |----------------------------------------------------------------
+    |   Footer widget col 4.
+    |----------------------------------------------------------------
+    */
+    register_sidebar(array(
+        'name' 			=> __( 'Footer Col 4', 'gstalt-framework' ),
+        'id' 			=> 'footer-col-4',
+        'description' 	=> __( 'Footer ruimte', 'gstalt-framework' ),
+        'before_widget' => '<div id="%1$s" class="col-md-12 no-padding footer-widget %2$s"><div class="widget-inner">',
         'after_widget' 	=> '</div></div>',
         'before_title' 	=> '<h4 class="widget-title">',
         'after_title' 	=> '</h4>',

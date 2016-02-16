@@ -17,6 +17,8 @@ $(document).ready(function(){
     |   Get some variables we can work with.
     |----------------------------------------------------------------
     */
+    var windowHeight    = $(window).height();
+
     var slider          = $('#slider');
     var ul              = $('.slide-container');
     var slide_count     = ul.children().length;
@@ -59,6 +61,9 @@ $(document).ready(function(){
     |----------------------------------------------------------------
     */
     function setSlideCSS(){
+        // Set the slide height to window height
+        slider.height(windowHeight);
+
         // Add the class to the container
         ul.addClass('slider-slide');
 

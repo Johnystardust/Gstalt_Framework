@@ -84,7 +84,43 @@ echo '<div id="footer" style="background-color: '.$top_background_color.';">';
     echo '<div class="footer-top" style="color: '.$top_text_color.'; padding: '.$top_padding.'; margin: '.$top_margin.';">';
         echo '<div class="container-fluid container-capped">';
             echo '<div class="row">';
-                dynamic_sidebar('footer');
+
+                /*
+                |----------------------------------------------------------------
+                |   Footer col 1.
+                |----------------------------------------------------------------
+                */
+                echo '<div class="col-md-3 col-sm-6 col-xs-12">';
+                    dynamic_sidebar('footer-col-1');
+                echo '</div>';
+
+                /*
+                |----------------------------------------------------------------
+                |   Footer col 2.
+                |----------------------------------------------------------------
+                */
+                echo '<div class="col-md-3 col-sm-6 col-xs-12">';
+                    dynamic_sidebar('footer-col-2');
+                echo '</div>';
+
+                /*
+                |----------------------------------------------------------------
+                |   Footer col 3.
+                |----------------------------------------------------------------
+                */
+                echo '<div class="col-md-3 col-sm-6 col-xs-12">';
+                    dynamic_sidebar('footer-col-3');
+                echo '</div>';
+
+                /*
+                |----------------------------------------------------------------
+                |   Footer col 4.
+                |----------------------------------------------------------------
+                */
+                echo '<div class="col-md-3 col-sm-6 col-xs-12">';
+                    dynamic_sidebar('footer-col-4');
+                echo '</div>';
+
             echo '</div>'; // Row closing tag
         echo '</div>'; // Container closing tag
     echo '</div>'; // Footer top closing tag
