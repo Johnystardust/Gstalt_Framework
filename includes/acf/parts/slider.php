@@ -9,18 +9,20 @@
 |   Get the fields and put them in variables for easy usage.
 |----------------------------------------------------------------
 */
-$slider_animation_style = get_sub_field('slider_animation_style');
-$slide_time             = get_sub_field('slide_time');
-$slider_control         = get_sub_field('slider_control');
+$slider_animation_style     = get_sub_field('slider_animation_style');
+$slider_background_color    = get_sub_field('slider_background_color');
+$slide_time                 = get_sub_field('slide_time');
+$slider_control             = get_sub_field('slider_control');
+$max_height                 = get_sub_field('max_height');
 
-$hide_on_mobile         = get_sub_field('hide_on_mobile');
+$hide_on_mobile             = get_sub_field('hide_on_mobile');
 
 /*
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 |   The Slider block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'hide-mobile' : '').'" data-slide-style="'.$slider_animation_style.'" data-slide-time="'.$slide_time.'">';
+echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'hide-mobile' : '').'" style="background-color: '.$slider_background_color.'; max-height: '.$max_height.'px;" data-slide-style="'.$slider_animation_style.'" data-slide-time="'.$slide_time.'">';
     echo '<ul class="slide-container">';
 
         /*

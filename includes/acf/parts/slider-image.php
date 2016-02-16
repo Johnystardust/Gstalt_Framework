@@ -20,6 +20,7 @@ $hide_content_on_mobile = get_sub_field('hide_on_mobile');
 $margin                 = get_sub_field('margin');
 $padding                = get_sub_field('padding');
 $block_width            = get_sub_field('block_width');
+$block_offset           = get_sub_field('block_offset');
 
 /*
 |----------------------------------------------------------------
@@ -57,7 +58,7 @@ else {
 |   Slider Image Content.
 |----------------------------------------------------------------
 */
-echo '<div class="'.set_col_size($block_width).' '.set_col_size_offset($block_width).' block-image '.($hide_content_on_mobile ? 'hide-mobile' : '').'" style="margin: '.$margin.'; padding: '.$padding.';">';
+echo '<div class="'.set_col_size($block_width).' '.set_offset_size($block_width).' block-image '.($hide_content_on_mobile ? 'hide-mobile' : '').'" style="margin: '.$margin.'; padding: '.$padding.';">';
     echo '<div class="slide-content-inner">';
 
         echo '<div class="content-image">';

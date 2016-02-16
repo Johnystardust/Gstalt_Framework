@@ -9,17 +9,28 @@
 |   Get all the fields an put them in variables for easy usage.
 |----------------------------------------------------------------
 */
-$block_width                = get_sub_field('block_width');
-$block_offset               = get_sub_field('block_offset');
-$vertical_center            = get_sub_field('vertical_center');
+$block_width                    = get_sub_field('block_width');
+$block_offset                   = get_sub_field('block_offset');
+$vertical_center                = get_sub_field('vertical_center');
 
-$margin                     = get_sub_field('margin');
-$padding                    = get_sub_field('padding');
+$margin                         = get_sub_field('margin');
+$padding                        = get_sub_field('padding');
 
-$contact_form_short_code    = get_sub_field('contact_form_7_id');
-$contact_form_style         = get_sub_field('contact_form_style');
-$contact_form_align         = get_sub_field('contact_form_align');
-$contact_form_max_width     = get_sub_field('contact_form_max_width');
+$contact_form_short_code        = get_sub_field('contact_form_7_id');
+$contact_form_style             = get_sub_field('contact_form_style');
+$contact_form_align             = get_sub_field('contact_form_align');
+$contact_form_max_width         = get_sub_field('contact_form_max_width');
+
+$contact_form_textarea_resize = get_sub_field('contact_form_textarea_resize');
+
+?>
+<style scoped="scoped">
+    .contact-form textarea {
+        resize: <?php echo $contact_form_textarea_resize; ?>;
+    }
+</style>
+<?php
+
 /*
 |----------------------------------------------------------------
 |   Column Item.

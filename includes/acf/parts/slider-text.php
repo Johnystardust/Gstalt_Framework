@@ -12,13 +12,14 @@
 $margin                 = get_sub_field('margin');
 $padding                = get_sub_field('padding');
 $block_width            = get_sub_field('block_width');
+$block_offset           = get_sub_field('block_offset');
 
 /*
 |----------------------------------------------------------------
 |   Slider Text Content.
 |----------------------------------------------------------------
 */
-echo '<div class="'.set_col_size($block_width).' block-text" style="margin: '.$margin.'; padding: '.$padding.';">';
+echo '<div class="'.set_col_size($block_width).' '.set_offset_size($block_offset).' block-text" style="margin: '.$margin.'; padding: '.$padding.';">';
     echo '<div class="slide-content-inner">';
 
         /*
