@@ -12,6 +12,7 @@
 $margin_title           = get_sub_field('margin_title');
 $padding_title          = get_sub_field('padding_title');
 $title_subtitle_width   = get_sub_field('title_subtitle_width');
+$title_subtitle_offset  = get_sub_field('title_subtitle_offset');
 
 $background             = get_sub_field('background');
 $background_color       = get_sub_field('background_color');
@@ -22,6 +23,15 @@ $background_repeat      = get_sub_field('image_repeat');
 
 $margin_container       = get_sub_field('margin_container');
 $padding_container      = get_sub_field('padding_container');
+
+$buttons_align_vert_mid = get_sub_field('buttons_align_vert_mid');
+
+$buttons_width          = get_sub_field('buttons_width');
+$buttons_offset         = get_sub_field('buttons_offset');
+$buttons_align          = get_sub_field('buttons_align');
+
+$margin_buttons         = get_sub_field('margin_buttons');
+$padding_buttons        = get_sub_field('padding_buttons');
 
 /*
 |-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -44,32 +54,63 @@ echo '<div id="call-to-action" class="container-fluid container-capped same-col-
 
         /*
         |----------------------------------------------------------------
-        |   If the field is filled, get the row layout.
+        |   Buttons.
         |----------------------------------------------------------------
         */
-        if(get_sub_field('action_type')){
-            while(has_sub_field('action_type')){
-                switch (get_row_layout()){
-                    /*
-                    |----------------------------------------------------------------
-                    |   If row layout is link.
-                    |----------------------------------------------------------------
-                    */
-                    case 'link':
-                        get_template_part('includes/acf/parts/call-to-action-link');
-                        break;
+        echo '<div class="'.set_col_size($buttons_width).' col-sm-12 col-xs-12 buttons-row '.($buttons_align_vert_mid ? 'col' : '').'" style="'.($buttons_align_vert_mid ? 'display: table;' : '').' margin: '.$margin_buttons.'; padding: '.$padding_buttons.';">';
 
-                    /*
-                    |----------------------------------------------------------------
-                    |   If row layout is download.
-                    |----------------------------------------------------------------
-                    */
-                    case 'download':
-                        get_template_part('includes/acf/parts/call-to-action-download');
-                        break;
-                }
+            /*
+            |----------------------------------------------------------------
+            |   if '$buttons_align_vert_mid' is set echo the middle-wrap div.
+            |----------------------------------------------------------------
+            */
+            if($buttons_align_vert_mid){
+                echo '<div class="middle-wrap">';
             }
-        }
+
+                /*
+                |----------------------------------------------------------------
+                |   Buttons.
+                |----------------------------------------------------------------
+                */
+                if(get_sub_field('buttons')){
+                    echo '<div class="buttons" style="text-align: '.$buttons_align.'">';
+
+                    while(has_sub_field('buttons')){
+                        /*
+                        |----------------------------------------------------------------
+                        |   Get all the button fields.
+                        |----------------------------------------------------------------
+                        */
+                        $btn_choice     = get_sub_field('button_choice');
+                        $btn_link       = get_sub_field('button_link');
+                        $btn_new_tab    = get_sub_field('button_new_tab');
+                        $download       = get_sub_field('download');
+                        $btn_txt        = get_sub_field('button_text');
+
+                        /*
+                        |----------------------------------------------------------------
+                        |   If '$btn-link' isn't empty, display it.
+                        |----------------------------------------------------------------
+                        */
+                        if(!empty($btn_link)){
+                            echo '<a class="button '.$btn_choice.'" href="'.$btn_link.'" target="'.($btn_new_tab ? '_blank' : '_self').'" '.($download ? 'download' : '').'>'.$btn_txt.'</a>';
+                        }
+                    }
+
+                    echo '</div>'; // Buttons closing tag
+                }
+
+            /*
+            |----------------------------------------------------------------
+            |   if '$buttons_align_vert_mid' is set close the middle-wrap div.
+            |----------------------------------------------------------------
+            */
+            if($buttons_align_vert_mid){
+                echo '</div>'; // Middle Wrap closing tag
+            }
+
+        echo '</div>';
 
     echo '</div>'; // Row closing tag
 
