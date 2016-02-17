@@ -41,6 +41,10 @@ function even_cols(){
 }
 
 $(window).load(function(){
+    // Fade out the preloader
+    $('#preloader').fadeOut();
+
+    // Run the even cols function
     even_cols();
 });
 

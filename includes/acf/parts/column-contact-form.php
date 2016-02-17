@@ -24,7 +24,7 @@ $contact_form_max_width         = get_sub_field('contact_form_max_width');
 $contact_form_textarea_resize = get_sub_field('contact_form_textarea_resize');
 
 ?>
-<style scoped="scoped">
+<style>
     .contact-form textarea {
         resize: <?php echo $contact_form_textarea_resize; ?>;
     }

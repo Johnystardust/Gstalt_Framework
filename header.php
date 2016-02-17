@@ -26,6 +26,9 @@
 <body>
 
 <?php
+// Get the pre-loader
+get_template_part('includes/partials/pre-loader');
+
 // Get the menu template
 get_template_part('includes/partials/menu');
 
