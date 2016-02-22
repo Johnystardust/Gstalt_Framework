@@ -58,7 +58,7 @@ echo '<div class="column-item '.set_col_size($block_width).' '.set_offset_size($
             |   Contact Form.
             |----------------------------------------------------------------
             */
-            echo '<div class="contact-form" style="'.align_left_right_center($contact_form_align).'">';
+            echo '<div class="contact-form" style="'.align_left_right_center($contact_form_align).' max-width: '.$contact_form_max_width.'px;">';
                 echo do_shortcode($contact_form_short_code);
             echo '</div>'; // Col Size closing tag
 

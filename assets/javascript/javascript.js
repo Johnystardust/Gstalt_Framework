@@ -55,7 +55,7 @@ $(document).ready(function(){
     |----------------------------------------------------------------
     */
     var html        = $('html');
-    var header      = $('#header');
+    var nav      = $('#nav');
 
 
     var windowWidth = $(window).width();
@@ -119,12 +119,12 @@ $(document).ready(function(){
     |----------------------------------------------------------------
     */
     function menu_background_color(){
-        // Check if the header has a class of 'transparent' and the 'windowWidth' is above 1024
-        if(header.hasClass('transparent') && windowWidth > 1024){
+        // Check if the nav has a class of 'transparent' and the 'windowWidth' is above 1024
+        if(nav.hasClass('transparent') && windowWidth > 1024){
 
-            // Add the class to the header if the page is at the top
+            // Add the class to the nav if the page is at the top
             if(document.body.scrollTop == 0){
-                header.addClass('menu-transparent');
+                nav.addClass('menu-transparent');
             }
 
             // Window scroll function to set menu background color
@@ -133,16 +133,16 @@ $(document).ready(function(){
                     pos = $this.scrollTop();
 
                 if(pos < 10 && windowWidth > 1024){
-                    header.addClass('menu-transparent');
+                    nav.addClass('menu-transparent');
                 }
                 else {
-                    header.removeClass('menu-transparent');
+                    nav.removeClass('menu-transparent');
                 }
             });
         }
         else {
             // If the condition isn't met, remove the class
-            header.removeClass('menu-transparent');
+            nav.removeClass('menu-transparent');
         }
     }
     menu_background_color();
@@ -153,8 +153,8 @@ $(document).ready(function(){
     |----------------------------------------------------------------
     */
     function hide_contact_on_scroll(){
-        // Check if the header has a class of 'hide-contact'
-        if(header.hasClass('hide-contact')) {
+        // Check if the nav has a class of 'hide-contact'
+        if(nav.hasClass('hide-contact')) {
 
             // Check if the menu-top has a class of hide-mobile
             if($('.menu-top').hasClass('hide-mobile')){
@@ -163,10 +163,10 @@ $(document).ready(function(){
                         pos = $this.scrollTop();
 
                     if(pos > 10 && windowWidth > 1024){
-                        header.addClass('menu-open');
+                        nav.addClass('menu-open');
                     }
                     else {
-                        header.removeClass('menu-open');
+                        nav.removeClass('menu-open');
                     }
                 });
             }
@@ -176,10 +176,10 @@ $(document).ready(function(){
                         pos = $this.scrollTop();
 
                     if(pos > 10){
-                        header.addClass('menu-open');
+                        nav.addClass('menu-open');
                     }
                     else {
-                        header.removeClass('menu-open');
+                        nav.removeClass('menu-open');
                     }
                 });
             }

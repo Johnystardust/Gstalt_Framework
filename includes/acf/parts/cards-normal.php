@@ -4,6 +4,10 @@
  * Project:     Gstalt Framework
  */
 
+$card_width     = get_sub_field('card_width');
+$card_padding   = get_sub_field('card_padding');
+
+
 /*
 |----------------------------------------------------------------
 |   Get all the fields an put them in variables for easy usage.
@@ -37,8 +41,8 @@ if(get_sub_field('cards')){
         |   Card block.
         |----------------------------------------------------------------
         */
-        echo '<div class="card col-md-4 col no-padding" style="'.set_background_style($background, $background_color, $background_image, $background_align, $background_size, $background_repeat).'">';
-            echo '<div class="card-inner">';
+        echo '<div class="card '.set_col_size($card_width).' col-sm-12 col container-capped no-padding" style="'.set_background_style($background, $background_color, $background_image, $background_align, $background_size, $background_repeat).'">';
+            echo '<div class="card-inner" style="padding: '.$card_padding.';">';
 
                 /*
                 |----------------------------------------------------------------

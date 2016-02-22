@@ -93,7 +93,7 @@ else {
 ?>
 
 <style type="text/css">
-    #header {
+    #nav {
         <?php echo $border_style; ?>;
     }
 
@@ -160,7 +160,7 @@ else {
 |   The Header.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<header id="header" class="container-fluid container-capped '.($contact_hide_scroll ? 'hide-contact' : '').' '.($background_transparent ? 'transparent' : '').'" style="background: '.$background_color.'; position: '.$menu_position.';">';
+echo '<nav id="nav" class="container-fluid container-capped '.($contact_hide_scroll ? 'hide-contact' : '').' '.($background_transparent ? 'transparent' : '').'" style="background: '.$background_color.'; position: '.$menu_position.';">';
     /*
     |----------------------------------------------------------------
     |   If '$contact_show' or '$social_show' is set display it
@@ -330,4 +330,4 @@ echo '<header id="header" class="container-fluid container-capped '.($contact_hi
         echo '</div>'; // Mobile Menu closing tag
 
     echo '</div>'; // Menu bottom closing tag
-echo '</header>';
+echo '</nav>';

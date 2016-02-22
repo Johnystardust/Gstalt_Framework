@@ -5,23 +5,49 @@
   .logo-header p
     display: block
 
-// Class that gets added to the html when user is using a mobile device.
+// The Mobile Class gets added to the HTML tag when viewed on mobile device
 .mobile
-  // Hide all the elements that are selected to be hidden on mobile
   .hide-mobile
     display: none !important
 
 
+//-------------------------------------------------------------------------------------------------------//
+//  Telephone and very small screens
+//-------------------------------------------------------------------------------------------------------//
 @media screen and (max-width: 768px)
+  // Action Bar
+  #action-bar
+    .action-link
+      margin-bottom: 20px !important
 
-//--------------------------------------------------------------//
-//           iPad Portrait mode and small screens               //
-//--------------------------------------------------------------//
+
+
+//-------------------------------------------------------------------------------------------------------//
+//  iPad Portrait mode and small screens
+//-------------------------------------------------------------------------------------------------------//
 @media screen and (max-width: 992px)
-  .col
-    height: auto !important
+  // Menu
+  #nav
+    .menu-top
+      .mail-number
+        float: none
+        text-align: center
 
-  // CALL TO ACTION
+  // Footer
+  #footer
+    .footer-bottom
+      .copyright
+        text-align: center
+        float: none
+
+      .social-icons
+        text-align: center
+        float: none
+        a
+          text-align: center
+          float: none
+
+  // Call to action
   #call-to-action
     .middle-wrap
       h1
@@ -35,6 +61,7 @@
           float: none !important
 
     .buttons
+      text-align: center !important
       margin-top: 10px
 
   // Column
@@ -44,49 +71,47 @@
         float: none !important
         margin: 0 auto
 
-  // ACTION BAR
+  // Set the col height to auto to override the even col height on mobile dimensions
+  .col
+    height: auto !important
+
+  // Action Bar
   #action-bar
     .action-link
       margin-bottom: 20px
+    .action-link:nth-child(3)
+      margin-bottom: 0
+    .action-link:nth-child(4)
+      margin-bottom: 0
 
 
-//--------------------------------------------------------------//
-//           iPad Landscape mode and small screens              //
-//--------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//  iPad Landscape mode and small screens
+//-------------------------------------------------------------------------------------------------------//
 @media screen and (max-width: 1024px)
+  // Hide all the elements that are selected to be hidden on mobile devices or small screens
+  .hide-mobile
+    display: none !important
+
   // Set the container capped
   .container-capped
     padding-left: 30px !important
     padding-right: 30px !important
 
-  // Hide all the elements that are selected to be hidden on mobile
-  .hide-mobile
-    display: none !important
-
-  //-----------------------//
-  //    CARDS WITH ICON    //
-  //-----------------------//
-  #cards-with-icon
+  // Cards with icon
+  #cards
+    .row
+      margin: 0 !important
     .card-with-icon
-      margin-bottom: 20px
+      margin-bottom: 50px
 
-  //-----------------------//
-  //    TEXT AND IMAGE     //
-  //-----------------------//
-  #text-with-image
-    .text
-      position: relative !important
-    .image
-      img
-        float: none !important
-        margin: 0 auto
-
-
-  // MENU
+  // Menu
   .main-menu
     display: none !important
 
-  // Mobile Menu
+  //-------------------------------------------------------------------------------------------------------//
+  //  Mobile menu
+  //-------------------------------------------------------------------------------------------------------//
   .mobile-menu
     display: block !important
     float: right

@@ -21,7 +21,7 @@ a:focus {
 .no-margin {
   margin: 0; }
 
-#header {
+#nav {
   width: 100%;
   display: block;
   z-index: 100000000;
@@ -29,7 +29,7 @@ a:focus {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out; }
-  #header .menu-top {
+  #nav .menu-top {
     height: 20px;
     margin: 10px 0;
     font-size: 14px;
@@ -37,56 +37,56 @@ a:focus {
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out; }
-    #header .menu-top .mail-number {
+    #nav .menu-top .mail-number {
       float: left; }
-      #header .menu-top .mail-number span {
+      #nav .menu-top .mail-number span {
         margin-right: 10px; }
-        #header .menu-top .mail-number span i {
+        #nav .menu-top .mail-number span i {
           margin-right: 3px; }
-    #header .menu-top .social-icons {
+    #nav .menu-top .social-icons {
       float: right; }
-      #header .menu-top .social-icons .social-icon {
+      #nav .menu-top .social-icons .social-icon {
         font-size: 14px; }
-  #header .menu-bottom {
+  #nav .menu-bottom {
     height: 64px; }
-    #header .menu-bottom .menu-logo {
+    #nav .menu-bottom .menu-logo {
       float: left;
       height: 100%; }
-      #header .menu-bottom .menu-logo .logo {
+      #nav .menu-bottom .menu-logo .logo {
         height: 100%;
         display: block; }
-      #header .menu-bottom .menu-logo .logo-transparent {
+      #nav .menu-bottom .menu-logo .logo-transparent {
         height: 100%;
         display: none; }
-    #header .menu-bottom .main-menu {
+    #nav .menu-bottom .main-menu {
       float: right; }
-      #header .menu-bottom .main-menu ul {
+      #nav .menu-bottom .main-menu ul {
         list-style-type: none; }
-        #header .menu-bottom .main-menu ul li {
+        #nav .menu-bottom .main-menu ul li {
           float: left;
           line-height: 64px; }
-          #header .menu-bottom .main-menu ul li a {
+          #nav .menu-bottom .main-menu ul li a {
             padding: 0 15px;
             display: inline-block;
             transition: all 0.3s ease-in-out;
             -webkit-transition: all 0.3s ease-in-out;
             -moz-transition: all 0.3s ease-in-out; }
-          #header .menu-bottom .main-menu ul li a:hover {
+          #nav .menu-bottom .main-menu ul li a:hover {
             text-decoration: none; }
-          #header .menu-bottom .main-menu ul li .sub-menu {
+          #nav .menu-bottom .main-menu ul li .sub-menu {
             display: none;
             position: absolute;
             border-top: 1px solid #ffcb08; }
-            #header .menu-bottom .main-menu ul li .sub-menu li {
+            #nav .menu-bottom .main-menu ul li .sub-menu li {
               float: none;
               line-height: 44px; }
-              #header .menu-bottom .main-menu ul li .sub-menu li a {
+              #nav .menu-bottom .main-menu ul li .sub-menu li a {
                 width: 100%; }
-        #header .menu-bottom .main-menu ul li:hover .sub-menu {
+        #nav .menu-bottom .main-menu ul li:hover .sub-menu {
           display: block; }
-          #header .menu-bottom .main-menu ul li:hover .sub-menu .sub-menu {
+          #nav .menu-bottom .main-menu ul li:hover .sub-menu .sub-menu {
             display: none; }
-          #header .menu-bottom .main-menu ul li:hover .sub-menu li:hover .sub-menu {
+          #nav .menu-bottom .main-menu ul li:hover .sub-menu li:hover .sub-menu {
             display: block; }
 
 .menu-transparent {
@@ -188,8 +188,6 @@ p {
   margin-top: 50px; }
 #cards .row:nth-child(1) {
   margin-top: 0; }
-#cards .card-inner {
-  padding: 65px 60px; }
 #cards .card-with-icon-inner {
   padding: 0 15px; }
 #cards .icon {
@@ -488,9 +486,23 @@ body {
 .mobile .hide-mobile {
   display: none !important; }
 
+@media screen and (max-width: 768px) {
+  #action-bar .action-link {
+    margin-bottom: 20px !important; } }
 @media screen and (max-width: 992px) {
-  .col {
-    height: auto !important; }
+  #nav .menu-top .mail-number {
+    float: none;
+    text-align: center; }
+
+  #footer .footer-bottom .copyright {
+    text-align: center;
+    float: none; }
+  #footer .footer-bottom .social-icons {
+    text-align: center;
+    float: none; }
+    #footer .footer-bottom .social-icons a {
+      text-align: center;
+      float: none; }
 
   #call-to-action .middle-wrap h1 {
     text-align: center !important; }
@@ -501,30 +513,34 @@ body {
     margin-right: auto !important;
     float: none !important; }
   #call-to-action .buttons {
+    text-align: center !important;
     margin-top: 10px; }
 
   #column .image-content img {
     float: none !important;
     margin: 0 auto; }
 
+  .col {
+    height: auto !important; }
+
   #action-bar .action-link {
-    margin-bottom: 20px; } }
+    margin-bottom: 20px; }
+  #action-bar .action-link:nth-child(3) {
+    margin-bottom: 0; }
+  #action-bar .action-link:nth-child(4) {
+    margin-bottom: 0; } }
 @media screen and (max-width: 1024px) {
+  .hide-mobile {
+    display: none !important; }
+
   .container-capped {
     padding-left: 30px !important;
     padding-right: 30px !important; }
 
-  .hide-mobile {
-    display: none !important; }
-
-  #cards-with-icon .card-with-icon {
-    margin-bottom: 20px; }
-
-  #text-with-image .text {
-    position: relative !important; }
-  #text-with-image .image img {
-    float: none !important;
-    margin: 0 auto; }
+  #cards .row {
+    margin: 0 !important; }
+  #cards .card-with-icon {
+    margin-bottom: 50px; }
 
   .main-menu {
     display: none !important; }
