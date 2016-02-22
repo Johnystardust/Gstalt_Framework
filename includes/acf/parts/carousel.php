@@ -24,7 +24,6 @@ $subtitle_style         = get_sub_field('subtitle_style');
 
 $title_align            = get_sub_field('title_align');
 
-
 $margin                 = get_sub_field('margin');
 $padding                = get_sub_field('padding');
 
@@ -64,10 +63,10 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
          */
 
         /*
-         |----------------------------------------------------------------
-         |   Get some variables we can work with.
-         |----------------------------------------------------------------
-         */
+        |----------------------------------------------------------------
+        |   Get some variables we can work with.
+        |----------------------------------------------------------------
+        */
         var unique_identifier = <?php echo $unique_identifier; ?>;
 
         var carousel        = $('#carousel-'+unique_identifier+'');
@@ -82,68 +81,114 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
         var item_width;
         var ul_width;
 
-        item_width = wrapper.width() / max_view;
-        ul_width = item_width * (slide_count + 1);
-
-
-
-//        if(wrapper.hasClass('logo-carousel')){
-//            if(wrapper.width() < 649){
-//                item_width = wrapper.width() / 3;
-//            }
-//            else if(wrapper.width() < 1024){
-//                item_width = wrapper.width() / 4;
-//            }
-//            else if(wrapper.width() > 1024){
-//                item_width = wrapper.width() / 5;
-//            }
-//
-//            ul_width = item_width * (slide_count + 1);
-//        }
-//
-//        if(wrapper.hasClass('normal-carousel')){
-//            item_width = wrapper.width();
-//
-//            ul_width = item_width * (slide_count + 1);
-//        }
-
         /*
-         |----------------------------------------------------------------
-         |   Resize function.
-         |----------------------------------------------------------------
-         */
-        $(window).resize(function(){
+        |----------------------------------------------------------------
+        |   Set the item width.
+        |----------------------------------------------------------------
+        */
+        if(wrapper.hasClass('logo-carousel')){
+            if(wrapper.width() < 320){
+                item_width = wrapper.width() / 1;
+            }
+            else if(wrapper.width() < 480){
+                item_width = wrapper.width() / 2;
+            }
+            else if(wrapper.width() < 786){
+                item_width = wrapper.width() / 3;
+            }
+            else if(wrapper.width() > 786 && wrapper.width() < 992){
+                item_width = wrapper.width() / 4;
+            }
+            else if(wrapper.width() > 992){
+                item_width = wrapper.width() / max_view;
+            }
+            ul_width = item_width * (slide_count + 1);
+        }
+
+        if(wrapper.hasClass('testimonial-carousel')){
             item_width = wrapper.width() / max_view;
             ul_width = item_width * (slide_count + 1);
+        }
 
-//            if(wrapper.hasClass('logo-carousel')){
-//                if(wrapper.width() < 649){
-//                    item_width = wrapper.width() / 3;
-//                }
-//                else if(wrapper.width() < 1024){
-//                    item_width = wrapper.width() / 4;
-//                }
-//                else if(wrapper.width() > 1024){
-//                    item_width = wrapper.width() / 5;
-//                }
-//
-//                ul_width = item_width * (slide_count + 1);
-//            }
-//
-//            if(wrapper.hasClass('normal-carousel')){
-//                item_width = wrapper.width();
-//
-//                ul_width = item_width * (slide_count + 1);
-//            }
+        if(wrapper.hasClass('post-carousel')){
+            if(wrapper.width() < 320){
+                item_width = wrapper.width() / 1;
+            }
+            else if(wrapper.width() < 786){
+                item_width = wrapper.width() / 2;
+            }
+            else if(wrapper.width() > 786 && wrapper.width() < 992){
+                item_width = wrapper.width() / 3;
+            }
+            else if(wrapper.width() > 992){
+                item_width = wrapper.width() / max_view;
+            }
+            ul_width = item_width * (slide_count + 1);
+        }
 
+        /*
+        |----------------------------------------------------------------
+        |   Resize Function.
+        |----------------------------------------------------------------
+        */
+        $(window).resize(function(){
+            setItemWidth();
             setCSS();
         });
 
         /*
-         |----------------------------------------------------------------
-         |   Set CSS Function.
-         |----------------------------------------------------------------
-         */
+        |----------------------------------------------------------------
+        |   Set Item Width Function.
+        |----------------------------------------------------------------
+        */
+        function setItemWidth(){
+            if(wrapper.hasClass('logo-carousel')){
+                if(wrapper.width() < 320){
+                    item_width = wrapper.width() / 1;
+                }
+                else if(wrapper.width() < 480){
+                    item_width = wrapper.width() / 2;
+                }
+                else if(wrapper.width() < 786){
+                    item_width = wrapper.width() / 3;
+                }
+                else if(wrapper.width() > 786 && wrapper.width() < 992){
+                    item_width = wrapper.width() / 4;
+                }
+                else if(wrapper.width() > 992){
+                    item_width = wrapper.width() / max_view;
+                }
+                ul_width = item_width * (slide_count + 1);
+            }
+
+            if(wrapper.hasClass('testimonial-carousel')){
+                item_width = wrapper.width() / max_view;
+                ul_width = item_width * (slide_count + 1);
+            }
+
+            if(wrapper.hasClass('post-carousel')){
+                if(wrapper.width() < 320){
+                    item_width = wrapper.width() / 1;
+                }
+                else if(wrapper.width() < 786){
+                    item_width = wrapper.width() / 2;
+                }
+                else if(wrapper.width() > 786 && wrapper.width() < 992){
+                    item_width = wrapper.width() / 3;
+                }
+                else if(wrapper.width() > 992){
+                    item_width = wrapper.width() / max_view;
+                }
+                ul_width = item_width * (slide_count + 1);
+            }
+        }
+        setItemWidth();
+
+        /*
+        |----------------------------------------------------------------
+        |   Set CSS Function.
+        |----------------------------------------------------------------
+        */
         function setCSS(){
             // Set the ul width
             ul.css('width', ul_width);
@@ -154,21 +199,21 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
             });
 
             // Move the last item to the front
-            ul.find('li:first').before(ul.find('li:last'));
+//            ul.find('li:first').before(ul.find('li:last'));
 
             ul.css('left', -item_width);
 
             var carousel_height = ul.height();
             wrapper.height(carousel_height);
         }
-        setTimeout(setCSS(), 800);
+        setTimeout(setCSS(), 2000);
 
 
         /*
-         |----------------------------------------------------------------
-         |  Timer Function
-         |----------------------------------------------------------------
-         */
+        |----------------------------------------------------------------
+        |  Timer Function
+        |----------------------------------------------------------------
+        */
         var timer;
 
         function slide_timer(){
@@ -177,10 +222,10 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
         timer = setInterval(slide_timer, slide_time);
 
         /*
-         |----------------------------------------------------------------
-         |   The Slide Function
-         |----------------------------------------------------------------
-         */
+        |----------------------------------------------------------------
+        |   The Slide Function
+        |----------------------------------------------------------------
+        */
         function slide(){
             var left_indent = -(item_width * 2);
 
@@ -198,8 +243,6 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
         }
 
     });
-
-
 </script>
 
 <?php

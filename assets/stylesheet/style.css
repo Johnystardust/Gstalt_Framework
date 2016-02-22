@@ -172,7 +172,7 @@ p {
     margin-top: 10px; }
   #column .opening-times-content td {
     padding: 10px; }
-  #column .column-contact-form .contact-form {
+  #column .contact-form-content .contact-form {
     width: 100%;
     margin-top: 20px; }
 
@@ -184,6 +184,10 @@ p {
 @media screen and (max-width: 992px) {
   #call-to-action .buttons-row {
     height: auto !important; } }
+#cards .row {
+  margin-top: 50px; }
+#cards .row:nth-child(1) {
+  margin-top: 0; }
 #cards .card-inner {
   padding: 65px 60px; }
 #cards .card-with-icon-inner {
@@ -485,7 +489,7 @@ body {
   display: none !important; }
 
 @media screen and (max-width: 992px) {
-  .mobile .col {
+  .col {
     height: auto !important; }
 
   #call-to-action .middle-wrap h1 {
@@ -498,6 +502,10 @@ body {
     float: none !important; }
   #call-to-action .buttons {
     margin-top: 10px; }
+
+  #column .image-content img {
+    float: none !important;
+    margin: 0 auto; }
 
   #action-bar .action-link {
     margin-bottom: 20px; } }

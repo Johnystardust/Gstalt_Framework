@@ -2,6 +2,7 @@
  * Created by:  Tim van der Slik
  * Project:     Gstalt Framework
  */
+$ = jQuery;
 
 $(document).ready(function(){
     /*
@@ -33,6 +34,18 @@ $(document).ready(function(){
     var bottom_menu     = $('.bottom-menu');
     var slide_prev      = $('.slide-prev');
     var slide_next      = $('.slide-next');
+
+    /*
+    |----------------------------------------------------------------
+    |   Resize function.
+    |----------------------------------------------------------------
+    */
+    $(window).resize(function(){
+        windowHeight = $(window).height();
+
+        // Set the slide height to window height
+        slider.height(windowHeight);
+    });
 
     /*
     |----------------------------------------------------------------
@@ -85,6 +98,9 @@ $(document).ready(function(){
     |----------------------------------------------------------------
     */
     function setFadeCSS(){
+        // Set the slide height to window height
+        slider.height(windowHeight);
+
         // Add the class to the container
         ul.addClass('slider-fade');
 

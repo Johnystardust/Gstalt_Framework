@@ -22,7 +22,7 @@ if(get_sub_field('cards')){
         $background_image       = get_sub_field('background_image');
         $background_align       = get_sub_field('image_align');
         $background_size        = get_sub_field('image_size');
-        $background_repeat      = get_sub_field('background_repeat');
+        $background_repeat      = get_sub_field('image_repeat');
 
         $image_overlay_active   = get_sub_field('image_overlay_active');
         $image_overlay          = get_sub_field('image_overlay');

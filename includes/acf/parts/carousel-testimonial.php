@@ -47,6 +47,7 @@ echo '<div class="carousel-wrapper testimonial-carousel">';
         $subtitle_style         = $carousel_item['subtitle_style'];
         $title_align            = $carousel_item['title_align'];
         $divider                = $carousel_item['divider'];
+        $divider_color          = $carousel_item['divider_color'];
 
         $buttons                = $carousel_item['buttons'];
 

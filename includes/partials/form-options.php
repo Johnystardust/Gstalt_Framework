@@ -61,7 +61,7 @@ foreach($form_styles as $form_style){
     echo '}';
 
     /* The From Control element */
-    echo '.'.$form_style_name.' form .form-control {';
+    echo '.'.$form_style_name.' form .form-control, .'.$form_style_name.' form .wysija-input {';
         echo ($input_background_color ? 'background-color: '.$input_background_color.';' : 'background-color: transparent;');
         echo 'border-radius: '.$input_border_radius.'px;';
         echo 'border: none;';
@@ -75,7 +75,7 @@ foreach($form_styles as $form_style){
     echo '}';
 
     /* The Form Control element :focus */
-    echo '.'.$form_style_name.' form .form-control:focus {';
+    echo '.'.$form_style_name.' form .form-control:focus, .'.$form_style_name.' form .wysija-input:focus {';
         echo 'border-color: '.$input_border_focus_color.'!important;';
         echo 'box-shadow: none;';
     echo '}';

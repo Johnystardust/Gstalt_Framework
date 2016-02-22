@@ -9,6 +9,34 @@
 |   Get all the fields an put them in variables for easy usage.
 |----------------------------------------------------------------
 */
+$card_width = get_sub_field('card_width');
+
+if($card_width == 8){
+    $max_cards_row = 12;
+}
+elseif($card_width == 16){
+    $max_cards_row = 6;
+}
+elseif($card_width == 25){
+    $max_cards_row = 4;
+}
+elseif($card_width == 33){
+    $max_cards_row = 3;
+}
+elseif($card_width == 50){
+    $max_cards_row = 2;
+}
+elseif($card_width == 100){
+    $max_cards_row = 1;
+}
+
+$i = 0;
+
+/*
+|----------------------------------------------------------------
+|   Loop over all the cards.
+|----------------------------------------------------------------
+*/
 if(get_sub_field('cards_with_icon')){
     while(has_sub_field('cards_with_icon')){
         /*
@@ -26,10 +54,19 @@ if(get_sub_field('cards_with_icon')){
 
         /*
         |----------------------------------------------------------------
+        |   Place opening row div.
+        |----------------------------------------------------------------
+        */
+        if($i%$max_cards_row==0){
+            echo '<div class="row">';
+        }
+
+        /*
+        |----------------------------------------------------------------
         |   Card With Icon block.
         |----------------------------------------------------------------
         */
-        echo '<div class="card-with-icon col-md-4 col-sm-6 no-padding">';
+        echo '<div class="card-with-icon '.set_col_size($card_width).' col-xs-12">';
             echo '<div class=card-with-icon-inner>';
 
                 /*
@@ -68,5 +105,21 @@ if(get_sub_field('cards_with_icon')){
 
             echo '</div>'; // Card With Icon Inner closing tag
         echo '</div>'; // Card With Icon closing tag
+
+        $i++;
+
+        /*
+        |----------------------------------------------------------------
+        |   Place closing row div.
+        |----------------------------------------------------------------
+        */
+        if($i%$max_cards_row==0){
+            echo '</div>';
+        }
+
+    }
+
+    if($i%$max_cards_row!=0){
+        echo '</div>';
     }
 }
