@@ -245,6 +245,14 @@ p {
   .carousel .post-carousel .image img {
     width: 100%;
     height: auto; }
+  .carousel .carousel-nav {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding: 0 30px;
+    z-index: 2000; }
+    .carousel .carousel-nav .next {
+      float: right; }
 
 #faqs .faq-control {
   display: block;

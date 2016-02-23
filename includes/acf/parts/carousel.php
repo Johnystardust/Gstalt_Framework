@@ -9,35 +9,40 @@
 |   Get the fields and put them in variables for easy usage.
 |----------------------------------------------------------------
 */
-$show_title             = get_sub_field('show_title');
-$title                  = get_sub_field('title');
-$title_color            = get_sub_field('title_color');
-$title_uppercase        = get_sub_field('title_uppercase');
+$show_title                 = get_sub_field('show_title');
+$title                      = get_sub_field('title');
+$title_color                = get_sub_field('title_color');
+$title_uppercase            = get_sub_field('title_uppercase');
 
-$divider                = get_sub_field('divider');
-$divider_color          = get_sub_field('divider_color');
+$divider                    = get_sub_field('divider');
+$divider_color              = get_sub_field('divider_color');
 
-$show_subtitle          = get_sub_field('show_subtitle');
-$subtitle               = get_sub_field('subtitle');
-$subtitle_color         = get_sub_field('subtitle_color');
-$subtitle_style         = get_sub_field('subtitle_style');
+$show_subtitle              = get_sub_field('show_subtitle');
+$subtitle                   = get_sub_field('subtitle');
+$subtitle_color             = get_sub_field('subtitle_color');
+$subtitle_style             = get_sub_field('subtitle_style');
 
-$title_align            = get_sub_field('title_align');
+$title_align                = get_sub_field('title_align');
 
-$margin                 = get_sub_field('margin');
-$padding                = get_sub_field('padding');
+$margin                     = get_sub_field('margin');
+$padding                    = get_sub_field('padding');
 
-$background             = get_sub_field('background');
-$background_color       = get_sub_field('background_color');
-$background_image       = get_sub_field('background_image');
-$background_align       = get_sub_field('image_align');
-$background_size        = get_sub_field('image_size');
+$background                 = get_sub_field('background');
+$background_color           = get_sub_field('background_color');
+$background_image           = get_sub_field('background_image');
+$background_align           = get_sub_field('image_align');
+$background_size            = get_sub_field('image_size');
 
-$slide_time             = get_sub_field('slide_time');
-$animate_time           = get_sub_field('animate_time');
-$max_items_in_view      = get_sub_field('max_carousel_items_in_view');
+$slide_time                 = get_sub_field('slide_time');
+$animate_time               = get_sub_field('animate_time');
+$max_items_in_view          = get_sub_field('max_carousel_items_in_view');
 
-$unique_identifier     = rand(0,2000);
+$carousel_nav               = get_sub_field('carousel_nav');
+$carousel_nav_color         = get_sub_field('carousel_nav_color');
+$carousel_nav_hover_color   = get_sub_field('carousel_nav_hover_color');
+$carousel_nav_top           = get_sub_field('carousel_nav_top');
+
+$unique_identifier          = rand(0,2000);
 
 /*
 |-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -223,6 +228,48 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
 
         /*
         |----------------------------------------------------------------
+        |  Slide Next Function
+        |----------------------------------------------------------------
+        */
+        carousel.find('.next').click(function(){
+            //Restart the timer
+            clearInterval(timer);
+            timer = setInterval(slide_timer, slide_time);
+
+            slide();
+
+            return false;
+        });
+
+        /*
+        |----------------------------------------------------------------
+        |  Slide Next Function
+        |----------------------------------------------------------------
+        */
+        carousel.find('.prev').click(function(){
+            // Restart the timer
+            clearInterval(timer);
+            timer = setInterval(slide_timer, slide_time);
+
+            var left_indent = (item_width);
+
+            ul.animate({
+                'left': 0
+            },{
+                queue: false,
+                duration: animate_time,
+                complete: function(){
+                    ul.find('li:first').before(ul.find('li:last'));
+
+                    ul.css({'left': -item_width});
+                }
+            });
+
+            return false;
+        });
+
+        /*
+        |----------------------------------------------------------------
         |   The Slide Function
         |----------------------------------------------------------------
         */
@@ -245,8 +292,18 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
     });
 </script>
 
-<?php
+<!--
+|-------------------------------------------------------------------------------------------------------------------------------------------------
+|   Style for the nav hover.
+|-------------------------------------------------------------------------------------------------------------------------------------------------
+-->
+<style>
+    .carousel-<?php echo $unique_identifier; ?>-nav a:hover {
+        color: <?php echo $carousel_nav_hover_color; ?> !important;
+    }
+</style>
 
+<?php
     /*
     |----------------------------------------------------------------
     |   Title/Subtitle.
@@ -323,6 +380,18 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel container-fluid 
                     break;
             }
         }
+    }
+
+    /*
+    |----------------------------------------------------------------
+    |   Carousel Nav.
+    |----------------------------------------------------------------
+    */
+    if($carousel_nav){
+        echo '<div class="carousel-nav carousel-'.$unique_identifier.'-nav" style="top: '.$carousel_nav_top.'px;">';
+            echo '<a class="prev" href="#" style="color: '.$carousel_nav_color.';"><i class="icon-left-open"></i></a>';
+            echo '<a class="next" href="#" style="color: '.$carousel_nav_color.';"><i class="icon-right-open"></i></a>';
+        echo '</div>';
     }
 
     /*
