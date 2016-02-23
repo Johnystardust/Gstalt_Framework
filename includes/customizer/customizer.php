@@ -29,6 +29,9 @@ function tvds_customizer_init($wp_customize){
     // Header
     include_once('parts/customizer-header.php');
 
+    // Search
+    include_once('parts/customizer-search.php');
+
     // Side icon
     include_once('parts/customizer-side-icon.php');
 

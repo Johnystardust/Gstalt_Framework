@@ -58,6 +58,9 @@ $social_linkedin                    = get_theme_mod('social_linkedin');
 $social_instagram                   = get_theme_mod('social_instagram');
 $social_youtube                     = get_theme_mod('social_youtube');
 
+// Search bar
+$search_show                        = get_theme_mod('search_show');
+
 /*
 |----------------------------------------------------------------
 |   Menu border options.
@@ -160,7 +163,21 @@ else {
 |   The Header.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<nav id="nav" class="container-fluid container-capped '.($contact_hide_scroll ? 'hide-contact' : '').' '.($background_transparent ? 'transparent' : '').'" style="background: '.$background_color.'; position: '.$menu_position.';">';
+echo '<nav id="nav" class="container-fluid no-padding '.($contact_hide_scroll ? 'hide-contact' : '').' '.($background_transparent ? 'transparent' : '').' '.($search_show ? 'search-active' : '').'" style="background: '.$background_color.'; position: '.$menu_position.';">';
+    /*
+    |----------------------------------------------------------------
+    |   Search form
+    |----------------------------------------------------------------
+    */
+    if($search_show){
+        echo '<div id="search-form" class="container-capped" style="background-color: #333333;">';
+            echo '<form method="get" id="searchform" action="'.get_home_url().'/">';
+                echo '<input type="text" value="" name="s" id="s" placeholder="Zoeken...">';
+                echo '<input type="hidden" id="searchsubmit" />';
+            echo '</form>';
+        echo '</div>';
+    }
+
     /*
     |----------------------------------------------------------------
     |   If '$contact_show' or '$social_show' is set display it
@@ -172,7 +189,7 @@ echo '<nav id="nav" class="container-fluid container-capped '.($contact_hide_scr
         |   Menu contact information.
         |----------------------------------------------------------------
         */
-        echo '<div class="menu-top '.($contact_hide_mobile ? 'hide-mobile' : '').'">';
+        echo '<div class="menu-top container-capped '.($contact_hide_mobile ? 'hide-mobile' : '').'">';
             /*
             |----------------------------------------------------------------
             |   If '$contact_show' is set display it
@@ -249,7 +266,7 @@ echo '<nav id="nav" class="container-fluid container-capped '.($contact_hide_scr
     |   Menu bottom.
     |----------------------------------------------------------------
     */
-    echo '<div class="menu-bottom">';
+    echo '<div class="menu-bottom container-capped">';
         /*
         |----------------------------------------------------------------
         |   Header logo.
@@ -288,6 +305,18 @@ echo '<nav id="nav" class="container-fluid container-capped '.($contact_hide_scr
             );
 
             wp_nav_menu($args);
+
+            /*
+            |----------------------------------------------------------------
+            |   If search is enabled in customizer, display it.
+            |----------------------------------------------------------------
+            */
+            if($search_show){
+                echo '<div class="search-button">';
+                    echo '<a class="open-search" href="#"><i class="icon icon-search"></i></a>';
+                echo '</div>';
+            }
+
         echo '</div>'; // Main menu closing div
 
         /*

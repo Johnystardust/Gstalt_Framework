@@ -8,6 +8,29 @@
   -webkit-transition: all 0.3s ease-in-out
   -moz-transition: all 0.3s ease-in-out
 
+  // Search Form
+  #search-form
+    transition: all 0.3s ease-in-out
+    -webkit-transition: all 0.3s ease-in-out
+    -moz-transition: all 0.3s ease-in-out
+    max-height: 0
+    overflow: hidden
+    #s
+      background: none
+      border: none
+      color: #ffffff
+      text-align: center
+
+      margin: 20px 0
+      height: 40px
+      font-size: 18px
+      width: 100%
+    #s:focus
+      outline: none
+  .search-form-open
+    max-height: 100px !important
+
+
   // Menu Top
   .menu-top
     height: 20px
@@ -49,6 +72,7 @@
     .main-menu
       float: right
       ul
+        float: left
         list-style-type: none
         li
           float: left
@@ -83,6 +107,9 @@
               .sub-menu
                 display: block
 
+    .search-button
+      float: right
+      line-height: 64px
 
 // Transparent Menu
 .menu-transparent
@@ -98,3 +125,6 @@
 // Hide Contact
 .menu-open
   top: -40px !important
+
+.menu-close-with-search
+  top: -140px !important

@@ -29,6 +29,25 @@ a:focus {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out; }
+  #nav #search-form {
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    max-height: 0;
+    overflow: hidden; }
+    #nav #search-form #s {
+      background: none;
+      border: none;
+      color: #ffffff;
+      text-align: center;
+      margin: 20px 0;
+      height: 40px;
+      font-size: 18px;
+      width: 100%; }
+    #nav #search-form #s:focus {
+      outline: none; }
+  #nav .search-form-open {
+    max-height: 100px !important; }
   #nav .menu-top {
     height: 20px;
     margin: 10px 0;
@@ -61,6 +80,7 @@ a:focus {
     #nav .menu-bottom .main-menu {
       float: right; }
       #nav .menu-bottom .main-menu ul {
+        float: left;
         list-style-type: none; }
         #nav .menu-bottom .main-menu ul li {
           float: left;
@@ -88,6 +108,9 @@ a:focus {
             display: none; }
           #nav .menu-bottom .main-menu ul li:hover .sub-menu li:hover .sub-menu {
             display: block; }
+    #nav .menu-bottom .search-button {
+      float: right;
+      line-height: 64px; }
 
 .menu-transparent {
   background: transparent !important; }
@@ -98,6 +121,9 @@ a:focus {
 
 .menu-open {
   top: -40px !important; }
+
+.menu-close-with-search {
+  top: -140px !important; }
 
 .buttons {
   margin-top: 20px; }
