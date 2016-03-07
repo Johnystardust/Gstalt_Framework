@@ -47,7 +47,7 @@ echo '<div id="call-to-action" class="container-fluid container-capped same-col-
         |----------------------------------------------------------------
         */
         echo '<div class="'.set_col_size($title_subtitle_width).' '.set_offset_size($title_subtitle_offset).' col-sm-12 col-xs-12 col">';
-            echo '<div style="margin: '.$margin_title.'; padding: '.$padding_title.'; display: table;">';
+            echo '<div style="margin: '.$margin_title.'; padding: '.$padding_title.'; display: table; width: 100%">';
                 echo '<div class="middle-wrap">';
                     get_template_part('includes/acf/parts/assets/title-divider-subtitle');
                 echo '</div>';
