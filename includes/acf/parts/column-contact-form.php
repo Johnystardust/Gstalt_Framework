@@ -66,12 +66,5 @@ echo '<div class="column-item '.set_col_size($block_width).' '.set_offset_size($
         echo ($vertical_center ? '</div>' : '');
     echo '</div>'; // Column Content closing tag
 
-    /*
-    |----------------------------------------------------------------
-    |   The Image overlay.
-    |----------------------------------------------------------------
-    */
-    get_template_part('includes/acf/parts/assets/image-overlay');
-
 echo '</div>'; // Column Item closing tag
 

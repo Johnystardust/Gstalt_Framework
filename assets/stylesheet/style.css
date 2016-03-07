@@ -41,7 +41,7 @@ a:focus {
       color: #ffffff;
       text-align: center;
       margin: 20px 0;
-      height: 40px;
+      height: 24px;
       font-size: 18px;
       width: 100%; }
     #nav #search-form #s:focus {
@@ -67,7 +67,8 @@ a:focus {
       #nav .menu-top .social-icons .social-icon {
         font-size: 14px; }
   #nav .menu-bottom {
-    height: 64px; }
+    height: 64px;
+    position: relative; }
     #nav .menu-bottom .menu-logo {
       float: left;
       height: 100%; }
@@ -110,7 +111,8 @@ a:focus {
             display: block; }
     #nav .menu-bottom .search-button {
       float: right;
-      line-height: 64px; }
+      line-height: 64px;
+      padding-left: 15px; }
 
 .menu-transparent {
   background: transparent !important; }
@@ -409,6 +411,10 @@ body {
   padding-left: 60px;
   padding-right: 60px; }
 
+.inner-col {
+  width: 100%;
+  height: 100%; }
+
 .middle-wrap {
   display: table-cell;
   vertical-align: middle;
@@ -522,7 +528,25 @@ body {
 
 @media screen and (max-width: 768px) {
   #action-bar .action-link {
-    margin-bottom: 20px !important; } }
+    margin-bottom: 20px !important; }
+
+  .mobile-menu {
+    float: left !important; }
+
+  .menu-logo {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    float: none !important; }
+    .menu-logo a {
+      width: 50%;
+      height: 100%;
+      display: block;
+      margin: 0 auto; }
+      .menu-logo a img {
+        margin: 0 auto;
+        max-width: 100%; } }
 @media screen and (max-width: 992px) {
   #nav .menu-top .mail-number {
     float: none;
@@ -663,6 +687,12 @@ body {
       padding: 14px 60px; }
     .mobile-menu .sub-menu .sub-menu .sub-menu li a {
       padding: 14px 90px; }
+    .mobile-menu .mobile-search {
+      padding: 14px 30px; }
+      .mobile-menu .mobile-search input {
+        width: 100%;
+        background: none;
+        border: none; }
     .mobile-menu .mobile-menu-open {
       max-height: 1100px; }
     .mobile-menu .sub-menu-open {

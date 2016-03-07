@@ -20,8 +20,8 @@
 $wp_customize->add_section(
     'contact_section',
     array(
-        'title'         => 'Contact information',
-        'description'   => 'Change the contact information.',
+        'title'         => 'Social links',
+        'description'   => 'Add social accounts like facebook.',
         'priority'      => 150
     )
 );

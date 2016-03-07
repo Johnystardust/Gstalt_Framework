@@ -62,12 +62,4 @@ echo '<div class="column-item '.set_col_size($block_width).' '.set_offset_size($
 
     echo '</div>'; // Text Content closing tag
 
-    /*
-    |----------------------------------------------------------------
-    |   If image overlay set active show the overlay.
-    |----------------------------------------------------------------
-    */
-    get_template_part('includes/acf/parts/assets/image-overlay');
-
-
 echo '</div>'; // Column Item closing tag

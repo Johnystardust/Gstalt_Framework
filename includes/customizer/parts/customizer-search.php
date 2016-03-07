@@ -47,3 +47,50 @@ $wp_customize->add_control(
         'type'          => 'checkbox'
     )
 );
+
+/*
+|----------------------------------------------------------------
+|   Search Background Color.
+|----------------------------------------------------------------
+*/
+$wp_customize->add_setting(
+    'search_background_color',
+    array(
+        'default' => '#ffffff'
+    )
+);
+
+$wp_customize->add_control(
+    new WP_Customize_Color_Control(
+        $wp_customize,
+        'search_background_color',
+        array(
+            'label'         => 'Search bar background color',
+            'section'       => 'search_section',
+            'description'   => 'Change the search bar background color.',
+            'settings'      => 'search_background_color'
+        )
+    )
+);
+
+/*
+|----------------------------------------------------------------
+|   Placeholder text.
+|----------------------------------------------------------------
+*/
+$wp_customize->add_setting(
+    'placeholder_text',
+    array(
+        'default' => ''
+    )
+);
+
+$wp_customize->add_control(
+    'placeholder_text',
+    array(
+        'label'         => 'Placeholder text',
+        'section'       => 'search_section',
+        'description'   => 'The placeholder text that is to be displayed.',
+        'type'          => 'text'
+    )
+);

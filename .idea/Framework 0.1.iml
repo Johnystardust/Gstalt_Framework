@@ -4,17 +4,5 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library name="PHP">
-        <CLASSES>
-          <root url="file://C:/xampp/htdocs/rigid-webdesign" />
-          <root url="file://$USER_HOME$/Desktop/advanced-custom-fields-pro" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://C:/xampp/htdocs/rigid-webdesign" />
-          <root url="file://$USER_HOME$/Desktop/advanced-custom-fields-pro" />
-        </SOURCES>
-      </library>
-    </orderEntry>
   </component>
 </module>

@@ -26,8 +26,8 @@ $even_col_height            = get_sub_field('even_col_height');
 |   Block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="column" class="container-fluid container-capped '.($even_col_height ? 'same-col-height' : '').'" style="margin: '.$margin.'; padding: '.$padding.'; '.set_background_style($background, $background_color, $background_image, $background_image_align, $background_image_size, $background_image_repeat).'">';
-    echo '<div class="row">';
+echo '<div id="column" class="container-fluid container-capped '.($even_col_height ? 'same-col-height' : '').'" style="'.set_background_style($background, $background_color, $background_image, $background_image_align, $background_image_size, $background_image_repeat).'">';
+    echo '<div class="row" style="margin: '.$margin.'; padding: '.$padding.';">';
         /*
         |----------------------------------------------------------------
         |   Loop over all the flexible fields and choose and include

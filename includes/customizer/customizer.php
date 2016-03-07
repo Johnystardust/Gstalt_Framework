@@ -29,6 +29,15 @@ function tvds_customizer_init($wp_customize){
     // Header
     include_once('parts/customizer-header.php');
 
+    // Top menu
+    include_once('parts/customizer-top-menu.php');
+
+    // Bottom menu
+    include_once('parts/customizer-bottom-menu.php');
+
+    // Mobile menu
+    include_once('parts/customizer-mobile-menu.php');
+
     // Search
     include_once('parts/customizer-search.php');
 

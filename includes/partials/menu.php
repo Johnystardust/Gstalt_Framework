@@ -60,6 +60,8 @@ $social_youtube                     = get_theme_mod('social_youtube');
 
 // Search bar
 $search_show                        = get_theme_mod('search_show');
+$search_background_color            = get_theme_mod('search_background_color');
+$placeholder_text                   = get_theme_mod('placeholder_text');
 
 /*
 |----------------------------------------------------------------
@@ -108,17 +110,17 @@ else {
         color: <?php echo $text_color; ?>;
     }
 
-    .main-menu a {
+    .main-menu a, .search-button a i {
         text-transform: <?php echo $menu_text_transform; ?>;
         color: <?php echo $text_color; ?>;
         font-size: <?php echo $font_size; ?>px;
     }
 
-    .main-menu a:hover, .social-icon:hover {
+    .main-menu a:hover, .social-icon:hover, .search-button a:hover i {
         color: <?php echo $hover_color; ?> !important;
     }
 
-    .menu-transparent .main-menu a, .menu-transparent .mobile-menu i, .menu-transparent .mobile-menu a, .menu-transparent .social-icons,  .menu-transparent .menu-top {
+    .menu-transparent .main-menu a, .menu-transparent .mobile-menu i, .menu-transparent .mobile-menu a, .menu-transparent .social-icons,  .menu-transparent .menu-top, .menu-transparent .search-button a i {
         color: <?php echo $transparent_text_color; ?>;
     }
 
@@ -170,9 +172,9 @@ echo '<nav id="nav" class="container-fluid no-padding '.($contact_hide_scroll ? 
     |----------------------------------------------------------------
     */
     if($search_show){
-        echo '<div id="search-form" class="container-capped" style="background-color: #333333;">';
+        echo '<div id="search-form" class="container-capped" style="background:'.$search_background_color.';">';
             echo '<form method="get" id="searchform" action="'.get_home_url().'/">';
-                echo '<input type="text" value="" name="s" id="s" placeholder="Zoeken...">';
+                echo '<input type="text" value="" name="s" id="s" placeholder="'.$placeholder_text.'">';
                 echo '<input type="hidden" id="searchsubmit" />';
             echo '</form>';
         echo '</div>';
@@ -281,6 +283,17 @@ echo '<nav id="nav" class="container-fluid no-padding '.($contact_hide_scroll ? 
 
         /*
         |----------------------------------------------------------------
+        |   If search is enabled in customizer, display it.
+        |----------------------------------------------------------------
+        */
+        if($search_show){
+            echo '<div class="search-button">';
+                echo '<a class="open-search" href="#"><i class="icon icon-search"></i></a>';
+            echo '</div>';
+        }
+
+        /*
+        |----------------------------------------------------------------
         |   Header main-menu.
         |----------------------------------------------------------------
         */
@@ -305,17 +318,6 @@ echo '<nav id="nav" class="container-fluid no-padding '.($contact_hide_scroll ? 
             );
 
             wp_nav_menu($args);
-
-            /*
-            |----------------------------------------------------------------
-            |   If search is enabled in customizer, display it.
-            |----------------------------------------------------------------
-            */
-            if($search_show){
-                echo '<div class="search-button">';
-                    echo '<a class="open-search" href="#"><i class="icon icon-search"></i></a>';
-                echo '</div>';
-            }
 
         echo '</div>'; // Main menu closing div
 

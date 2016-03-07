@@ -55,7 +55,7 @@ $(document).ready(function(){
     |----------------------------------------------------------------
     */
     var html        = $('html');
-    var nav      = $('#nav');
+    var nav         = $('#nav');
 
 
     var windowWidth = $(window).width();
@@ -156,7 +156,11 @@ $(document).ready(function(){
         // Check if the nav has a class of 'hide-contact'
         if(nav.hasClass('hide-contact')) {
 
-            // Check if the menu-top has a class of hide-mobile
+            /*
+            |----------------------------------------------------------------
+            |   Check if the menu-top has a class of hide-mobile.
+            |----------------------------------------------------------------
+            */
             if($('.menu-top').hasClass('hide-mobile')){
                 $(window).scroll(function() {
                     var $this = $(this),
@@ -164,12 +168,20 @@ $(document).ready(function(){
 
                     if(pos > 10 && windowWidth > 1024){
                         nav.addClass('menu-open');
+                        $('#search-form').removeClass('search-form-open');
                     }
                     else {
                         nav.removeClass('menu-open');
+                        $('#search-form').removeClass('search-form-open');
                     }
                 });
             }
+
+            /*
+            |----------------------------------------------------------------
+            |   If the menu-top does not have a class of hide-mobile.
+            |----------------------------------------------------------------
+            */
             else {
                 $(window).scroll(function() {
                     var $this = $(this),
@@ -177,12 +189,19 @@ $(document).ready(function(){
 
                     if(pos > 10){
                         nav.addClass('menu-open');
+                        $('#search-form').removeClass('search-form-open');
                     }
                     else {
                         nav.removeClass('menu-open');
+                        $('#search-form').removeClass('search-form-open');
                     }
                 });
             }
+        }
+        else {
+            $(window).scroll(function() {
+                $('#search-form').removeClass('search-form-open');
+            });
         }
     }
     hide_contact_on_scroll();
@@ -195,6 +214,14 @@ $(document).ready(function(){
     $('.open-search').click(function(){
         // Toggle the class to the search form
         $('#search-form').toggleClass('search-form-open');
+
+        if(nav.hasClass('hide-contact')){
+            if($(window).scrollTop() > 10){
+                nav.toggleClass('menu-open');
+            }
+        }
+
+        $('#searchform').find('#s').focus();
 
         return false;
     });
