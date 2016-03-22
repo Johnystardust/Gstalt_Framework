@@ -111,6 +111,7 @@ a:focus {
             display: block; }
     #nav .menu-bottom .search-button {
       float: right;
+      position: relative;
       line-height: 64px;
       padding-left: 15px; }
 
