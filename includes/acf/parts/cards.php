@@ -43,43 +43,45 @@ if(get_sub_field('card_type')){
 |   The Cards block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="cards" class="container-fluid '.$card_type.' same-col-height" style="'.set_background_style($background, $background_color, $background_image, $background_align, $background_size, $background_repeat).' margin: '.$margin_container.'; padding: '.$padding_container.';">';
+echo '<div id="cards" style="'.set_background_style($background, $background_color, $background_image, $background_align, $background_size, $background_repeat).' margin: '.$margin_container.'; padding: '.$padding_container.';">';
+    echo '<div class="container-fluid '.$card_type.' same-col-height">';
 
-    /*
-    |----------------------------------------------------------------
-    |   If the field is filled, get the row layout.
-    |----------------------------------------------------------------
-    */
-    if(get_sub_field('card_type')){
-        while(has_sub_field('card_type')){
-            switch(get_row_layout()){
-                /*
-                |----------------------------------------------------------------
-                |   If row layout is cards normal.
-                |----------------------------------------------------------------
-                */
-                case 'cards_normal':
-                    get_template_part('includes/acf/parts/cards-normal');
-                    break;
+        /*
+        |----------------------------------------------------------------
+        |   If the field is filled, get the row layout.
+        |----------------------------------------------------------------
+        */
+        if(get_sub_field('card_type')){
+            while(has_sub_field('card_type')){
+                switch(get_row_layout()){
+                    /*
+                    |----------------------------------------------------------------
+                    |   If row layout is cards normal.
+                    |----------------------------------------------------------------
+                    */
+                    case 'cards_normal':
+                        get_template_part('includes/acf/parts/cards-normal');
+                        break;
 
-                /*
-                |----------------------------------------------------------------
-                |   If row layout is cards with icon.
-                |----------------------------------------------------------------
-                */
-                case 'cards_with_icon':
-                    get_template_part('includes/acf/parts/cards-with-icon');
-                    break;
+                    /*
+                    |----------------------------------------------------------------
+                    |   If row layout is cards with icon.
+                    |----------------------------------------------------------------
+                    */
+                    case 'cards_with_icon':
+                        get_template_part('includes/acf/parts/cards-with-icon');
+                        break;
+                }
             }
         }
-    }
 
-    /*
-    |----------------------------------------------------------------
-    |   If image overlay set active show the overlay.
-    |----------------------------------------------------------------
-    */
-    get_template_part('includes/acf/parts/assets/image-overlay');
+        /*
+        |----------------------------------------------------------------
+        |   If image overlay set active show the overlay.
+        |----------------------------------------------------------------
+        */
+        get_template_part('includes/acf/parts/assets/image-overlay');
 
-echo '</div>'; // container closing tag
+    echo '</div>'; // container closing tag
+echo '</div>'; // Cards closing tag
 

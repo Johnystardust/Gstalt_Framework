@@ -107,73 +107,75 @@ if($button_text_uppercase){
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
 if($i > 0) {
-    echo '<div id="action-bar" class="container-fluid container-capped" style="background: ' . $background_color . ' url(' . $background_image . ') ' . $image_repeat . '; background-position: ' . $image_align . '; background-size: ' . $image_size . '; margin: ' . $margin . '; padding: ' . $padding . ';">';
-        echo '<div class="row">';
+    echo '<div id="action-bar" style="background: ' . $background_color . ' url(' . $background_image . ') ' . $image_repeat . '; background-position: ' . $image_align . '; background-size: ' . $image_size . '; margin: ' . $margin . '; padding: ' . $padding . ';">';
+        echo '<div class="container-fluid container-capped">';
+            echo '<div class="row">';
 
-        /*
-        |----------------------------------------------------------------
-        |   If '$action_link' isn't empty display it.
-        |----------------------------------------------------------------
-        */
-        if (!empty($action_link_1)) {
-            echo '<div class="action-link ' . $col_width . '">';
+            /*
+            |----------------------------------------------------------------
+            |   If '$action_link' isn't empty display it.
+            |----------------------------------------------------------------
+            */
+            if (!empty($action_link_1)) {
+                echo '<div class="action-link ' . $col_width . '">';
 
-                // Display the button
-                echo '<a href="' . $action_link_1 . '" class="action-link" target="'.($action_blank_1 ? '_blank' : '_self').'" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
-                    echo '<div class="action-button" style="background: ' . $button_background_color . '; border: ' . $button_border_color . ' solid ' . $button_border_width . 'px;">' . $action_title_1 . '</div>';
-                echo '</a>';
+                    // Display the button
+                    echo '<a href="' . $action_link_1 . '" class="action-link" target="'.($action_blank_1 ? '_blank' : '_self').'" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
+                        echo '<div class="action-button" style="background: ' . $button_background_color . '; border: ' . $button_border_color . ' solid ' . $button_border_width . 'px;">' . $action_title_1 . '</div>';
+                    echo '</a>';
 
-            echo '</div>'; // Col width closing tag
-        }
+                echo '</div>'; // Col width closing tag
+            }
 
-        /*
-        |----------------------------------------------------------------
-        |   If '$action_link' isn't empty display it.
-        |----------------------------------------------------------------
-        */
-        if (!empty($action_link_2)) {
-            echo '<div class="action-link ' . $col_width . '">';
+            /*
+            |----------------------------------------------------------------
+            |   If '$action_link' isn't empty display it.
+            |----------------------------------------------------------------
+            */
+            if (!empty($action_link_2)) {
+                echo '<div class="action-link ' . $col_width . '">';
 
-                // Display the button
-                echo '<a href="' . $action_link_2 . '" class="action-link" target="'.($action_blank_2 ? '_blank' : '_self').'" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
-                    echo '<div class="action-button" style="background: ' . $button_background_color . '; border: ' . $button_border_color . ' solid ' . $button_border_width . 'px;">' . $action_title_2 . '</div>';
-                echo '</a>';
+                    // Display the button
+                    echo '<a href="' . $action_link_2 . '" class="action-link" target="'.($action_blank_2 ? '_blank' : '_self').'" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
+                        echo '<div class="action-button" style="background: ' . $button_background_color . '; border: ' . $button_border_color . ' solid ' . $button_border_width . 'px;">' . $action_title_2 . '</div>';
+                    echo '</a>';
 
-            echo '</div>'; // Col width closing tag
-        }
+                echo '</div>'; // Col width closing tag
+            }
 
-        /*
-        |----------------------------------------------------------------
-        |   If '$action_link' isn't empty display it.
-        |----------------------------------------------------------------
-        */
-        if (!empty($action_link_3)) {
-            echo '<div class="action-link ' . $col_width . '">';
+            /*
+            |----------------------------------------------------------------
+            |   If '$action_link' isn't empty display it.
+            |----------------------------------------------------------------
+            */
+            if (!empty($action_link_3)) {
+                echo '<div class="action-link ' . $col_width . '">';
 
-                // Display the button
-                echo '<a href="' . $action_link_3 . '" class="action-link" target="'.($action_blank_3 ? '_blank' : '_self').'" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
-                    echo '<div class="action-button" style="background: ' . $button_background_color . '; border: ' . $button_border_color . ' solid ' . $button_border_width . 'px;">' . $action_title_3 . '</div>';
-                echo '</a>';
+                    // Display the button
+                    echo '<a href="' . $action_link_3 . '" class="action-link" target="'.($action_blank_3 ? '_blank' : '_self').'" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
+                        echo '<div class="action-button" style="background: ' . $button_background_color . '; border: ' . $button_border_color . ' solid ' . $button_border_width . 'px;">' . $action_title_3 . '</div>';
+                    echo '</a>';
 
-            echo '</div>'; // Col width closing tag
-        }
+                echo '</div>'; // Col width closing tag
+            }
 
-        /*
-        |----------------------------------------------------------------
-        |   If '$action_link' isn't empty display it.
-        |----------------------------------------------------------------
-        */
-        if (!empty($action_link_4)) {
-            echo '<div class="action-link ' . $col_width . '">';
+            /*
+            |----------------------------------------------------------------
+            |   If '$action_link' isn't empty display it.
+            |----------------------------------------------------------------
+            */
+            if (!empty($action_link_4)) {
+                echo '<div class="action-link ' . $col_width . '">';
 
-                // Display the button
-                echo '<a href="' . $action_link_4 . '" class="action-link" target="'.($action_blank_4 ? '_blank' : '_self').'" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
-                    echo '<div class="action-button" style="background: ' . $button_background_color . '; border: ' . $button_border_color . ' solid ' . $button_border_width . 'px;">' . $action_title_4 . '</div>';
-                echo '</a>';
+                    // Display the button
+                    echo '<a href="' . $action_link_4 . '" class="action-link" target="'.($action_blank_4 ? '_blank' : '_self').'" style="color: ' . $button_text_color . '; text-transform: ' . $text_transform . ';">';
+                        echo '<div class="action-button" style="background: ' . $button_background_color . '; border: ' . $button_border_color . ' solid ' . $button_border_width . 'px;">' . $action_title_4 . '</div>';
+                    echo '</a>';
 
-            echo '</div>'; // Col width closing tag
-        }
+                echo '</div>'; // Col width closing tag
+            }
 
-        echo '</div>'; // Row closing tag
+            echo '</div>'; // Row closing tag
+        echo '</div>'; // Container closing tag
     echo '</div>'; // Action Bar closing tag
 }
