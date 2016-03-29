@@ -18,7 +18,6 @@ $background_image           = get_sub_field('background_image');
 $background_image_align     = get_sub_field('background_image_align');
 $background_image_size      = get_sub_field('background_image_size');
 $background_image_repeat    = get_sub_field('background_image_repeat');
-$hide_on_mobile             = get_sub_field('hide_on_mobile');
 
 $text_block_width           = get_sub_field('text_block_width');
 $text_block_offset          = get_sub_field('text_block_offset');
