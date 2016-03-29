@@ -19,8 +19,13 @@ $background_image_align     = get_sub_field('background_image_align');
 $background_image_size      = get_sub_field('background_image_size');
 $background_image_repeat    = get_sub_field('background_image_repeat');
 
-$portfolio_block_margin     = get_sub_field('portfolio_block_margin ');
+$show_titles                = get_sub_field('show_titles');
+$show_categories            = get_sub_field('show_categories');
+$show_featured_image        = get_sub_field('show_featured_image');
+$portfolio_block_margin     = get_sub_field('portfolio_block_margin');
 $portfolio_block_padding    = get_sub_field('portfolio_block_padding');
+$portfolio_item_margin      = get_sub_field('portfolio_item_margin');
+$portfolio_item_padding     = get_sub_field('portfolio_item_padding');
 $max_items                  = get_sub_field('max_items');
 $max_items_row              = get_sub_field('max_items_row');
 $categories                 = get_sub_field('categories');
@@ -111,16 +116,38 @@ echo '<div id="portfolio" style="'.set_background_style($background, $background
                 */
                 if($the_query->have_posts()) {
                     while ($the_query->have_posts()): $the_query->the_post();
-                        echo '<div class="portfolio-item col-md-4">';
+                        echo '<div class="portfolio-item '.$max_items_row.'" style="margin: '.$portfolio_item_margin.'; padding: '.$portfolio_item_padding.';">';
                             echo '<a href="'.get_permalink().'">';
+
                                 /*
                                 |----------------------------------------------------------------
-                                |   If there is a post thumbnail.
+                                |   If show featured image is set.
                                 |----------------------------------------------------------------
                                 */
-                                if(has_post_thumbnail()){
-                                    the_post_thumbnail();
+                                if($show_featured_image){
+                                    if(has_post_thumbnail()){
+                                        the_post_thumbnail();
+                                    }
                                 }
+
+                                /*
+                                |----------------------------------------------------------------
+                                |   If show title is set.
+                                |----------------------------------------------------------------
+                                */
+                                if($show_titles){
+                                    echo '<h3>'.get_the_title().'</h3>';
+                                }
+
+                                /*
+                                |----------------------------------------------------------------
+                                |   If show categories is set.
+                                |----------------------------------------------------------------
+                                */
+                                if($show_categories){
+                                    the_category();
+                                }
+
                             echo '</a>';
                         echo '</div>';
                     endwhile;
