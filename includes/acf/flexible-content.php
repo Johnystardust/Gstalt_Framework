@@ -50,6 +50,10 @@ if(get_field('page_content')):
                 get_template_part('includes/acf/parts/text-with-image');
                 break;
 
+            case 'video':
+                get_template_part('includes/acf/parts/video');
+                break;
+
         endswitch;
 
     endwhile;
