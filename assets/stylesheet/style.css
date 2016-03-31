@@ -313,15 +313,22 @@ p {
 #faqs .active .faq-answer {
   max-height: 400px; }
 
-#portfolio .title-subtitle {
-  margin-bottom: 20px; }
-#portfolio .portfolio-item a {
-  display: block; }
-#portfolio .portfolio-item img {
-  width: 100%;
-  height: auto; }
-#portfolio .buttons {
-  margin-top: 20px; }
+#portfolio .portfolio-item .item-link {
+  display: inline-block; }
+#portfolio .portfolio-item .item-categories a {
+  color: inherit; }
+#portfolio .portfolio-item .item-content p {
+  font-size: inherit; }
+#portfolio .portfolio-item .item-featured-image {
+  position: relative; }
+  #portfolio .portfolio-item .item-featured-image img {
+    width: 100%;
+    height: auto; }
+  #portfolio .portfolio-item .item-featured-image .image-overlay {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out; }
 
 #slider .slide-container {
   height: 100%; }

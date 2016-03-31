@@ -42,10 +42,10 @@ $featured_image_style       = get_sub_field('show_featured_image_style_options')
 $overlay_color              = get_sub_field('overlay_color');
 $overlay_opacity            = get_sub_field('overlay_opacity') / 100;
 
-$portfolio_block_margin     = get_sub_field('portfolio_block_margin');
-$portfolio_block_padding    = get_sub_field('portfolio_block_padding');
-$portfolio_item_margin      = get_sub_field('portfolio_item_margin');
-$portfolio_item_padding     = get_sub_field('portfolio_item_padding');
+$news_block_margin          = get_sub_field('news_block_margin');
+$news_block_padding         = get_sub_field('news_block_padding');
+$news_item_margin           = get_sub_field('news_item_margin');
+$news_item_padding          = get_sub_field('news_item_padding');
 $max_items                  = get_sub_field('max_items');
 $max_items_row              = get_sub_field('max_items_row');
 $categories                 = get_sub_field('categories');
@@ -82,10 +82,10 @@ $show_buttons               = get_sub_field('show_buttons');
 
 /*
 |-------------------------------------------------------------------------------------------------------------------------------------------------
-|   The portfolio block
+|   The News block
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="portfolio" style="'.set_background_style($background, $background_color, $background_image, $background_image_align, $background_image_size, $background_image_repeat, $background_attachment).' margin: '.$container_margin.'; padding: '.$container_padding.';">';
+echo '<div id="news" style="'.set_background_style($background, $background_color, $background_image, $background_image_align, $background_image_size, $background_image_repeat, $background_attachment).' margin: '.$container_margin.'; padding: '.$container_padding.';">';
     echo '<div class="container-fluid '.$container.'">';
 
         echo '<div class="row">';
@@ -137,7 +137,7 @@ echo '<div id="portfolio" style="'.set_background_style($background, $background
             |   Portfolio Items.
             |----------------------------------------------------------------
             */
-            echo '<div class="portfolio-items col-md-12" style="margin: '.$portfolio_block_margin.'; padding: '.$portfolio_block_padding.';">';
+            echo '<div class="news-items col-md-12" style="margin: '.$news_block_margin.'; padding: '.$news_block_padding.';">';
                 /*
                 |----------------------------------------------------------------
                 |   Get all the included category id's.
@@ -179,7 +179,7 @@ echo '<div id="portfolio" style="'.set_background_style($background, $background
                 $i = 0;
 
                 $args = array(
-                    'post_type'         => 'portfolio',
+                    'post_type'         => 'post',
                     'cat'               => $included_categories,
                     'posts_per_page'    => $max_items,
                 );
@@ -208,7 +208,7 @@ echo '<div id="portfolio" style="'.set_background_style($background, $background
                         |   Portfolio Item.
                         |----------------------------------------------------------------
                         */
-                        echo '<div class="portfolio-item '.$max_items_row.'" style="margin: '.$portfolio_item_margin.'; padding: '.$portfolio_item_padding.';">';
+                        echo '<div class="news-item '.$max_items_row.'" style="margin: '.$news_item_margin.'; padding: '.$news_item_padding.';">';
                             echo '<a href="'.get_permalink().'" class="item-link">';
 
                                 /*
@@ -260,7 +260,7 @@ echo '<div id="portfolio" style="'.set_background_style($background, $background
 
 
                             echo '</a>';
-                        echo '</div>'; // Portfolio Item closing tag
+                        echo '</div>'; // News Item closing tag
 
                         $i++;
 
@@ -300,7 +300,7 @@ echo '<div id="portfolio" style="'.set_background_style($background, $background
                 */
                 wp_reset_postdata();
 
-            echo '</div>'; // Portfolio Items closing tag
+            echo '</div>'; // News Items closing tag
 
         echo '</div>'; // Row closing tag
 
@@ -312,4 +312,4 @@ echo '<div id="portfolio" style="'.set_background_style($background, $background
         get_template_part('includes/acf/parts/assets/image-overlay');
 
     echo '</div>'; // Container closing tag
-echo '</div>'; // Portfolio closing tag
+echo '</div>'; // News closing tag

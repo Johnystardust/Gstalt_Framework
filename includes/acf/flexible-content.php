@@ -34,6 +34,10 @@ if(get_field('page_content')):
                 get_template_part('includes/acf/parts/faq');
                 break;
 
+            case 'news':
+                get_template_part('includes/acf/parts/news');
+                break;
+
             case 'opening_times':
                 get_template_part('includes/acf/parts/opening-times');
                 break;

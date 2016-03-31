@@ -175,19 +175,24 @@ function border_style($border, $border_size, $border_style, $border_color){
 |   Set background style.
 |-----------------------------------------------------------------------------------------------------------------------
 */
-function set_background_style($background, $background_color, $background_image, $background_position, $background_size, $background_repeat){
+function set_background_style($background, $background_color, $background_image, $background_position, $background_size, $background_repeat, $background_attachment){
     if($background == 'color'){
         return 'background-color: '.$background_color.';';
     }
     elseif($background == 'image'){
-        return 'background: url('.$background_image.'); background-position: '.$background_position.'; background-size: '.$background_size.'; background-repeat: '.$background_repeat.';';
+        return 'background: url('.$background_image.'); background-position: '.$background_position.'; background-size: '.$background_size.'; background-repeat: '.$background_repeat.'; background-attachment: '.$background_attachment.';';
     }
     elseif($background == 'both'){
-        return 'background: '.$background_color.' url('.$background_image.'); background-position: '.$background_position.'; background-size: '.$background_size.'; background-repeat: '.$background_repeat.';';
+        return 'background: '.$background_color.' url('.$background_image.'); background-position: '.$background_position.'; background-size: '.$background_size.'; background-repeat: '.$background_repeat.'; background-attachment: '.$background_attachment.';';
     }
     else {
         return false;
     }
+}
+
+
+function max_items_in_row($max_items_row){
+
 }
 
 

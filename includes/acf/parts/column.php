@@ -15,6 +15,7 @@ $background_image           = get_sub_field('background_image');
 $background_image_align     = get_sub_field('background_image_align');
 $background_image_size      = get_sub_field('background_image_size');
 $background_image_repeat    = get_sub_field('background_image_repeat');
+$background_attachment      = get_sub_field('background_attachment');
 
 $margin                     = get_sub_field('margin');
 $padding                    = get_sub_field('padding');
@@ -27,7 +28,7 @@ $even_col_height            = get_sub_field('even_col_height');
 |   Block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="column" style="'.set_background_style($background, $background_color, $background_image, $background_image_align, $background_image_size, $background_image_repeat).' margin: '.$margin.'; padding: '.$padding.';">';
+echo '<div id="column" style="'.set_background_style($background, $background_color, $background_image, $background_image_align, $background_image_size, $background_image_repeat, $background_attachment).' margin: '.$margin.'; padding: '.$padding.';">';
     echo '<div class="container-fluid '.$container.' '.($even_col_height ? 'same-col-height' : '').'">';
         echo '<div class="row">';
             /*

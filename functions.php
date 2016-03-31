@@ -83,3 +83,13 @@ add_action('init', 'tvds_remove_support_init', 100);
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_page();
 }
+
+/*
+|-----------------------------------------------------------------------------------------------------------------------
+|   Add the read more link on new line.
+|-----------------------------------------------------------------------------------------------------------------------
+*/
+add_filter( 'the_content_more_link', 'sp_read_more_link' );
+function sp_read_more_link() {
+    return '<p><a class="more-link" href="' . get_permalink() . '">'.get_field('read_more_text', 'option').'</a></p>';
+}

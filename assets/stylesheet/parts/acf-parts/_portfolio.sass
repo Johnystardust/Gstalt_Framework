@@ -1,11 +1,25 @@
 #portfolio
-  .title-subtitle
-    margin-bottom: 20px
   .portfolio-item
-    a
-      display: block
-    img
-      width: 100%
-      height: auto
-  .buttons
-    margin-top: 20px
+    .item-link
+      display: inline-block
+
+    .item-categories
+      a
+        color: inherit
+
+    .item-content
+      p
+        font-size: inherit
+
+    .item-featured-image
+      position: relative
+
+      img
+        width: 100%
+        height: auto
+
+      .image-overlay
+        opacity: 0
+        transition: all 0.3s ease-in-out
+        -webkit-transition: all 0.3s ease-in-out
+        -moz-transition: all 0.3s ease-in-out

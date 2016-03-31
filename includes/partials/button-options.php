@@ -11,7 +11,8 @@
 |   Get the button options.
 |----------------------------------------------------------------
 */
-$button_options = get_field('buttons', 'option');
+$button_read_more_tag   = get_field('button_read_more_tag', 'option');
+$button_options         = get_field('buttons', 'option');
 
 /*
 |----------------------------------------------------------------
@@ -64,6 +65,33 @@ foreach($button_options as $option){
             echo 'border: none;';
         }
     echo '}';
+
+    if($btn_name == $button_read_more_tag){
+        echo '.more-link {';
+            echo 'background-color: '.$btn_color.';';
+            echo 'color: '.$button_text_color.';';
+            if($button_border_width || $button_border_color){
+                echo 'border: '.$button_border_width.'px solid '.$button_border_color.';';
+            }
+            else {
+                echo 'border: none;';
+            }
+            echo 'border-radius: '.$button_border_radius.'px;';
+            echo 'padding: '.$button_padding.';';
+            echo 'display: inline-block;';
+        echo '}';
+
+        echo '.more-link:hover {';
+            echo 'background-color: '.$btn_hover_color.' !important;';
+            echo 'color: '.$button_text_hover_color.' !important;';
+            if($button_border_width || $button_border_color){
+                echo 'border: '.$button_border_width.'px solid '.$button_border_hover_color.' !important;';
+            }
+            else {
+                echo 'border: none;';
+            }
+        echo '}';
+    }
 
 }
 ?>
