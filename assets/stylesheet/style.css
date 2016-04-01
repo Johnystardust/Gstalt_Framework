@@ -235,20 +235,9 @@ p {
 .carousel {
   overflow: hidden;
   position: relative; }
-  .carousel .image-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 100; }
-  .carousel .title-subtitle {
-    position: relative;
-    z-index: 1000; }
   .carousel .carousel-wrapper {
     position: relative;
     z-index: 1000;
-    margin-top: 30px;
     overflow: hidden; }
     .carousel .carousel-wrapper .carousel-container {
       position: absolute;
@@ -258,20 +247,27 @@ p {
       .carousel .carousel-wrapper .carousel-container li {
         float: left;
         padding: 0 10px; }
-  .carousel .testimonial-carousel .content-wrapper {
-    padding-left: 50px;
-    padding-right: 50px; }
+      .carousel .carousel-wrapper .carousel-container .item-featured-image {
+        position: relative; }
+        .carousel .carousel-wrapper .carousel-container .item-featured-image img {
+          width: 100%;
+          height: auto; }
+        .carousel .carousel-wrapper .carousel-container .item-featured-image .image-overlay {
+          opacity: 0;
+          transition: all 0.3s ease-in-out;
+          -webkit-transition: all 0.3s ease-in-out;
+          -moz-transition: all 0.3s ease-in-out;
+          -o-transition: all 0.3s ease-in-out; }
+      .carousel .carousel-wrapper .carousel-container .item-categories a {
+        color: inherit; }
+      .carousel .carousel-wrapper .carousel-container .item-content p {
+        font-size: inherit; }
   .carousel .testimonial-carousel .image {
     display: block; }
     .carousel .testimonial-carousel .image img {
       display: block;
       margin-bottom: 10px; }
   .carousel .logo-carousel .carousel-container li img {
-    width: 100%;
-    height: auto; }
-  .carousel .post-carousel .carousel-item:hover {
-    opacity: 0.7; }
-  .carousel .post-carousel .image img {
     width: 100%;
     height: auto; }
   .carousel .carousel-nav {
@@ -425,10 +421,6 @@ p {
 body {
   width: 100%;
   overflow: hidden; }
-
-.container-capped {
-  padding-left: 60px;
-  padding-right: 60px; }
 
 .inner-col {
   width: 100%;

@@ -49,7 +49,7 @@ echo '<div class="carousel-wrapper logo-carousel">';
                 */
                 if(!empty($link)){ echo '<a href="'.$link.'">';}
 
-                echo '<li class="carousel-item">';
+                echo '<li class="carousel-item" style="margin: '.$carousel_item_margin.'; padding: '.$carousel_item_padding.';">';
                     echo '<img src="'.$image.'">';
                 echo '</li>';
 

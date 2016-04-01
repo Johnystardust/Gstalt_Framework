@@ -18,8 +18,9 @@
     wp_head();
 
     // Get the button and form styles
-    get_template_part('includes/partials/button-options');
-    get_template_part('includes/partials/form-options');
+//    get_template_part('includes/partials/button-options');
+//    get_template_part('includes/partials/form-options');
+    get_template_part('includes/partials/style-options');
     ?>
 </head>
 
