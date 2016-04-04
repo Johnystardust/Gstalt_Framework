@@ -86,6 +86,14 @@ $wp_customize->add_setting(
     )
 );
 
+// Side Show Mobile
+$wp_customize->add_setting(
+    'side_show_mobile',
+    array(
+        'default' => ''
+    )
+);
+
 /*
 |----------------------------------------------------------------
 |   Control.
@@ -165,5 +173,15 @@ $wp_customize->add_control(
         'label'         => 'Title top',
         'section'       => 'side_icon_section',
         'type'          => 'number'
+    )
+);
+
+// Side Show Mobile
+$wp_customize->add_control(
+    'side_show_mobile',
+    array(
+        'label'         => 'Links weergeven op mobiel',
+        'section'       => 'side_icon_section',
+        'type'          => 'checkbox'
     )
 );

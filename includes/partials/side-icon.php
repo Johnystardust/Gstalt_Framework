@@ -20,6 +20,7 @@ $side_link_2                    = get_theme_mod('side_link_2');
 $side_link_new_tab_2            = get_theme_mod('side_link_new_tab_2', '1');
 
 $side_top                       = get_theme_mod('side_top');
+$side_show_mobile               = get_theme_mod('side_show_mobile');
 
 /*
 |-----------------------------------------------------------------------------------------------------------------------
@@ -33,7 +34,7 @@ $side_top                       = get_theme_mod('side_top');
 |----------------------------------------------------------------
 */
 if($side_link_1 || $side_link_2){
-    echo '<div id="side-icons" style="top: '.$side_top.'px;">';
+    echo '<div id="side-icons" class="'.($side_show_mobile ? 'hide-mobile' : '').'" style="top: '.$side_top.'px;">';
     /*
     |----------------------------------------------------------------
     |   If '$side_link_1' is set display it
