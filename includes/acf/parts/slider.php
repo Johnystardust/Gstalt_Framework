@@ -62,7 +62,7 @@ echo '<div id="slider" class="container-fluid no-padding '.($hide_on_mobile ? 'h
                 |   Slide.
                 |----------------------------------------------------------------
                 */
-                echo '<li class="slide" style="'.set_background_style($background, $background_color, $background_image, $background_align, $background_size, $background_repeat).'" data-slide-index="'.$i.'">';
+                echo '<li class="slide" style="'.set_background_style($background, $background_color, $background_image, $background_align, $background_size, $background_repeat, '').'" data-slide-index="'.$i.'">';
                     echo '<div class="slide-content">';
                         /*
                         |----------------------------------------------------------------

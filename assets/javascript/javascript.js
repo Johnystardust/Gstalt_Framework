@@ -40,9 +40,20 @@ function even_cols(){
     });
 }
 
+function set_carousel_height(){
+    $('.carousel').each(function(){
+        var carouselHeight = $(this).find('.carousel-container').height();
+
+        $(this).find('.carousel-wrapper').css('height', carouselHeight);
+    });
+}
+
 $(window).load(function(){
     // Fade out the preloader
     $('#preloader').fadeOut();
+
+    // Run the set carousel height function
+    setTimeout(set_carousel_height(), 2000);
 
     // Run the even cols function
     even_cols();

@@ -216,9 +216,9 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel" style="margin: 
 
                     ul.css('left', -item_width);
 
-                    var carousel_height = ul.height();
-//                    wrapper.height(carousel_height);
-                    wrapper.css('height', carousel_height);
+//                    var carousel_height = ul.height();
+////                    wrapper.height(carousel_height);
+//                    wrapper.css('height', carousel_height);
                 }
                 setTimeout(setCSS(), 1000);
 
