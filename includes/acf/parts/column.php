@@ -80,6 +80,15 @@ echo '<div id="column" style="'.set_background_style($background, $background_co
                             include(locate_template('includes/acf/parts/column-contact-form.php'));
                             break;
 
+                        /*
+                        |----------------------------------------------------------------
+                        |   If the row layout is image.
+                        |----------------------------------------------------------------
+                        */
+                        case 'faq':
+                            include(locate_template('includes/acf/parts/column-faq.php'));
+                            break;
+
                     }
                 }
             }

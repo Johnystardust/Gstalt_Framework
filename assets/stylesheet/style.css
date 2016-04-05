@@ -198,12 +198,52 @@ p {
     z-index: 100;
     display: block; }
   #column .opening-times-content table {
-    margin-top: 10px; }
+    width: 75%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; }
   #column .opening-times-content td {
     padding: 10px; }
   #column .contact-form-content .contact-form {
     width: 100%;
     margin-top: 20px; }
+  #column .faq-content .faq-control {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-position: center -17px;
+    float: left;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out; }
+  #column .faq-content .faq-control:before {
+    width: auto;
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out; }
+  #column .faq-content .faq-heading {
+    margin-left: 15px;
+    line-height: 20px; }
+  #column .faq-content .faq-answer {
+    display: inline-block;
+    margin-left: 35px;
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out; }
+  #column .faq-content .active .faq-control:before {
+    transform: rotate(180deg); }
+  #column .faq-content .active .faq-answer {
+    max-height: 400px; }
 
 #call-to-action {
   position: relative; }
@@ -237,7 +277,7 @@ p {
   position: relative; }
   .carousel .carousel-wrapper {
     position: relative;
-    z-index: 1000;
+    z-index: 10000;
     overflow: hidden; }
     .carousel .carousel-wrapper .carousel-container {
       position: absolute;
@@ -245,8 +285,7 @@ p {
       left: 0;
       list-style-type: none; }
       .carousel .carousel-wrapper .carousel-container li {
-        float: left;
-        padding: 0 10px; }
+        float: left; }
       .carousel .carousel-wrapper .carousel-container .item-featured-image {
         position: relative; }
         .carousel .carousel-wrapper .carousel-container .item-featured-image img {
@@ -280,36 +319,9 @@ p {
     z-index: 2000; }
     .carousel .carousel-nav .next {
       float: right; }
-
-#faqs .faq-control {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-position: center -17px;
-  float: left;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out; }
-#faqs .faq-control:before {
-  width: auto;
-  margin: 0 auto; }
-#faqs .faq-heading {
-  margin-left: 15px;
-  line-height: 20px; }
-#faqs .faq-answer {
-  margin-left: 35px;
-  height: auto;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out; }
-#faqs .active .faq-answer {
-  max-height: 400px; }
+  .carousel .carousel-nav-vertical-center {
+    height: 100%;
+    top: 0; }
 
 #portfolio .portfolio-item .item-link {
   display: inline-block; }

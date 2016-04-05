@@ -9,48 +9,49 @@
 |   Get the fields and put them in variables for easy usage.
 |----------------------------------------------------------------
 */
-$container                  = get_sub_field('container');
-$container_margin           = get_sub_field('margin_container');
-$container_padding          = get_sub_field('padding_container');
-$background                 = get_sub_field('background');
-$background_color           = get_sub_field('background_color');
-$background_image           = get_sub_field('background_image');
-$background_align           = get_sub_field('image_align');
-$background_size            = get_sub_field('image_size');
-$background_repeat          = get_sub_field('image_repeat');
-$background_attachment      = get_sub_field('background_attachment');
+$container                      = get_sub_field('container');
+$container_margin               = get_sub_field('margin_container');
+$container_padding              = get_sub_field('padding_container');
+$background                     = get_sub_field('background');
+$background_color               = get_sub_field('background_color');
+$background_image               = get_sub_field('background_image');
+$background_align               = get_sub_field('image_align');
+$background_size                = get_sub_field('image_size');
+$background_repeat              = get_sub_field('image_repeat');
+$background_attachment          = get_sub_field('background_attachment');
 
-$show_text_block            = get_sub_field('show_text_block');
-$text_block_width           = get_sub_field('text_block_width');
-$text_block_offset          = get_sub_field('text_block_offset');
-$text_block_margin          = get_sub_field('text_block_margin');
-$text_block_padding         = get_sub_field('text_block_padding');
-$show_title                 = get_sub_field('show_title');
-$show_subtitle              = get_sub_field('show_subtitle');
-$show_text_content          = get_sub_field('show_text_content');
-$content                    = get_sub_field('content');
-$content_color              = get_sub_field('content_color');
-$content_align              = get_sub_field('content_align');
-$show_buttons               = get_sub_field('show_buttons');
+$show_text_block                = get_sub_field('show_text_block');
+$text_block_width               = get_sub_field('text_block_width');
+$text_block_offset              = get_sub_field('text_block_offset');
+$text_block_margin              = get_sub_field('text_block_margin');
+$text_block_padding             = get_sub_field('text_block_padding');
+$show_title                     = get_sub_field('show_title');
+$show_subtitle                  = get_sub_field('show_subtitle');
+$show_text_content              = get_sub_field('show_text_content');
+$content                        = get_sub_field('content');
+$content_color                  = get_sub_field('content_color');
+$content_align                  = get_sub_field('content_align');
+$show_buttons                   = get_sub_field('show_buttons');
 
-$carousel_block_width       = get_sub_field('carousel_block_width');
-$carousel_block_offset      = get_sub_field('carousel_block_offset');
-$carousel_block_margin      = get_sub_field('carousel_block_margin');
-$carousel_block_padding     = get_sub_field('carousel_block_padding');
-$carousel_wrapper_margin    = get_sub_field('carousel_wrapper_margin');
-$carousel_wrapper_padding   = get_sub_field('carousel_wrapper_padding');
-$carousel_item_padding      = get_sub_field('carousel_item_padding');
-$carousel_item_margin       = get_sub_field('carousel_item_margin');
-$slide_time                 = get_sub_field('slide_time');
-$animate_time               = get_sub_field('animate_time');
-$max_items_in_view          = get_sub_field('max_carousel_items_in_view');
+$carousel_block_width           = get_sub_field('carousel_block_width');
+$carousel_block_offset          = get_sub_field('carousel_block_offset');
+$carousel_block_margin          = get_sub_field('carousel_block_margin');
+$carousel_block_padding         = get_sub_field('carousel_block_padding');
+$carousel_wrapper_margin        = get_sub_field('carousel_wrapper_margin');
+$carousel_wrapper_padding       = get_sub_field('carousel_wrapper_padding');
+$carousel_item_padding          = get_sub_field('carousel_item_padding');
+$carousel_item_margin           = get_sub_field('carousel_item_margin');
+$slide_time                     = get_sub_field('slide_time');
+$animate_time                   = get_sub_field('animate_time');
+$max_items_in_view              = get_sub_field('max_carousel_items_in_view');
 
-$carousel_nav               = get_sub_field('carousel_nav');
-$carousel_nav_color         = get_sub_field('carousel_nav_color');
-$carousel_nav_hover_color   = get_sub_field('carousel_nav_hover_color');
-$carousel_nav_top           = get_sub_field('carousel_nav_top');
+$carousel_nav                   = get_sub_field('carousel_nav');
+$carousel_nav_color             = get_sub_field('carousel_nav_color');
+$carousel_nav_hover_color       = get_sub_field('carousel_nav_hover_color');
+$carousel_nav_top               = get_sub_field('carousel_nav_top');
+$carousel_nav_vertical_center   = get_sub_field('carousel_nav_vertical_center');
 
-$unique_identifier          = rand(0,2000);
+$unique_identifier              = rand(0,2000);
 
 /*
 |-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -119,7 +120,13 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel" style="margin: 
                 }
 
                 if(wrapper.hasClass('testimonial-carousel')){
-                    item_width = wrapper.width() / max_view;
+                    if(wrapper.width() < 992){
+                        item_width = wrapper.width() / 1;
+                    }
+                    else if(wrapper.width() > 992){
+                        item_width = wrapper.width() / max_view;
+                    }
+
                     ul_width = item_width * (slide_count + 1);
                 }
 
@@ -175,12 +182,18 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel" style="margin: 
                     }
 
                     if(wrapper.hasClass('testimonial-carousel')){
-                        item_width = wrapper.width() / max_view;
+                        if(wrapper.width() < 992){
+                            item_width = wrapper.width() / 1;
+                        }
+                        else if(wrapper.width() > 992){
+                            item_width = wrapper.width() / max_view;
+                        }
+
                         ul_width = item_width * (slide_count + 1);
                     }
 
                     if(wrapper.hasClass('post-carousel')){
-                        if(wrapper.width() < 320){
+                        if(wrapper.width() < 480){
                             item_width = wrapper.width() / 1;
                         }
                         else if(wrapper.width() < 786){
@@ -216,9 +229,9 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel" style="margin: 
 
                     ul.css('left', -item_width);
 
-//                    var carousel_height = ul.height();
-////                    wrapper.height(carousel_height);
-//                    wrapper.css('height', carousel_height);
+                    var carousel_height = ul.height();
+//                    wrapper.height(carousel_height);
+                    wrapper.css('height', carousel_height);
                 }
                 setTimeout(setCSS(), 1000);
 
@@ -413,9 +426,27 @@ echo '<div id="carousel-'.$unique_identifier.'" class="carousel" style="margin: 
         |----------------------------------------------------------------
         */
         if($carousel_nav){
-            echo '<div class="carousel-nav carousel-'.$unique_identifier.'-nav" style="top: '.$carousel_nav_top.'px;">';
-                echo '<a class="prev" href="#" style="color: '.$carousel_nav_color.';"><i class="icon-left-open"></i></a>';
-                echo '<a class="next" href="#" style="color: '.$carousel_nav_color.';"><i class="icon-right-open"></i></a>';
+            echo '<div class="carousel-nav carousel-'.$unique_identifier.'-nav '.($carousel_nav_vertical_center ? 'carousel-nav-vertical-center' : '').'" style="top: '.$carousel_nav_top.'px;">';
+                /*
+                |----------------------------------------------------------------
+                |   If vertical center is true.
+                |----------------------------------------------------------------
+                */
+                if($carousel_nav_vertical_center){
+                    echo '<div class="middle-wrap-wrapper">';
+                        echo '<div class="middle-wrap">';
+                }
+                            echo '<a class="prev" href="#" style="color: '.$carousel_nav_color.';"><i class="icon-left-open"></i></a>';
+                            echo '<a class="next" href="#" style="color: '.$carousel_nav_color.';"><i class="icon-right-open"></i></a>';
+                /*
+                |----------------------------------------------------------------
+                |   If vertical center is true.
+                |----------------------------------------------------------------
+                */
+                if($carousel_nav_vertical_center){
+                        echo '</div>'; // Middle Wrap closing tag
+                    echo '</div>'; // Middle Wrap Wrapper closing tag
+                }
             echo '</div>'; // Carousel Nav closing tag
         }
 
