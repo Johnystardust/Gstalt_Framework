@@ -9,6 +9,8 @@
 .mobile
   .hide-mobile
     display: none !important
+  .hide-desktop
+    display: block !important
 
 
 //-------------------------------------------------------------------------------------------------------//
@@ -46,6 +48,12 @@
 //  iPad Portrait mode and small screens
 //-------------------------------------------------------------------------------------------------------//
 @media screen and (max-width: 992px)
+  // Hide all the elements that are selected to be hidden on mobile devices or small screens
+  .hide-mobile
+    display: none !important
+  .hide-desktop
+    display: block !important
+
   // Menu
   #nav
     .menu-top
@@ -109,9 +117,6 @@
 //  iPad Landscape mode and small screens
 //-------------------------------------------------------------------------------------------------------//
 @media screen and (max-width: 1024px)
-  // Hide all the elements that are selected to be hidden on mobile devices or small screens
-  .hide-mobile
-    display: none !important
 
   // Set the container capped
   .container-capped

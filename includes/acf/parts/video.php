@@ -18,6 +18,7 @@ $background_image           = get_sub_field('background_image');
 $background_image_align     = get_sub_field('background_image_align');
 $background_image_size      = get_sub_field('background_image_size');
 $background_image_repeat    = get_sub_field('background_image_repeat');
+$background_attachment      = get_sub_field('background_attachment');
 
 $text_block_width           = get_sub_field('text_block_width');
 $text_block_offset          = get_sub_field('text_block_offset');
@@ -52,7 +53,7 @@ $video_height               = get_sub_field('video_height');
 |   The video block.
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
-echo '<div id="video" style="margin: '.$container_margin.'; padding: '.$container_padding.'; '.set_background_style($background, $background_color, $background_image, $background_image_align, $background_image_size, $background_image_repeat).'">';
+echo '<div id="video" style="margin: '.$container_margin.'; padding: '.$container_padding.'; '.set_background_style($background, $background_color, $background_image, $background_image_align, $background_image_size, $background_image_repeat, $background_attachment).'">';
     echo '<div class="container-fluid '.$container.'">';
         echo '<div class="row">';
 
@@ -100,7 +101,7 @@ echo '<div id="video" style="margin: '.$container_margin.'; padding: '.$containe
             |   Video.
             |----------------------------------------------------------------
             */
-            echo '<div class="video-block '.$video_block_position.' '.set_col_size($video_block_width).' '.set_offset_size($video_block_offset).'" style="margin: '.$video_block_margin.'; padding: '.$video_block_padding.'; max-height: '.$video_block_max_height.'px;">';
+            echo '<div class="video-block '.$video_block_position.' '.set_col_size($video_block_width).' '.set_offset_size($video_block_offset).' col-sm-12" style="margin: '.$video_block_margin.'; padding: '.$video_block_padding.'; max-height: '.$video_block_max_height.'px;">';
 
                 echo '<video '.($autoplay ? 'autoplay' : '').' '.($loop ? 'loop' : '').' '.($muted ? 'muted' : '').' '.($controls ? 'controls' : '').' width="'.$video_width.'" height="'.$video_height.'" preload="'.$preload.'" poster="'.$poster_image.'">';
                     /*

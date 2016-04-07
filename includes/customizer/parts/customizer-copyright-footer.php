@@ -40,6 +40,14 @@ $wp_customize->add_setting(
     )
 );
 
+// Font size
+$wp_customize->add_setting(
+    'bottom_font_size',
+    array(
+        'default' => ''
+    )
+);
+
 // Padding
 $wp_customize->add_setting(
     'footer_bottom_padding',
@@ -93,6 +101,17 @@ $wp_customize->add_control(
         'label'     => 'Copyright text',
         'section'   => 'copyright_section',
         'type'      => 'text'
+    )
+);
+
+// Font size
+$wp_customize->add_control(
+    'bottom_font_size',
+    array(
+        'label'         => 'Footer bottom font size',
+        'section'       => 'copyright_section',
+        'description'   => 'Font size in px.',
+        'type'          => 'text'
     )
 );
 

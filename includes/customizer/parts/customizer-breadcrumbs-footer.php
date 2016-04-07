@@ -6,20 +6,19 @@
 
 /*
 |-----------------------------------------------------------------------------------------------------------------------
-|   Footer.
+|   Breadcrumbs Footer.
 |-----------------------------------------------------------------------------------------------------------------------
 */
-
 /*
 |----------------------------------------------------------------
 |   Section.
 |----------------------------------------------------------------
 */
 $wp_customize->add_section(
-    'footer_section',
+    'breadcrumbs_footer_section',
     array(
-        'title'         => 'Footer',
-        'description'   => 'Change the footer appearance.',
+        'title'         => 'Yoast Breadcrumbs Footer',
+        'description'   => 'Change the breadcrumbs footer appearance.',
         'priority'      => 130
     )
 );
@@ -29,10 +28,16 @@ $wp_customize->add_section(
 |   Settings.
 |----------------------------------------------------------------
 */
+$wp_customize->add_setting(
+    'footer_breadcrumbs_enable',
+    array(
+        'default' => '0'
+    )
+);
 
 // Padding
 $wp_customize->add_setting(
-    'footer_top_padding',
+    'footer_breadcrumbs_padding',
     array(
         'default' => '0 0 0 0'
     )
@@ -40,7 +45,7 @@ $wp_customize->add_setting(
 
 // Margin
 $wp_customize->add_setting(
-    'footer_top_margin',
+    'footer_breadcrumbs_margin',
     array(
         'default' => '0 0 0 0'
     )
@@ -48,7 +53,7 @@ $wp_customize->add_setting(
 
 // Top Background color
 $wp_customize->add_setting(
-    'top_background_color',
+    'footer_breadcrumbs_background_color',
     array(
         'default' => '#000000'
     )
@@ -56,15 +61,7 @@ $wp_customize->add_setting(
 
 // Top Text color
 $wp_customize->add_setting(
-    'top_text_color',
-    array(
-        'default' => '#ffffff'
-    )
-);
-
-// Top Title color
-$wp_customize->add_setting(
-    'top_title_color',
+    'footer_breadcrumbs_text_color',
     array(
         'default' => '#ffffff'
     )
@@ -72,9 +69,17 @@ $wp_customize->add_setting(
 
 // Top Hover color
 $wp_customize->add_setting(
-    'top_hover_color',
+    'footer_breadcrumbs_hover_color',
     array(
         'default' => '#ffffff'
+    )
+);
+
+// Font size
+$wp_customize->add_setting(
+    'footer_breadcrumbs_font_size',
+    array(
+        'default' => ''
     )
 );
 
@@ -83,13 +88,22 @@ $wp_customize->add_setting(
 |   Control.
 |----------------------------------------------------------------
 */
+$wp_customize->add_control(
+    'footer_breadcrumbs_enable',
+    array(
+        'label'         => 'Enable breadcrumbs',
+        'section'       => 'breadcrumbs_footer_section',
+        'description'   => 'Geef de breadcrumbs in de footer weer.',
+        'type'          => 'checkbox'
+    )
+);
 
 // Padding
 $wp_customize->add_control(
-    'footer_top_padding',
+    'footer_breadcrumbs_padding',
     array(
         'label'         => 'Footer padding',
-        'section'       => 'footer_section',
+        'section'       => 'breadcrumbs_footer_section',
         'description'   => 'Padding in px, top/right/bottom/left',
         'type'          => 'text'
     )
@@ -97,10 +111,10 @@ $wp_customize->add_control(
 
 // Margin
 $wp_customize->add_control(
-    'footer_top_margin',
+    'footer_breadcrumbs_margin',
     array(
         'label'         => 'Footer margin',
-        'section'       => 'footer_section',
+        'section'       => 'breadcrumbs_footer_section',
         'description'   => 'Margin in px, top/right/bottom/left',
         'type'          => 'text'
     )
@@ -110,11 +124,11 @@ $wp_customize->add_control(
 $wp_customize->add_control(
     new WP_Customize_Color_Control(
         $wp_customize,
-        'top_background_color',
+        'footer_breadcrumbs_background_color',
         array(
             'label'     => 'Footer top background color',
-            'section'   => 'footer_section',
-            'settings'  => 'top_background_color',
+            'section'   => 'breadcrumbs_footer_section',
+            'settings'  => 'footer_breadcrumbs_background_color',
         )
     )
 );
@@ -123,24 +137,11 @@ $wp_customize->add_control(
 $wp_customize->add_control(
     new WP_Customize_Color_Control(
         $wp_customize,
-        'top_text_color',
+        'footer_breadcrumbs_text_color',
         array(
             'label'     => 'Footer top text color',
-            'section'   => 'footer_section',
-            'settings'  => 'top_text_color'
-        )
-    )
-);
-
-// Top title color
-$wp_customize->add_control(
-    new WP_Customize_Color_Control(
-        $wp_customize,
-        'top_title_color',
-        array(
-            'label'     => 'Footer top title color',
-            'section'   => 'footer_section',
-            'settings'  => 'top_title_color'
+            'section'   => 'breadcrumbs_footer_section',
+            'settings'  => 'footer_breadcrumbs_text_color'
         )
     )
 );
@@ -149,11 +150,22 @@ $wp_customize->add_control(
 $wp_customize->add_control(
     new WP_Customize_Color_Control(
         $wp_customize,
-        'top_hover_color',
+        'footer_breadcrumbs_hover_color',
         array(
             'label'     => 'Footer top hover color',
-            'section'   => 'footer_section',
-            'settings'  => 'top_hover_color'
+            'section'   => 'breadcrumbs_footer_section',
+            'settings'  => 'footer_breadcrumbs_hover_color'
         )
+    )
+);
+
+// Font size
+$wp_customize->add_control(
+    'footer_breadcrumbs_font_size',
+    array(
+        'label'         => 'Footer breadcrumbs font size',
+        'section'       => 'breadcrumbs_footer_section',
+        'description'   => 'Font size in px.',
+        'type'          => 'text'
     )
 );

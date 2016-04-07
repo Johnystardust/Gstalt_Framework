@@ -17,6 +17,9 @@ function tvds_customizer_init($wp_customize){
     // Action bar
     include_once('parts/customizer-action-bar.php');
 
+    // Breadcrumbs footer
+    include_once('parts/customizer-breadcrumbs-footer.php');
+
     // Copyright footer
     include_once('parts/customizer-copyright-footer.php');
 

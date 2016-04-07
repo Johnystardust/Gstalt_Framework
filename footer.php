@@ -9,46 +9,44 @@
 |   Get the fields and put them in variables for easy usage.
 |----------------------------------------------------------------
 */
-$top_background_color       = get_theme_mod('top_background_color');
-$bottom_background_color    = get_theme_mod('bottom_background_color');
+$footer_breadcrumbs_enable      = get_theme_mod('footer_breadcrumbs_enable');
+$breadcrumbs_background_color   = get_theme_mod('footer_breadcrumbs_background_color');
+$breadcrumbs_text_color         = get_theme_mod('footer_breadcrumbs_text_color');
+$breadcrumbs_hover_color        = get_theme_mod('footer_breadcrumbs_hover_color');
+$breadcrumbs_padding            = get_theme_mod('footer_breadcrumbs_padding');
+$breadcrumbs_margin             = get_theme_mod('footer_breadcrumbs_margin');
+$breadcrumbs_font_size          = get_theme_mod('footer_breadcrumbs_font_size');
 
-$top_text_color             = get_theme_mod('top_text_color');
-$top_hover_color            = get_theme_mod('top_hover_color');
-$top_title_color            = get_theme_mod('top_title_color');
+$top_background_color           = get_theme_mod('top_background_color');
+$top_text_color                 = get_theme_mod('top_text_color');
+$top_hover_color                = get_theme_mod('top_hover_color');
+$top_title_color                = get_theme_mod('top_title_color');
+$top_padding                    = get_theme_mod('footer_top_padding');
+$top_margin                     = get_theme_mod('footer_top_margin');
 
-$bottom_text_color          = get_theme_mod('bottom_text_color');
-$bottom_hover_color         = get_theme_mod('bottom_hover_color');
+$bottom_background_color        = get_theme_mod('bottom_background_color');
+$bottom_text_color              = get_theme_mod('bottom_text_color');
+$bottom_hover_color             = get_theme_mod('bottom_hover_color');
+$bottom_padding                 = get_theme_mod('footer_bottom_padding');
+$bottom_margin                  = get_theme_mod('footer_bottom-margin');
+$bottom_font_size               = get_theme_mod('bottom_font_size');
 
-$top_padding                = get_theme_mod('footer_top_padding');
-$top_margin                 = get_theme_mod('footer_top_margin');
-$footer_fixed               = get_theme_mod('footer_fixed');
-
-$bottom_padding             = get_theme_mod('footer_bottom_padding');
-$bottom_margin              = get_theme_mod('footer_bottom-margin');
-
-$copyright                  = get_theme_mod('copyright_text', 'Pas copyright text aan in de customizer.');
-
-$social_facebook            = get_theme_mod('social_facebook');
-$social_google              = get_theme_mod('social_google');
-$social_pinterest           = get_theme_mod('social_pinterest');
-$social_twitter             = get_theme_mod('social_twitter');
-$social_linkedin            = get_theme_mod('social_linkedin');
-$social_instagram           = get_theme_mod('social_instagram');
-$social_youtube             = get_theme_mod('social_youtube');
-
-/*
-|----------------------------------------------------------------
-|   Footer Fixed.
-|----------------------------------------------------------------
-*/
-if($footer_fixed){
-    $fixed_class = 'fixed';
-}
-
+$copyright                      = get_theme_mod('copyright_text', 'Pas copyright text aan in de customizer.');
+$social_facebook                = get_theme_mod('social_facebook');
+$social_google                  = get_theme_mod('social_google');
+$social_pinterest               = get_theme_mod('social_pinterest');
+$social_twitter                 = get_theme_mod('social_twitter');
+$social_linkedin                = get_theme_mod('social_linkedin');
+$social_instagram               = get_theme_mod('social_instagram');
+$social_youtube                 = get_theme_mod('social_youtube');
 
 ?>
 
 <style type="text/css">
+    .footer-breadcrumbs a:hover {
+        color: <?php echo $breadcrumbs_hover_color; ?> !important;
+    }
+
     .widget-title {
         color: <?php echo $top_title_color; ?> !important;
     }
@@ -76,6 +74,32 @@ get_template_part('includes/partials/action-bar');
 |-------------------------------------------------------------------------------------------------------------------------------------------------
 */
 echo '<div id="footer" style="background-color: '.$top_background_color.';">';
+
+    /*
+    |----------------------------------------------------------------
+    |   Footer breadcrumbs.
+    |----------------------------------------------------------------
+    */
+    if($footer_breadcrumbs_enable){
+        echo '<div class="footer-breadcrumbs" style="background-color: '.$breadcrumbs_background_color.'; padding: '.$breadcrumbs_padding.'; margin: '.$breadcrumbs_margin.';">';
+            echo '<div class="container-fluid container-capped">';
+                echo '<div class="row">';
+                    echo '<div class="col-md-12">';
+
+                    if ( function_exists('yoast_breadcrumb') ) {
+                        yoast_breadcrumb('<p style="color: '.$breadcrumbs_text_color.'; font-size: '.$breadcrumbs_font_size.'px;" id="breadcrumbs">','</p>');
+                    }
+                    else {
+                        echo 'Something went wrong. Check if you have Yoast SEO plugin installed and breadcrumbs enabled.';
+                    }
+
+                    echo '</div>'; // Col closing tag
+                echo '</div>'; // Row closing tag
+            echo '</div>'; // Container closing tag
+        echo '</div>'; // Footer Breadcrumbs closing tag
+    }
+
+
     /*
     |----------------------------------------------------------------
     |   Footer top.
@@ -90,7 +114,7 @@ echo '<div id="footer" style="background-color: '.$top_background_color.';">';
                 |   Footer col 1.
                 |----------------------------------------------------------------
                 */
-                echo '<div class="col-md-3 col-sm-6 col-xs-12">';
+                echo '<div class="footer-col col-md-3 col-sm-6 col-xs-12">';
                     dynamic_sidebar('footer-col-1');
                 echo '</div>';
 
@@ -99,7 +123,7 @@ echo '<div id="footer" style="background-color: '.$top_background_color.';">';
                 |   Footer col 2.
                 |----------------------------------------------------------------
                 */
-                echo '<div class="col-md-3 col-sm-6 col-xs-12">';
+                echo '<div class="footer-col col-md-3 col-sm-6 col-xs-12">';
                     dynamic_sidebar('footer-col-2');
                 echo '</div>';
 
@@ -108,7 +132,7 @@ echo '<div id="footer" style="background-color: '.$top_background_color.';">';
                 |   Footer col 3.
                 |----------------------------------------------------------------
                 */
-                echo '<div class="col-md-3 col-sm-6 col-xs-12">';
+                echo '<div class="footer-col col-md-3 col-sm-6 col-xs-12">';
                     dynamic_sidebar('footer-col-3');
                 echo '</div>';
 
@@ -117,7 +141,7 @@ echo '<div id="footer" style="background-color: '.$top_background_color.';">';
                 |   Footer col 4.
                 |----------------------------------------------------------------
                 */
-                echo '<div class="col-md-3 col-sm-6 col-xs-12">';
+                echo '<div class="footer-col col-md-3 col-sm-6 col-xs-12">';
                     dynamic_sidebar('footer-col-4');
                 echo '</div>';
 
@@ -134,7 +158,7 @@ echo '<div id="footer" style="background-color: '.$top_background_color.';">';
         echo '<div class="container-fluid container-capped">';
             echo '<div class="footer-bottom-inner">';
 
-                echo '<div class="copyright">';
+                echo '<div class="copyright" style="font-size: '.$bottom_font_size.'px;">';
                     echo $copyright;
                 echo '</div>'; // Copyright closing tag
 

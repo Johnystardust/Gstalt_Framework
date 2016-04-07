@@ -91,7 +91,8 @@ a:focus {
             display: inline-block;
             transition: all 0.3s ease-in-out;
             -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out; }
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out; }
           #nav .menu-bottom .main-menu ul li a:hover {
             text-decoration: none; }
           #nav .menu-bottom .main-menu ul li .sub-menu {
@@ -114,6 +115,11 @@ a:focus {
       position: relative;
       line-height: 64px;
       padding-left: 15px; }
+      #nav .menu-bottom .search-button .icon-search {
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out; }
 
 .menu-transparent {
   background: transparent !important; }
@@ -145,6 +151,18 @@ p {
   letter-spacing: 0.5px;
   line-height: 21px; }
 
+#footer .footer-breadcrumbs #breadcrumbs {
+  margin: 0; }
+  #footer .footer-breadcrumbs #breadcrumbs a {
+    color: inherit;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out; }
+#footer .footer-col .footer-widget {
+  margin-top: 30px; }
+#footer .footer-col .footer-widget:first-child {
+  margin-top: 0; }
 #footer .widget_nav_menu ul, #footer .widget_tvds_recent_post_widget ul {
   list-style-type: none; }
   #footer .widget_nav_menu ul li, #footer .widget_tvds_recent_post_widget ul li {
@@ -154,9 +172,14 @@ p {
       position: relative;
       color: inherit;
       font-size: 14px;
-      left: 0; }
+      left: 0;
+      transition: all 0.3s ease-in-out;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out; }
     #footer .widget_nav_menu ul li a:hover, #footer .widget_tvds_recent_post_widget ul li a:hover {
-      text-decoration: none; }
+      text-decoration: none;
+      left: 10px; }
     #footer .widget_nav_menu ul li a:before, #footer .widget_tvds_recent_post_widget ul li a:before {
       content: "";
       font-family: "fontello", sans-serif;
@@ -316,17 +339,40 @@ p {
     width: 100%;
     left: 0;
     padding: 0 30px;
-    z-index: 2000; }
+    z-index: 10000; }
     .carousel .carousel-nav .next {
       float: right; }
   .carousel .carousel-nav-vertical-center {
     height: 100%;
     top: 0; }
 
+#news .news-item .item-link {
+  width: 100%;
+  display: inline-block; }
+#news .news-item .item-categories a {
+  color: inherit; }
+#news .news-item .item-categories .item-link {
+  display: none; }
+#news .news-item .item-content p {
+  font-size: inherit; }
+#news .news-item .item-featured-image {
+  position: relative; }
+  #news .news-item .item-featured-image img {
+    width: 100%;
+    height: auto; }
+  #news .news-item .item-featured-image .image-overlay {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out; }
+
 #portfolio .portfolio-item .item-link {
+  width: 100%;
   display: inline-block; }
 #portfolio .portfolio-item .item-categories a {
   color: inherit; }
+#portfolio .portfolio-item .item-categories .item-link {
+  display: none; }
 #portfolio .portfolio-item .item-content p {
   font-size: inherit; }
 #portfolio .portfolio-item .item-featured-image {
@@ -435,6 +481,9 @@ p {
 body {
   width: 100%;
   overflow: hidden; }
+
+.hide-desktop {
+  display: none; }
 
 .inner-col {
   width: 100%;
@@ -555,6 +604,8 @@ body {
 
 .mobile .hide-mobile {
   display: none !important; }
+.mobile .hide-desktop {
+  display: block !important; }
 
 @media screen and (max-width: 768px) {
   #action-bar .action-link {
@@ -578,6 +629,12 @@ body {
         margin: 0 auto;
         max-width: 100%; } }
 @media screen and (max-width: 992px) {
+  .hide-mobile {
+    display: none !important; }
+
+  .hide-desktop {
+    display: block !important; }
+
   #nav .menu-top .mail-number {
     float: none;
     text-align: center; }
@@ -618,9 +675,6 @@ body {
   #action-bar .action-link:nth-child(4) {
     margin-bottom: 0; } }
 @media screen and (max-width: 1024px) {
-  .hide-mobile {
-    display: none !important; }
-
   .container-capped {
     padding-left: 30px !important;
     padding-right: 30px !important; }
